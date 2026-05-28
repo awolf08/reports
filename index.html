@@ -29,26 +29,40 @@
   <main>
     <section class="hero">
       <div class="site-shell hero-grid">
-        <div>
-          <p class="eyebrow">Static research hub</p>
-          <h1>Baybell market reports, published cleanly.</h1>
+        <div class="hero-copy-block">
+          <p class="eyebrow">Baybell Research Portal</p>
+          <h1>Market intelligence and investment reports.</h1>
           <p class="hero-copy">
-            A lightweight GitHub Pages site for daily finance reports, guru position reports,
-            option-flow notes, and future static research pages.
+            A centralized archive for daily market briefs, investor position analysis,
+            and future research publications.
           </p>
+          <div class="status-strip" aria-label="Publication status">
+            <div>
+              <span>Publishing</span>
+              <strong>Automated</strong>
+            </div>
+            <div>
+              <span>Coverage</span>
+              <strong>Markets</strong>
+            </div>
+            <div>
+              <span>Access</span>
+              <strong>Public Web</strong>
+            </div>
+          </div>
           <div class="hero-actions">
-            <a class="button primary" href="#latest">View latest reports</a>
-            <a class="button" href="#archive">Browse archive</a>
+            <a class="button primary" href="./daily-finance/">Open Daily Finance</a>
+            <a class="button" href="#latest">View Report Library</a>
           </div>
         </div>
 
-        <aside class="market-panel" aria-label="Market report preview">
+        <aside class="market-panel" aria-label="Research operations summary">
           <div class="market-panel-head">
             <div class="market-panel-title">
-              <strong>Report Coverage</strong>
-              <span>Static HTML published from GitHub</span>
+              <strong>Publishing Overview</strong>
+              <span>Static HTML delivered through GitHub Pages</span>
             </div>
-            <span class="updated">Daily</span>
+            <span class="updated">Live</span>
           </div>
           <div class="chart" aria-hidden="true">
             <span class="bar" style="height: 42%"></span>
@@ -66,15 +80,15 @@
           </div>
           <div class="ticker-strip">
             <div class="ticker">
-              <span>Daily</span>
-              <strong>Finance</strong>
+              <span>Primary</span>
+              <strong>Daily Finance</strong>
             </div>
             <div class="ticker">
-              <span>Guru</span>
-              <strong>Positions</strong>
+              <span>Research</span>
+              <strong>Guru Positions</strong>
             </div>
             <div class="ticker">
-              <span>Future</span>
+              <span>Pipeline</span>
               <strong>Signals</strong>
             </div>
           </div>
@@ -85,8 +99,8 @@
     <section class="section" id="latest">
       <div class="site-shell">
         <div class="section-head">
-          <h2>Latest Reports</h2>
-          <p>These are static pages today. Later, an automated job can generate new HTML files and update this index.</p>
+          <h2>Report Library</h2>
+          <p>Published research is organized by report type, with stable URLs for the latest page and dated archives.</p>
         </div>
 
         <div class="report-grid">
@@ -94,11 +108,11 @@
             <span class="report-type">Daily Finance</span>
             <div>
               <h3>Daily Finance Report</h3>
-              <p>Market overview, major index moves, sector notes, notable earnings, and watchlist signals.</p>
+              <p>Market status, index movers, sector notes, earnings calendar, economic events, and news flow.</p>
             </div>
             <div class="report-meta">
-              <span>Coming soon</span>
-              <span>Open</span>
+              <span>Auto-published</span>
+              <span>Open latest</span>
             </div>
           </a>
 
@@ -109,7 +123,7 @@
               <p>Investor holdings, new buys, trims, exits, concentration changes, and portfolio observations.</p>
             </div>
             <div class="report-meta">
-              <span>Coming soon</span>
+              <span>Prepared</span>
               <span>Open</span>
             </div>
           </a>
@@ -132,16 +146,16 @@
     <section class="section" id="archive">
       <div class="site-shell">
         <div class="section-head">
-          <h2>Archive Structure</h2>
-          <p>Recommended folder paths for GitHub Pages. Each report can be a standalone HTML file or an index page inside a dated folder.</p>
+          <h2>Publication Map</h2>
+          <p>Each category has a latest report entry and dated files that can be referenced directly.</p>
         </div>
 
         <table class="archive-table">
           <thead>
             <tr>
               <th>Report Type</th>
-              <th>URL Pattern</th>
-              <th>Example File</th>
+              <th>Latest URL</th>
+              <th>Dated Archive</th>
             </tr>
           </thead>
           <tbody>

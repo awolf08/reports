@@ -1,15 +1,16 @@
 :root {
   color-scheme: light;
-  --bg: #f5f6f2;
-  --ink: #18211b;
-  --muted: #607064;
+  --bg: #f7f8f7;
+  --ink: #17201d;
+  --muted: #5d6964;
   --panel: #ffffff;
-  --line: #d9dfd6;
-  --accent: #116a63;
-  --accent-strong: #0b4d48;
-  --gold: #b9862f;
-  --blue: #315f8c;
-  --shadow: 0 18px 50px rgba(24, 33, 27, 0.10);
+  --subtle: #eef2ef;
+  --line: #d7ddd9;
+  --accent: #0f766e;
+  --accent-strong: #0b4f4a;
+  --gold: #a97724;
+  --blue: #315b86;
+  --shadow: 0 16px 40px rgba(23, 32, 29, 0.08);
 }
 
 * {
@@ -36,7 +37,7 @@ a {
 
 .topbar {
   border-bottom: 1px solid var(--line);
-  background: rgba(245, 246, 242, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -44,7 +45,7 @@ a {
 }
 
 .topbar-inner {
-  height: 68px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +56,7 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 800;
+  font-weight: 760;
   letter-spacing: 0;
 }
 
@@ -84,9 +85,9 @@ a {
 
 .nav a {
   color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 700;
-  padding: 9px 12px;
+  font-size: 0.9rem;
+  font-weight: 680;
+  padding: 8px 12px;
   border-radius: 7px;
 }
 
@@ -97,16 +98,18 @@ a {
 }
 
 .hero {
-  min-height: 430px;
+  min-height: 420px;
   display: grid;
   align-items: center;
-  padding: 54px 0 28px;
+  padding: 48px 0 30px;
+  background:
+    linear-gradient(180deg, #ffffff 0%, rgba(247, 248, 247, 0) 78%);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
-  gap: 34px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  gap: 46px;
   align-items: center;
 }
 
@@ -121,18 +124,52 @@ a {
 
 h1 {
   margin: 0;
-  max-width: 780px;
-  font-size: clamp(2.5rem, 6vw, 5.4rem);
-  line-height: 0.96;
+  max-width: 680px;
+  font-size: clamp(2.25rem, 4.5vw, 4.4rem);
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
 .hero-copy {
-  max-width: 660px;
-  margin: 22px 0 0;
+  max-width: 620px;
+  margin: 20px 0 0;
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.65;
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.status-strip {
+  width: min(620px, 100%);
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.status-strip div {
+  padding: 13px 15px;
+  border-right: 1px solid var(--line);
+}
+
+.status-strip div:last-child {
+  border-right: 0;
+}
+
+.status-strip span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.status-strip strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.98rem;
 }
 
 .hero-actions {
@@ -140,7 +177,7 @@ h1 {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .button {
@@ -148,10 +185,10 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 46px;
+  min-height: 42px;
   border-radius: 7px;
   padding: 0 16px;
-  font-weight: 800;
+  font-weight: 760;
   border: 1px solid var(--line);
   background: var(--panel);
 }
@@ -169,13 +206,13 @@ h1 {
 .market-panel {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 7px;
   box-shadow: var(--shadow);
   overflow: hidden;
 }
 
 .market-panel-head {
-  padding: 18px;
+  padding: 16px 18px;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
@@ -199,7 +236,7 @@ h1 {
 }
 
 .chart {
-  height: 210px;
+  height: 188px;
   padding: 18px;
   display: grid;
   align-items: end;
@@ -220,7 +257,7 @@ h1 {
 }
 
 .ticker {
-  padding: 15px 18px;
+  padding: 14px 16px;
   border-right: 1px solid var(--line);
 }
 
@@ -239,11 +276,12 @@ h1 {
 .ticker strong {
   display: block;
   margin-top: 6px;
-  font-size: 1.35rem;
+  font-size: 1.04rem;
+  line-height: 1.15;
 }
 
 .section {
-  padding: 38px 0 62px;
+  padding: 36px 0 56px;
 }
 
 .section-head {
@@ -256,8 +294,8 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1;
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
@@ -271,18 +309,18 @@ h2 {
 .report-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
 }
 
 .report-card {
-  min-height: 230px;
+  min-height: 218px;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 7px;
   padding: 18px;
   display: grid;
   align-content: space-between;
-  box-shadow: 0 8px 24px rgba(24, 33, 27, 0.06);
+  box-shadow: 0 6px 18px rgba(24, 33, 27, 0.05);
 }
 
 .report-card:hover {
@@ -297,15 +335,15 @@ h2 {
   border-radius: 6px;
   padding: 0 9px;
   color: var(--accent-strong);
-  background: rgba(17, 106, 99, 0.10);
+  background: var(--subtle);
   font-size: 0.76rem;
   font-weight: 850;
   text-transform: uppercase;
 }
 
 .report-card h3 {
-  margin: 24px 0 10px;
-  font-size: 1.25rem;
+  margin: 22px 0 10px;
+  font-size: 1.18rem;
   line-height: 1.2;
   letter-spacing: 0;
 }
@@ -332,19 +370,20 @@ h2 {
   border-collapse: collapse;
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 7px;
   overflow: hidden;
 }
 
 .archive-table th,
 .archive-table td {
   text-align: left;
-  padding: 15px 16px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--line);
 }
 
 .archive-table th {
-  color: var(--muted);
+  color: #46534e;
+  background: var(--subtle);
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -400,9 +439,19 @@ h2 {
   }
 
   .hero-actions,
-  .ticker-strip {
+  .ticker-strip,
+  .status-strip {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .status-strip div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .status-strip div:last-child {
+    border-bottom: 0;
   }
 
   .ticker {
