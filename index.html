@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baybell Reports</title>
+  <meta name="description" content="Static finance reports and investor research archive.">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="site-shell topbar-inner">
+      <a class="brand" href="./" aria-label="Baybell Reports home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 17h16M6 14l4-5 4 3 4-7" stroke="#116a63" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>Baybell Reports</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="./" aria-current="page">Reports</a>
+        <a href="./daily-finance/">Daily Finance</a>
+        <a href="./guru-position/">Guru Positions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="site-shell hero-grid">
+        <div>
+          <p class="eyebrow">Static research hub</p>
+          <h1>Baybell market reports, published cleanly.</h1>
+          <p class="hero-copy">
+            A lightweight GitHub Pages site for daily finance reports, guru position reports,
+            option-flow notes, and future static research pages.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#latest">View latest reports</a>
+            <a class="button" href="#archive">Browse archive</a>
+          </div>
+        </div>
+
+        <aside class="market-panel" aria-label="Market report preview">
+          <div class="market-panel-head">
+            <div class="market-panel-title">
+              <strong>Report Coverage</strong>
+              <span>Static HTML published from GitHub</span>
+            </div>
+            <span class="updated">Daily</span>
+          </div>
+          <div class="chart" aria-hidden="true">
+            <span class="bar" style="height: 42%"></span>
+            <span class="bar" style="height: 58%"></span>
+            <span class="bar" style="height: 36%"></span>
+            <span class="bar" style="height: 66%"></span>
+            <span class="bar" style="height: 52%"></span>
+            <span class="bar" style="height: 74%"></span>
+            <span class="bar" style="height: 49%"></span>
+            <span class="bar" style="height: 81%"></span>
+            <span class="bar" style="height: 68%"></span>
+            <span class="bar" style="height: 90%"></span>
+            <span class="bar" style="height: 72%"></span>
+            <span class="bar" style="height: 86%"></span>
+          </div>
+          <div class="ticker-strip">
+            <div class="ticker">
+              <span>Daily</span>
+              <strong>Finance</strong>
+            </div>
+            <div class="ticker">
+              <span>Guru</span>
+              <strong>Positions</strong>
+            </div>
+            <div class="ticker">
+              <span>Future</span>
+              <strong>Signals</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="latest">
+      <div class="site-shell">
+        <div class="section-head">
+          <h2>Latest Reports</h2>
+          <p>These are static pages today. Later, an automated job can generate new HTML files and update this index.</p>
+        </div>
+
+        <div class="report-grid">
+          <a class="report-card" href="./daily-finance/">
+            <span class="report-type">Daily Finance</span>
+            <div>
+              <h3>Daily Finance Report</h3>
+              <p>Market overview, major index moves, sector notes, notable earnings, and watchlist signals.</p>
+            </div>
+            <div class="report-meta">
+              <span>Coming soon</span>
+              <span>Open</span>
+            </div>
+          </a>
+
+          <a class="report-card" href="./guru-position/">
+            <span class="report-type">Guru Positions</span>
+            <div>
+              <h3>Guru Position Report</h3>
+              <p>Investor holdings, new buys, trims, exits, concentration changes, and portfolio observations.</p>
+            </div>
+            <div class="report-meta">
+              <span>Coming soon</span>
+              <span>Open</span>
+            </div>
+          </a>
+
+          <a class="report-card" href="#archive">
+            <span class="report-type">Other Reports</span>
+            <div>
+              <h3>Research Archive</h3>
+              <p>Future static reports can be grouped by strategy, ticker, macro theme, or data source.</p>
+            </div>
+            <div class="report-meta">
+              <span>Expandable</span>
+              <span>Browse</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="archive">
+      <div class="site-shell">
+        <div class="section-head">
+          <h2>Archive Structure</h2>
+          <p>Recommended folder paths for GitHub Pages. Each report can be a standalone HTML file or an index page inside a dated folder.</p>
+        </div>
+
+        <table class="archive-table">
+          <thead>
+            <tr>
+              <th>Report Type</th>
+              <th>URL Pattern</th>
+              <th>Example File</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Daily Finance</td>
+              <td>/daily-finance/</td>
+              <td>daily-finance/2026-05-28.html</td>
+            </tr>
+            <tr>
+              <td>Guru Positions</td>
+              <td>/guru-position/</td>
+              <td>guru-position/2026-q2.html</td>
+            </tr>
+            <tr>
+              <td>Other Static Reports</td>
+              <td>/{category}/</td>
+              <td>options-flow/2026-05-28.html</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="site-shell">Baybell Reports. Static pages hosted by GitHub Pages.</div>
+  </footer>
+</body>
+</html>
