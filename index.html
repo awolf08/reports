@@ -9,179 +9,241 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="site-shell topbar-inner">
+    <div class="app-shell topbar-inner">
       <a class="brand" href="./" aria-label="Baybell Reports home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M4 17h16M6 14l4-5 4 3 4-7" stroke="#116a63" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
+        <span class="menu-mark" aria-hidden="true"></span>
+        <span class="brand-symbol" aria-hidden="true">BB</span>
         <span>Baybell Reports</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="./" aria-current="page">Reports</a>
+        <a href="./" aria-current="page">Overview</a>
         <a href="./daily-finance/">Daily Finance</a>
         <a href="./guru-position/">Guru Positions</a>
       </nav>
+      <a class="template-link" href="#reports">Report Library</a>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="site-shell hero-grid">
-        <div class="hero-copy-block">
-          <p class="eyebrow">Baybell Research Portal</p>
-          <h1>Market intelligence and investment reports.</h1>
-          <p class="hero-copy">
-            A centralized archive for daily market briefs, investor position analysis,
-            and future research publications.
-          </p>
-          <div class="status-strip" aria-label="Publication status">
-            <div>
-              <span>Publishing</span>
-              <strong>Automated</strong>
-            </div>
-            <div>
-              <span>Coverage</span>
-              <strong>Markets</strong>
-            </div>
-            <div>
-              <span>Access</span>
-              <strong>Public Web</strong>
-            </div>
+    <section class="dashboard-hero">
+      <div class="app-shell">
+        <div class="breadcrumb">Report / Overview</div>
+        <div class="hero-row">
+          <div>
+            <h1>Welcome back, Baybell</h1>
+            <p>
+              During this period, automated workflows published market intelligence,
+              investor research, and static HTML reports for public web access.
+            </p>
           </div>
-          <div class="hero-actions">
-            <a class="button primary" href="./daily-finance/">Open Daily Finance</a>
-            <a class="button" href="#latest">View Report Library</a>
-          </div>
+          <div class="last-update">Last update: GitHub Pages</div>
         </div>
 
-        <aside class="market-panel" aria-label="Research operations summary">
-          <div class="market-panel-head">
-            <div class="market-panel-title">
-              <strong>Publishing Overview</strong>
-              <span>Static HTML delivered through GitHub Pages</span>
-            </div>
-            <span class="updated">Live</span>
-          </div>
-          <div class="chart" aria-hidden="true">
-            <span class="bar" style="height: 42%"></span>
-            <span class="bar" style="height: 58%"></span>
-            <span class="bar" style="height: 36%"></span>
-            <span class="bar" style="height: 66%"></span>
-            <span class="bar" style="height: 52%"></span>
-            <span class="bar" style="height: 74%"></span>
-            <span class="bar" style="height: 49%"></span>
-            <span class="bar" style="height: 81%"></span>
-            <span class="bar" style="height: 68%"></span>
-            <span class="bar" style="height: 90%"></span>
-            <span class="bar" style="height: 72%"></span>
-            <span class="bar" style="height: 86%"></span>
-          </div>
-          <div class="ticker-strip">
-            <div class="ticker">
-              <span>Primary</span>
-              <strong>Daily Finance</strong>
-            </div>
-            <div class="ticker">
-              <span>Research</span>
-              <strong>Guru Positions</strong>
-            </div>
-            <div class="ticker">
-              <span>Pipeline</span>
-              <strong>Signals</strong>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="latest">
-      <div class="site-shell">
-        <div class="section-head">
-          <h2>Report Library</h2>
-          <p>Published research is organized by report type, with stable URLs for the latest page and dated archives.</p>
-        </div>
-
-        <div class="report-grid">
-          <a class="report-card" href="./daily-finance/">
-            <span class="report-type">Daily Finance</span>
-            <div>
-              <h3>Daily Finance Report</h3>
-              <p>Market status, index movers, sector notes, earnings calendar, economic events, and news flow.</p>
-            </div>
-            <div class="report-meta">
-              <span>Auto-published</span>
-              <span>Open latest</span>
-            </div>
+        <div class="metric-grid" aria-label="Report metrics">
+          <a class="metric-card" href="./daily-finance/">
+            <span class="metric-icon">DF</span>
+            <span class="metric-label">Daily Finance</span>
+            <strong>Live</strong>
+            <small>Auto-published latest report</small>
           </a>
-
-          <a class="report-card" href="./guru-position/">
-            <span class="report-type">Guru Positions</span>
-            <div>
-              <h3>Guru Position Report</h3>
-              <p>Investor holdings, new buys, trims, exits, concentration changes, and portfolio observations.</p>
-            </div>
-            <div class="report-meta">
-              <span>Prepared</span>
-              <span>Open</span>
-            </div>
+          <a class="metric-card" href="./guru-position/">
+            <span class="metric-icon">GP</span>
+            <span class="metric-label">Guru Positions</span>
+            <strong>Ready</strong>
+            <small>Investor holdings research</small>
           </a>
-
-          <a class="report-card" href="#archive">
-            <span class="report-type">Other Reports</span>
-            <div>
-              <h3>Research Archive</h3>
-              <p>Future static reports can be grouped by strategy, ticker, macro theme, or data source.</p>
-            </div>
-            <div class="report-meta">
-              <span>Expandable</span>
-              <span>Browse</span>
-            </div>
+          <a class="metric-card" href="#archive">
+            <span class="metric-icon">AR</span>
+            <span class="metric-label">Archive</span>
+            <strong>Dated</strong>
+            <small>Stable report URLs</small>
+          </a>
+          <a class="metric-card" href="#pipeline">
+            <span class="metric-icon">SG</span>
+            <span class="metric-label">Signals</span>
+            <strong>Pipeline</strong>
+            <small>Future report category</small>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="archive">
-      <div class="site-shell">
-        <div class="section-head">
-          <h2>Publication Map</h2>
-          <p>Each category has a latest report entry and dated files that can be referenced directly.</p>
+    <section class="report-workspace" id="reports">
+      <div class="app-shell">
+        <div class="report-tabs" aria-label="Report tabs">
+          <a class="report-tab active" href="./daily-finance/">
+            <span>Daily Finance</span>
+            <strong>Latest brief</strong>
+          </a>
+          <a class="report-tab" href="./guru-position/">
+            <span>Guru Positions</span>
+            <strong>Portfolio research</strong>
+          </a>
+          <a class="report-tab" href="#archive">
+            <span>Research Archive</span>
+            <strong>Dated reports</strong>
+          </a>
+          <a class="report-tab" href="#pipeline">
+            <span>Signals Pipeline</span>
+            <strong>Planned</strong>
+          </a>
         </div>
 
-        <table class="archive-table">
-          <thead>
-            <tr>
-              <th>Report Type</th>
-              <th>Latest URL</th>
-              <th>Dated Archive</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Daily Finance</td>
-              <td>/daily-finance/</td>
-              <td>daily-finance/2026-05-28.html</td>
-            </tr>
-            <tr>
-              <td>Guru Positions</td>
-              <td>/guru-position/</td>
-              <td>guru-position/2026-q2.html</td>
-            </tr>
-            <tr>
-              <td>Other Static Reports</td>
-              <td>/{category}/</td>
-              <td>options-flow/2026-05-28.html</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="panel-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Platform Breakdown</h2>
+              <div class="segmented">
+                <span class="selected">Reports</span>
+                <span>Archive</span>
+                <span>Status</span>
+              </div>
+            </div>
+            <div class="breakdown">
+              <div>
+                <span>Primary report</span>
+                <strong>Daily Finance</strong>
+              </div>
+              <div>
+                <span>Publishing mode</span>
+                <strong>GitHub Actions</strong>
+              </div>
+              <div>
+                <span>Delivery</span>
+                <strong>GitHub Pages</strong>
+              </div>
+              <div>
+                <span>Access URL</span>
+                <strong>/daily-finance/</strong>
+              </div>
+            </div>
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Report</th>
+                  <th>Status</th>
+                  <th>Latest URL</th>
+                  <th>Archive</th>
+                  <th>Open</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Daily Finance</td>
+                  <td><span class="status good">Live</span></td>
+                  <td>/daily-finance/</td>
+                  <td>YYYY-MM-DD.html</td>
+                  <td><a href="./daily-finance/">View</a></td>
+                </tr>
+                <tr>
+                  <td>Guru Positions</td>
+                  <td><span class="status neutral">Ready</span></td>
+                  <td>/guru-position/</td>
+                  <td>YYYY-QX.html</td>
+                  <td><a href="./guru-position/">View</a></td>
+                </tr>
+                <tr>
+                  <td>Signals</td>
+                  <td><span class="status muted">Planned</span></td>
+                  <td>/signals/</td>
+                  <td>YYYY-MM-DD.html</td>
+                  <td><a href="#pipeline">Queue</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Monthly Performance Breakdown</h2>
+              <div class="segmented">
+                <span class="selected">Desktop</span>
+                <span>Mobile</span>
+                <span>Web</span>
+              </div>
+            </div>
+            <table class="data-table compact">
+              <thead>
+                <tr>
+                  <th>Channel</th>
+                  <th>Reports</th>
+                  <th>Automation</th>
+                  <th>Public</th>
+                  <th>Health</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Daily Finance</td>
+                  <td>1 latest</td>
+                  <td>Scheduled</td>
+                  <td>Yes</td>
+                  <td><span class="status good">On</span></td>
+                </tr>
+                <tr>
+                  <td>Guru Positions</td>
+                  <td>1 section</td>
+                  <td>Manual</td>
+                  <td>Yes</td>
+                  <td><span class="status neutral">Ready</span></td>
+                </tr>
+                <tr>
+                  <td>Archive</td>
+                  <td>Dated</td>
+                  <td>Append</td>
+                  <td>Yes</td>
+                  <td><span class="status good">Stable</span></td>
+                </tr>
+                <tr>
+                  <td>Signals</td>
+                  <td>Future</td>
+                  <td>Planned</td>
+                  <td>Later</td>
+                  <td><span class="status muted">Queue</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="archive-section" id="archive">
+      <div class="app-shell">
+        <div class="panel archive-panel">
+          <div class="panel-head">
+            <h2>Publication Map</h2>
+            <p>Each report tab has a latest entry point and dated static files.</p>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Report Type</th>
+                <th>Latest URL</th>
+                <th>Dated Archive</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Daily Finance</td>
+                <td>/daily-finance/</td>
+                <td>daily-finance/2026-05-28.html</td>
+              </tr>
+              <tr>
+                <td>Guru Positions</td>
+                <td>/guru-position/</td>
+                <td>guru-position/2026-q2.html</td>
+              </tr>
+              <tr id="pipeline">
+                <td>Other Static Reports</td>
+                <td>/{category}/</td>
+                <td>options-flow/2026-05-28.html</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="site-shell">Baybell Reports. Static pages hosted by GitHub Pages.</div>
-  </footer>
 </body>
 </html>
