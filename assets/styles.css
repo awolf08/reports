@@ -95,8 +95,7 @@ a {
   gap: 8px;
 }
 
-.nav a,
-.template-link {
+.nav a {
   display: inline-flex;
   align-items: center;
   min-height: 32px;
@@ -108,8 +107,7 @@ a {
 }
 
 .nav a:hover,
-.nav a[aria-current="page"],
-.template-link:hover {
+.nav a[aria-current="page"] {
   color: #fff;
   background: rgba(255, 255, 255, 0.16);
 }
@@ -214,199 +212,6 @@ h1 {
   font-size: 0.76rem;
 }
 
-.report-workspace {
-  padding: 14px 0;
-}
-
-.report-tabs {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.report-tab {
-  min-height: 58px;
-  padding: 10px 12px;
-  border-radius: 4px;
-  background: #dcecff;
-  color: #1c4778;
-  border: 1px solid #c7dcf4;
-  display: grid;
-  align-content: center;
-  gap: 3px;
-}
-
-.report-tab.active,
-.report-tab:hover {
-  color: #fff;
-  background: linear-gradient(180deg, #1976d5, #0b55b2);
-  border-color: #0b55b2;
-}
-
-.report-tab span {
-  font-size: 0.9rem;
-  font-weight: 820;
-}
-
-.report-tab strong {
-  font-size: 0.74rem;
-  font-weight: 650;
-  opacity: 0.84;
-}
-
-.panel-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 12px;
-}
-
-.panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.panel-head {
-  min-height: 52px;
-  padding: 12px 14px;
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-h2 {
-  margin: 0;
-  color: #173150;
-  font-size: 1.02rem;
-  line-height: 1.2;
-}
-
-.panel-head p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.segmented {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.segmented span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding: 0 10px;
-  border-radius: 12px;
-  color: #45617e;
-  background: #eef5fd;
-  font-size: 0.7rem;
-  font-weight: 740;
-}
-
-.segmented .selected {
-  color: #fff;
-  background: var(--blue);
-}
-
-.breakdown {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  padding: 14px;
-}
-
-.breakdown div {
-  min-height: 62px;
-  padding: 8px 12px;
-  border-right: 1px solid var(--line);
-}
-
-.breakdown div:last-child {
-  border-right: 0;
-}
-
-.breakdown span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.73rem;
-}
-
-.breakdown strong {
-  display: block;
-  margin-top: 7px;
-  color: #15375e;
-  font-size: 1rem;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.78rem;
-}
-
-.data-table th {
-  color: #fff;
-  background: var(--blue);
-  font-weight: 760;
-  text-align: left;
-  padding: 10px 11px;
-}
-
-.data-table td {
-  padding: 10px 11px;
-  border-bottom: 1px solid var(--line);
-  color: #294762;
-}
-
-.data-table tbody tr:nth-child(odd) {
-  background: #eff8ff;
-}
-
-.data-table tbody tr:nth-child(even) {
-  background: #dff5fb;
-}
-
-.data-table tbody tr:last-child td {
-  border-bottom: 0;
-}
-
-.data-table a {
-  color: var(--blue-2);
-  font-weight: 780;
-}
-
-.data-table.compact td,
-.data-table.compact th {
-  padding: 11px 10px;
-}
-
-.status {
-  display: inline-flex;
-  align-items: center;
-  min-height: 22px;
-  padding: 0 8px;
-  border-radius: 11px;
-  font-size: 0.7rem;
-  font-weight: 820;
-}
-
-.status.good {
-  color: #05765f;
-  background: #d7f7ee;
-}
-
-.status.neutral {
-  color: #7a5200;
-  background: #fff0c9;
-}
-
 @media (max-width: 920px) {
   .topbar-inner {
     grid-template-columns: 1fr;
@@ -419,17 +224,9 @@ h2 {
     overflow-x: auto;
   }
 
-  .template-link {
-    display: none;
-  }
-
   .hero-row {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .panel-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -442,31 +239,7 @@ h2 {
     padding-top: 18px;
   }
 
-  .panel-grid,
-  .breakdown {
+  .metric-grid {
     grid-template-columns: 1fr;
-  }
-
-  .breakdown div {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .breakdown div:last-child {
-    border-bottom: 0;
-  }
-
-  .panel-head {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .panel,
-  .data-table {
-    overflow-x: auto;
-  }
-
-  .data-table {
-    min-width: 620px;
   }
 }
