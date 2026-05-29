@@ -32,8 +32,8 @@
           <div>
             <h1>Welcome back, Baybell</h1>
             <p>
-              During this period, automated workflows published market intelligence,
-              investor research, and static HTML reports for public web access.
+              During this period, Baybell published daily market intelligence and
+              investor position research for public web access.
             </p>
           </div>
           <div class="last-update">Last update: GitHub Pages</div>
@@ -52,18 +52,6 @@
             <strong>Ready</strong>
             <small>Investor holdings research</small>
           </a>
-          <a class="metric-card" href="#archive">
-            <span class="metric-icon">AR</span>
-            <span class="metric-label">Archive</span>
-            <strong>Dated</strong>
-            <small>Stable report URLs</small>
-          </a>
-          <a class="metric-card" href="#pipeline">
-            <span class="metric-icon">SG</span>
-            <span class="metric-label">Signals</span>
-            <strong>Pipeline</strong>
-            <small>Future report category</small>
-          </a>
         </div>
       </div>
     </section>
@@ -79,14 +67,6 @@
             <span>Guru Positions</span>
             <strong>Portfolio research</strong>
           </a>
-          <a class="report-tab" href="#archive">
-            <span>Research Archive</span>
-            <strong>Dated reports</strong>
-          </a>
-          <a class="report-tab" href="#pipeline">
-            <span>Signals Pipeline</span>
-            <strong>Planned</strong>
-          </a>
         </div>
 
         <div class="panel-grid">
@@ -95,7 +75,6 @@
               <h2>Platform Breakdown</h2>
               <div class="segmented">
                 <span class="selected">Reports</span>
-                <span>Archive</span>
                 <span>Status</span>
               </div>
             </div>
@@ -109,12 +88,8 @@
                 <strong>GitHub Actions</strong>
               </div>
               <div>
-                <span>Delivery</span>
-                <strong>GitHub Pages</strong>
-              </div>
-              <div>
-                <span>Access URL</span>
-                <strong>/daily-finance/</strong>
+                <span>Secondary report</span>
+                <strong>Guru Positions</strong>
               </div>
             </div>
             <table class="data-table">
@@ -123,7 +98,6 @@
                   <th>Report</th>
                   <th>Status</th>
                   <th>Latest URL</th>
-                  <th>Archive</th>
                   <th>Open</th>
                 </tr>
               </thead>
@@ -132,22 +106,13 @@
                   <td>Daily Finance</td>
                   <td><span class="status good">Live</span></td>
                   <td>/daily-finance/</td>
-                  <td>YYYY-MM-DD.html</td>
                   <td><a href="./daily-finance/">View</a></td>
                 </tr>
                 <tr>
                   <td>Guru Positions</td>
                   <td><span class="status neutral">Ready</span></td>
                   <td>/guru-position/</td>
-                  <td>YYYY-QX.html</td>
                   <td><a href="./guru-position/">View</a></td>
-                </tr>
-                <tr>
-                  <td>Signals</td>
-                  <td><span class="status muted">Planned</span></td>
-                  <td>/signals/</td>
-                  <td>YYYY-MM-DD.html</td>
-                  <td><a href="#pipeline">Queue</a></td>
                 </tr>
               </tbody>
             </table>
@@ -159,7 +124,6 @@
               <div class="segmented">
                 <span class="selected">Desktop</span>
                 <span>Mobile</span>
-                <span>Web</span>
               </div>
             </div>
             <table class="data-table compact">
@@ -187,60 +151,9 @@
                   <td>Yes</td>
                   <td><span class="status neutral">Ready</span></td>
                 </tr>
-                <tr>
-                  <td>Archive</td>
-                  <td>Dated</td>
-                  <td>Append</td>
-                  <td>Yes</td>
-                  <td><span class="status good">Stable</span></td>
-                </tr>
-                <tr>
-                  <td>Signals</td>
-                  <td>Future</td>
-                  <td>Planned</td>
-                  <td>Later</td>
-                  <td><span class="status muted">Queue</span></td>
-                </tr>
               </tbody>
             </table>
           </section>
-        </div>
-      </div>
-    </section>
-
-    <section class="archive-section" id="archive">
-      <div class="app-shell">
-        <div class="panel archive-panel">
-          <div class="panel-head">
-            <h2>Publication Map</h2>
-            <p>Each report tab has a latest entry point and dated static files.</p>
-          </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Report Type</th>
-                <th>Latest URL</th>
-                <th>Dated Archive</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Daily Finance</td>
-                <td>/daily-finance/</td>
-                <td>daily-finance/2026-05-28.html</td>
-              </tr>
-              <tr>
-                <td>Guru Positions</td>
-                <td>/guru-position/</td>
-                <td>guru-position/2026-q2.html</td>
-              </tr>
-              <tr id="pipeline">
-                <td>Other Static Reports</td>
-                <td>/{category}/</td>
-                <td>options-flow/2026-05-28.html</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
