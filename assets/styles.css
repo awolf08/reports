@@ -112,6 +112,24 @@ a {
   background: rgba(255, 255, 255, 0.16);
 }
 
+.auth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  min-height: 34px;
+  border-radius: 17px;
+  padding: 0 14px;
+  color: #062c70;
+  background: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(0, 18, 52, 0.12);
+}
+
+.auth-link:hover {
+  background: var(--cyan);
+}
+
 .dashboard-hero {
   padding: 20px 0 18px;
   color: #fff;
@@ -156,9 +174,14 @@ h1 {
 
 .metric-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin-top: 18px;
+}
+
+.single-card-grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 430px;
 }
 
 .metric-card {
@@ -222,6 +245,10 @@ h1 {
   .nav {
     justify-content: flex-start;
     overflow-x: auto;
+  }
+
+  .auth-link {
+    justify-self: start;
   }
 
   .hero-row {

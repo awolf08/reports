@@ -40,6 +40,19 @@ guru-position/2026-q2.html
 options-flow/2026-05-28.html
 ```
 
+## Private Report Paths
+
+Private reports should live under:
+
+```text
+private/
+private/trip-list/
+```
+
+Protect `https://baybell.com/private/*` with Cloudflare Access before publishing
+real private content. Until that protection is active, anything committed under
+`private/` is still publicly reachable on a static hosting service.
+
 ## GoDaddy DNS
 
 Point the apex domain to GitHub Pages:
