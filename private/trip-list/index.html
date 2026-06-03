@@ -1,47 +1,1040 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trip List | Baybell Reports</title>
-  <meta name="description" content="Private Trip List report placeholder.">
-  <link rel="stylesheet" href="../../assets/styles.css">
+  <title>Trip List</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #64706d;
+      --line: #d9e2de;
+      --paper: #fbfcf9;
+      --panel: #ffffff;
+      --green: #1f7a5a;
+      --green-2: #e7f3ed;
+      --blue: #2867b2;
+      --blue-2: #e9f1fb;
+      --red: #b8493f;
+      --amber: #b8791d;
+      --shadow: 0 14px 40px rgba(30, 45, 41, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(115deg, rgba(31, 122, 90, .10), transparent 34%),
+        linear-gradient(245deg, rgba(40, 103, 178, .12), transparent 34%),
+        var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    button, input, select { font: inherit; }
+
+    .app {
+      width: min(1220px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 680px;
+    }
+
+    .trip-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      min-width: 150px;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .field input {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: rgba(255, 255, 255, .82);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .add-form input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(31, 122, 90, .14);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .sidebar, .main-panel {
+      background: rgba(255, 255, 255, .86);
+      border: 1px solid rgba(217, 226, 222, .9);
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+    }
+
+    .sidebar {
+      padding: 14px;
+      position: sticky;
+      top: 18px;
+    }
+
+    .type-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .type-card {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: left;
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .type-card:hover { transform: translateY(-1px); border-color: rgba(31, 122, 90, .45); }
+    .type-card.active { background: var(--green-2); border-color: var(--green); }
+
+    .type-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--green);
+      background: #f4faf7;
+      border: 1px solid #dcebe4;
+    }
+
+    .type-card.active .type-icon {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .type-title {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 3px;
+    }
+
+    .type-copy {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .main-panel {
+      overflow: hidden;
+    }
+
+    .hero-strip {
+      min-height: 172px;
+      padding: 24px;
+      color: #fff;
+      display: grid;
+      align-content: end;
+      background:
+        linear-gradient(90deg, rgba(16, 42, 37, .88), rgba(16, 42, 37, .38)),
+        var(--hero);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-strip h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      letter-spacing: 0;
+    }
+
+    .hero-strip p {
+      margin: 0;
+      max-width: 660px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, .86);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 10px;
+      padding: 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .8);
+    }
+
+    .search {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 11px 12px;
+      min-width: 0;
+      outline: none;
+      background: #fff;
+    }
+
+    .segmented {
+      display: flex;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .segmented button {
+      border: 0;
+      background: transparent;
+      padding: 0 13px;
+      min-height: 42px;
+      cursor: pointer;
+      color: var(--muted);
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .segmented button.active {
+      background: var(--blue-2);
+      color: var(--blue);
+    }
+
+    .action {
+      border: 0;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      padding: 0 14px;
+      min-height: 42px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .progress-wrap {
+      padding: 16px 16px 4px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      height: 11px;
+      border-radius: 999px;
+      background: #e8eeeb;
+      overflow: hidden;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      transition: width .25s ease;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfdfc;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+
+    .section-count {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .items {
+      display: grid;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 14px;
+      border-bottom: 1px solid #eef3f0;
+    }
+
+    .item:last-child { border-bottom: 0; }
+
+    .item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--green);
+      margin-top: 2px;
+    }
+
+    .item-title {
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .item.done .item-title {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    .item-note {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+      background: #f1f4f3;
+      color: var(--muted);
+    }
+
+    .badge.high { background: #fcecea; color: var(--red); }
+    .badge.medium { background: #fff5df; color: var(--amber); }
+    .badge.low { background: #edf5ff; color: var(--blue); }
+
+    .add-form {
+      display: grid;
+      grid-template-columns: 1fr 150px 120px auto;
+      gap: 10px;
+      padding: 16px;
+      border-top: 1px solid var(--line);
+      background: #fbfdfc;
+    }
+
+    .add-form input,
+    .add-form select {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+      min-width: 0;
+    }
+
+    .empty {
+      padding: 28px 16px 34px;
+      text-align: center;
+      color: var(--muted);
+      display: none;
+    }
+
+    .tiny-button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 8px;
+      min-width: 40px;
+      min-height: 36px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .tiny-button:hover { color: var(--red); border-color: rgba(184, 73, 63, .45); }
+
+    .item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sync-panel {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .sync-panel input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .sync-panel input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(31, 122, 90, .14);
+    }
+
+    .sync-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .sync-status {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    @media (max-width: 900px) {
+      .topbar, .layout { grid-template-columns: 1fr; }
+      .trip-meta { justify-content: stretch; }
+      .field { min-width: min(100%, 180px); flex: 1; }
+      .sidebar { position: static; }
+      .type-list { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      .type-card { grid-template-columns: 1fr; }
+      .type-icon { width: 38px; height: 38px; }
+    }
+
+    @media (max-width: 680px) {
+      .app { width: min(100vw - 20px, 1220px); padding: 16px 0; }
+      .type-list, .controls, .add-form { grid-template-columns: 1fr; }
+      .segmented { width: 100%; }
+      .segmented button { flex: 1; padding: 0 8px; }
+      .hero-strip { min-height: 150px; padding: 18px; }
+      .item { grid-template-columns: auto 1fr; }
+      .item-actions { grid-column: 2; justify-self: start; }
+      .section-header { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="app-shell topbar-inner">
-      <a class="brand" href="../../" aria-label="Baybell Reports home">
-        <span class="menu-mark" aria-hidden="true"></span>
-        <span class="brand-symbol" aria-hidden="true">BB</span>
-        <span>Baybell Reports</span>
-      </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="../../">Overview</a>
-        <a href="../../daily-finance/">Daily Finance</a>
-        <a href="../../guru-position/">Guru Positions</a>
-      </nav>
-      <a class="auth-link" href="../">
-        Private
-      </a>
-    </div>
-  </header>
-
-  <main>
-    <section class="dashboard-hero">
-      <div class="app-shell">
-        <div class="breadcrumb">Report / Private / Trip List</div>
-        <div class="hero-row">
-          <div>
-            <h1>Trip List</h1>
-            <p>
-              Placeholder for the private trip-list report. Publish real private
-              content here only after Cloudflare Access protects /private/*.
-            </p>
-          </div>
-          <div class="last-update">Protected path</div>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1>Trip List</h1>
+        <p class="subtitle">按不同场景自动生成准备清单，支持勾选、筛选、搜索和添加自定义项目。适合度假、滑雪、商务出差，也能记录家里需要补货的东西。</p>
+      </div>
+      <div class="trip-meta" aria-label="Trip details">
+        <div class="field">
+          <label for="destination">目的地</label>
+          <input id="destination" placeholder="例如：Tokyo / Aspen">
+        </div>
+        <div class="field">
+          <label for="startDate">出发日期</label>
+          <input id="startDate" type="date">
+        </div>
+        <div class="field">
+          <label for="days">天数</label>
+          <input id="days" type="number" min="1" max="90" value="5">
         </div>
       </div>
-    </section>
-  </main>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Trip type">
+        <div class="type-list" id="typeList"></div>
+        <div class="quick-stats">
+          <div class="stat">
+            <strong id="doneStat">0</strong>
+            <span>已完成</span>
+          </div>
+          <div class="stat">
+            <strong id="leftStat">0</strong>
+            <span>剩余项目</span>
+          </div>
+        </div>
+        <form class="sync-panel" id="syncForm">
+          <div class="sync-status" id="syncStatus">本地保存</div>
+          <div class="sync-actions">
+            <input id="syncEmail" type="email" placeholder="Email 登录同步">
+            <button class="tiny-button" id="syncButton" type="submit">同步</button>
+          </div>
+          <button class="tiny-button" id="signOutButton" type="button" hidden>退出登录</button>
+        </form>
+      </aside>
+
+      <main class="main-panel">
+        <section class="hero-strip" id="hero">
+          <h2 id="tripTitle"></h2>
+          <p id="tripIntro"></p>
+        </section>
+
+        <div class="controls">
+          <input class="search" id="search" placeholder="搜索项目，例如：护照、合同、手套">
+          <div class="segmented" aria-label="Filter checklist">
+            <button type="button" class="active" data-filter="all">全部</button>
+            <button type="button" data-filter="open">未完成</button>
+            <button type="button" data-filter="done">已完成</button>
+          </div>
+          <button class="action" id="resetBtn" type="button">重置模板</button>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span id="progressText">准备进度 0%</span>
+            <span id="urgentText">0 个高优先级</span>
+          </div>
+          <div class="bar" aria-hidden="true"><span id="barFill"></span></div>
+        </div>
+
+        <div class="checklist" id="checklist"></div>
+        <div class="empty" id="empty">没有匹配的项目。换个关键词，或者添加一个自定义项目。</div>
+
+        <form class="add-form" id="addForm">
+          <input id="newTitle" placeholder="添加新项目，例如：下载离线地图" required>
+          <select id="newSection" aria-label="选择分类"></select>
+          <select id="newPriority" aria-label="选择优先级">
+            <option value="high">高优先级</option>
+            <option value="medium">中优先级</option>
+            <option value="low">低优先级</option>
+          </select>
+          <button class="action" type="submit">添加</button>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const supabaseConfig = {
+      url: 'https://sonnupxexptdajqthmvi.supabase.co',
+      anonKey: 'sb_publishable_GWzeU-YqbC7P1NEync0E1w_JX7fX_mL'
+    };
+
+    const icon = {
+      vacation: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18"/><path d="M7 21V9a5 5 0 0 1 10 0v12"/><path d="M7 13h10"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>',
+      shopping: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.78a2 2 0 0 0 1.95-1.57l1.35-6.43H5.12"/></svg>'
+    };
+
+    const templates = {
+      vacation: {
+        name: '度假 Vacation',
+        short: '轻松但不漏东西',
+        intro: '把证件、行程、衣物和当地体验准备好，出发当天只需要拿包走。',
+        hero: 'linear-gradient(135deg, #0f5f62, #2b9a83 45%, #d5a552)',
+        sections: {
+          '证件与行程': [
+            ['确认护照/身份证有效期', 'high', '国际旅行建议至少 6 个月有效期。'],
+            ['保存机票、酒店、租车确认单', 'high', '手机和云端各备一份。'],
+            ['购买或确认旅行保险', 'medium', '覆盖医疗、延误、行李丢失。'],
+            ['下载离线地图和翻译工具', 'low', '网络不稳定时很好用。']
+          ],
+          '行李与日常': [
+            ['按天气准备衣物和鞋', 'medium', '带 1 套可叠穿的备用组合。'],
+            ['洗漱包、护肤、防晒', 'medium', '液体注意随身行李容量限制。'],
+            ['充电器、转换插头、移动电源', 'high', '长途飞行或自驾尤其重要。'],
+            ['常用药、创可贴、晕车药', 'medium', '按个人情况补充。']
+          ],
+          '出发前家务': [
+            ['关窗、断电、倒垃圾', 'high', '离家前 30 分钟做最后检查。'],
+            ['设置邮件/工作自动回复', 'low', '如果想彻底休假，这项很值得。'],
+            ['通知家人行程和紧急联系人', 'medium', '共享酒店地址和航班号。']
+          ]
+        }
+      },
+      shopping: {
+        name: '购物 Shopping',
+        short: '家里缺什么就补什么',
+        intro: '把冰箱、厨房、清洁和日用品缺的东西集中记下来，买完就勾掉。',
+        hero: 'linear-gradient(135deg, #5f4b32, #2f7d66 48%, #e4c46a)',
+        sections: {
+          '冰箱与早餐': [
+            ['牛奶', 'high', '早餐、咖啡或做饭常用。'],
+            ['鸡蛋', 'high', '确认还剩几颗再决定数量。'],
+            ['酸奶或奶酪', 'medium', '按平时早餐习惯补。'],
+            ['水果', 'medium', '香蕉、苹果、莓果等。']
+          ],
+          '厨房常备': [
+            ['面包或吐司', 'medium', '适合早餐和简单午餐。'],
+            ['米、面或意面', 'medium', '主食库存低时补。'],
+            ['蔬菜', 'high', '叶菜、番茄、洋葱等易消耗。'],
+            ['肉类或豆腐', 'medium', '按本周做饭计划购买。']
+          ],
+          '清洁与日用品': [
+            ['纸巾或厕纸', 'high', '低库存时优先补。'],
+            ['洗衣液或洗碗液', 'medium', '检查瓶底余量。'],
+            ['垃圾袋', 'medium', '按家里垃圾桶尺寸买。'],
+            ['牙膏、洗发水、沐浴露', 'low', '快用完时补。']
+          ]
+        }
+      }
+    };
+
+    const storageKey = 'trip-prep-checklist-v1';
+    const cloudTable = 'checklist_states';
+    const supabaseEnabled = Boolean(supabaseConfig.url && supabaseConfig.anonKey);
+    let supabaseClient = null;
+    let currentUser = null;
+    let cloudLoadComplete = false;
+    let saveTimer = null;
+    let state = loadState();
+    let activeType = state.activeType || 'vacation';
+    if (!templates[activeType]) {
+      activeType = 'vacation';
+      state.activeType = activeType;
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+    let activeFilter = 'all';
+
+    function makeItems(type) {
+      const sections = templates[type].sections;
+      return Object.entries(sections).flatMap(([section, list]) =>
+        list.map(([title, priority, note], index) => ({
+          id: `${type}-${section}-${index}`.replace(/\s+/g, '-'),
+          section,
+          title,
+          priority,
+          note,
+          done: false,
+          custom: false
+        }))
+      );
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || { items: {} };
+      } catch {
+        return { items: {} };
+      }
+    }
+
+    function saveState() {
+      state.updatedAt = new Date().toISOString();
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      queueCloudSave();
+      renderSyncStatus();
+    }
+
+    function queueCloudSave() {
+      if (!supabaseClient || !currentUser || !cloudLoadComplete) return;
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveCloudState, 500);
+    }
+
+    async function saveCloudState() {
+      if (!supabaseClient || !currentUser) return;
+      const { error } = await supabaseClient
+        .from(cloudTable)
+        .upsert({
+          user_id: currentUser.id,
+          state,
+          updated_at: new Date().toISOString()
+        });
+
+      if (error) {
+        renderSyncStatus(`云端保存失败：${error.message}`);
+        return;
+      }
+
+      renderSyncStatus('已同步到云端');
+    }
+
+    async function loadCloudState() {
+      if (!supabaseClient || !currentUser) return;
+      renderSyncStatus('正在读取云端数据...');
+
+      const { data, error } = await supabaseClient
+        .from(cloudTable)
+        .select('state, updated_at')
+        .eq('user_id', currentUser.id)
+        .maybeSingle();
+
+      if (error) {
+        cloudLoadComplete = true;
+        renderSyncStatus(`云端读取失败：${error.message}`);
+        return;
+      }
+
+      if (data?.state) {
+        state = data.state;
+        activeType = state.activeType || activeType;
+        localStorage.setItem(storageKey, JSON.stringify(state));
+        hydrateMetaFields();
+        renderTypes();
+        renderChecklist();
+      } else {
+        await saveCloudState();
+      }
+
+      cloudLoadComplete = true;
+      renderSyncStatus('已连接云端数据库');
+    }
+
+    function renderSyncStatus(message) {
+      const status = document.querySelector('#syncStatus');
+      const email = document.querySelector('#syncEmail');
+      const button = document.querySelector('#syncButton');
+      const signOut = document.querySelector('#signOutButton');
+      if (!status) return;
+
+      if (!supabaseEnabled) {
+        status.textContent = '本地保存。填入 Supabase URL 和 anon key 后可同步。';
+        email.disabled = true;
+        button.disabled = true;
+        return;
+      }
+
+      if (currentUser) {
+        status.textContent = message || `已登录：${currentUser.email || currentUser.id}`;
+        email.hidden = true;
+        button.hidden = true;
+        signOut.hidden = false;
+        return;
+      }
+
+      status.textContent = message || '输入 email 获取登录链接，登录后同步到数据库。';
+      email.hidden = false;
+      button.hidden = false;
+      signOut.hidden = true;
+    }
+
+    async function initDatabase() {
+      renderSyncStatus();
+      if (!supabaseEnabled) return;
+
+      try {
+        const { createClient } = await import('https://esm.sh/@supabase/supabase-js@2');
+        supabaseClient = createClient(supabaseConfig.url, supabaseConfig.anonKey);
+        const { data } = await supabaseClient.auth.getSession();
+        currentUser = data.session?.user || null;
+
+        supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+          currentUser = session?.user || null;
+          cloudLoadComplete = false;
+          renderSyncStatus();
+          if (currentUser) await loadCloudState();
+        });
+
+        if (currentUser) await loadCloudState();
+      } catch (error) {
+        renderSyncStatus(`数据库初始化失败：${error.message}`);
+      }
+    }
+
+    function getAuthRedirectUrl() {
+      const baseUrl = new URL('index.html', window.location.href);
+      baseUrl.hash = '';
+      baseUrl.search = '';
+      return baseUrl.toString();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      })[char]);
+    }
+
+    function ensureItems(type) {
+      state.items ||= {};
+      if (!state.items[type]) state.items[type] = makeItems(type);
+    }
+
+    function renderTypes() {
+      const typeList = document.querySelector('#typeList');
+      typeList.innerHTML = Object.entries(templates).map(([key, data]) => `
+        <button class="type-card ${key === activeType ? 'active' : ''}" type="button" data-type="${key}" aria-pressed="${key === activeType}">
+          <span class="type-icon">${icon[key]}</span>
+          <span>
+            <span class="type-title">${escapeHtml(data.name)}</span>
+            <span class="type-copy">${escapeHtml(data.short)}</span>
+          </span>
+        </button>
+      `).join('');
+    }
+
+    function priorityLabel(priority) {
+      return { high: '高', medium: '中', low: '低' }[priority] || '中';
+    }
+
+    function filteredItems() {
+      const query = document.querySelector('#search').value.trim().toLowerCase();
+      ensureItems(activeType);
+      return state.items[activeType].filter(item => {
+        const matchesFilter = activeFilter === 'all' || (activeFilter === 'done' ? item.done : !item.done);
+        const haystack = `${item.title} ${item.note} ${item.section}`.toLowerCase();
+        return matchesFilter && (!query || haystack.includes(query));
+      });
+    }
+
+    function renderChecklist() {
+      ensureItems(activeType);
+      const data = templates[activeType];
+      const hero = document.querySelector('#hero');
+      hero.style.setProperty('--hero', data.hero);
+      document.querySelector('#tripTitle').textContent = data.name;
+      document.querySelector('#tripIntro').textContent = data.intro;
+
+      const items = filteredItems();
+      const grouped = items.reduce((acc, item) => {
+        acc[item.section] ||= [];
+        acc[item.section].push(item);
+        return acc;
+      }, {});
+
+      document.querySelector('#checklist').innerHTML = Object.entries(grouped).map(([section, list]) => `
+        <section class="section">
+          <div class="section-header">
+            <h3 class="section-title">${escapeHtml(section)}</h3>
+            <span class="section-count">${list.filter(item => item.done).length}/${list.length} 完成</span>
+          </div>
+          <div class="items">
+            ${list.map(item => `
+              <article class="item ${item.done ? 'done' : ''}">
+                <input type="checkbox" data-id="${escapeHtml(item.id)}" ${item.done ? 'checked' : ''} aria-label="${escapeHtml(item.title)}">
+                <div>
+                  <div class="item-title">${escapeHtml(item.title)}</div>
+                  <div class="item-note">${escapeHtml(item.note || '自定义项目')}</div>
+                </div>
+                <div class="item-actions">
+                  <span class="badge ${escapeHtml(item.priority)}">${priorityLabel(item.priority)}</span>
+                  <button class="tiny-button" type="button" data-delete="${escapeHtml(item.id)}" aria-label="删除 ${escapeHtml(item.title)}">x</button>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </section>
+      `).join('');
+
+      document.querySelector('#empty').style.display = items.length ? 'none' : 'block';
+      renderStats();
+      renderSectionOptions();
+    }
+
+    function renderStats() {
+      ensureItems(activeType);
+      const all = state.items[activeType];
+      const done = all.filter(item => item.done).length;
+      const left = all.length - done;
+      const percent = all.length ? Math.round(done / all.length * 100) : 0;
+      const urgent = all.filter(item => item.priority === 'high' && !item.done).length;
+
+      document.querySelector('#doneStat').textContent = done;
+      document.querySelector('#leftStat').textContent = left;
+      document.querySelector('#progressText').textContent = `准备进度 ${percent}%`;
+      document.querySelector('#urgentText').textContent = `${urgent} 个高优先级`;
+      document.querySelector('#barFill').style.width = `${percent}%`;
+    }
+
+    function renderSectionOptions() {
+      const sections = Object.keys(templates[activeType].sections);
+      document.querySelector('#newSection').innerHTML = sections
+        .map(section => `<option value="${escapeHtml(section)}">${escapeHtml(section)}</option>`)
+        .join('');
+    }
+
+    function setType(type) {
+      activeType = type;
+      state.activeType = type;
+      saveState();
+      renderTypes();
+      renderChecklist();
+    }
+
+    document.querySelector('#typeList').addEventListener('click', event => {
+      const card = event.target.closest('[data-type]');
+      if (card) setType(card.dataset.type);
+    });
+
+    document.querySelector('.segmented').addEventListener('click', event => {
+      const button = event.target.closest('button[data-filter]');
+      if (!button) return;
+      activeFilter = button.dataset.filter;
+      document.querySelectorAll('.segmented button').forEach(item => item.classList.toggle('active', item === button));
+      renderChecklist();
+    });
+
+    document.querySelector('#checklist').addEventListener('change', event => {
+      if (!event.target.matches('input[type="checkbox"]')) return;
+      const item = state.items[activeType].find(entry => entry.id === event.target.dataset.id);
+      if (item) {
+        item.done = event.target.checked;
+        saveState();
+        renderChecklist();
+      }
+    });
+
+    document.querySelector('#checklist').addEventListener('click', event => {
+      const button = event.target.closest('[data-delete]');
+      if (!button) return;
+      state.items[activeType] = state.items[activeType].filter(item => item.id !== button.dataset.delete);
+      saveState();
+      renderChecklist();
+    });
+
+    document.querySelector('#search').addEventListener('input', renderChecklist);
+
+    document.querySelector('#addForm').addEventListener('submit', event => {
+      event.preventDefault();
+      ensureItems(activeType);
+      const title = document.querySelector('#newTitle').value.trim();
+      if (!title) return;
+      state.items[activeType].push({
+        id: `custom-${Date.now()}`,
+        section: document.querySelector('#newSection').value,
+        title,
+        priority: document.querySelector('#newPriority').value,
+        note: '自定义项目',
+        done: false,
+        custom: true
+      });
+      document.querySelector('#newTitle').value = '';
+      saveState();
+      renderChecklist();
+    });
+
+    document.querySelector('#resetBtn').addEventListener('click', () => {
+      state.items[activeType] = makeItems(activeType);
+      saveState();
+      renderChecklist();
+    });
+
+    function hydrateMetaFields() {
+      ['destination', 'startDate', 'days'].forEach(id => {
+        const input = document.querySelector(`#${id}`);
+        input.value = state[id] || input.defaultValue || '';
+      });
+    }
+
+    ['destination', 'startDate', 'days'].forEach(id => {
+      const input = document.querySelector(`#${id}`);
+      input.value = state[id] || input.value;
+      input.addEventListener('input', () => {
+        state[id] = input.value;
+        saveState();
+      });
+    });
+
+    document.querySelector('#syncForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!supabaseClient) return;
+      const email = document.querySelector('#syncEmail').value.trim();
+      if (!email) return;
+      const { error } = await supabaseClient.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: getAuthRedirectUrl() }
+      });
+      renderSyncStatus(error ? `登录链接发送失败：${error.message}` : '登录链接已发送，请查看邮箱。');
+    });
+
+    document.querySelector('#signOutButton').addEventListener('click', async () => {
+      if (!supabaseClient) return;
+      await supabaseClient.auth.signOut();
+      currentUser = null;
+      cloudLoadComplete = false;
+      renderSyncStatus('已退出登录，本机仍保留本地数据。');
+    });
+
+    renderTypes();
+    renderChecklist();
+    initDatabase();
+  </script>
 </body>
 </html>
