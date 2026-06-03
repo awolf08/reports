@@ -3,12 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Latest Finance Daily Report</title>
-  <link rel="canonical" href="./2026-06-03.html">
-  <meta http-equiv="refresh" content="0; url=./2026-06-03.html">
-  <script>location.replace("./2026-06-03.html");</script>
+  <title>Daily Finance Report</title>
+  <script>
+    const date = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Los_Angeles",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(new Date());
+    location.replace("./" + date + ".html");
+  </script>
 </head>
 <body>
-  <p><a href="./2026-06-03.html">Open latest Finance Daily Report</a></p>
+  <p>Opening today's Finance Daily Report.</p>
 </body>
 </html>
