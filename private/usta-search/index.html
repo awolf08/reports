@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USTA Junior Tournament Finder</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #151922;
+      --muted: #606979;
+      --line: #d9deea;
+      --paper: #f4f7fb;
+      --card: #ffffff;
+      --accent: #d42f42;
+      --accent-dark: #a22131;
+      --blue: #164e8f;
+      --green: #1f7a57;
+      --warning: #8a5b00;
+      --warning-bg: #fff7df;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .hero {
+      min-height: 320px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(10, 31, 68, 0.88), rgba(31, 122, 87, 0.76)),
+        url("https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      padding: 42px 24px 28px;
+    }
+
+    .hero-inner, main {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .top-nav {
+      margin-bottom: 20px;
+    }
+
+    .top-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 7px 12px;
+    }
+
+    .top-nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 1.04rem;
+    }
+
+    .search-panel {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr 1.15fr 1.05fr 0.85fr 0.85fr auto;
+      gap: 12px;
+      align-items: end;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      backdrop-filter: blur(6px);
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    input, select, button {
+      width: 100%;
+      min-height: 44px;
+      border-radius: 8px;
+      font: inherit;
+    }
+
+    input, select {
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--ink);
+      padding: 9px 11px;
+    }
+
+    .choice-options {
+      min-height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      margin: 0;
+      padding: 8px 10px 9px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .choice-options legend {
+      padding: 0 4px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .choice-options label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: auto;
+      margin: 0 12px 0 0;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: none;
+    }
+
+    .choice-options input {
+      width: 18px;
+      min-height: 18px;
+      accent-color: var(--accent);
+    }
+
+    button {
+      border: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: 0 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover { background: var(--accent-dark); }
+    button:disabled { cursor: progress; opacity: 0.74; }
+
+    main { padding: 24px; }
+
+    .status {
+      display: none;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      color: var(--muted);
+    }
+
+    .status.show { display: block; }
+    .status.warning {
+      color: var(--warning);
+      border-color: #f0d58a;
+      background: var(--warning-bg);
+    }
+
+    .results-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin: 4px 0 18px;
+    }
+
+    .results-head h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .results-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+    }
+
+    .tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .tool-button {
+      width: auto;
+      min-height: 38px;
+      color: var(--blue);
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 0 12px;
+    }
+
+    .tool-button:hover {
+      background: #edf5ff;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 14px 0;
+      box-shadow: 0 10px 24px rgba(23, 26, 33, 0.06);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--green);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .card h3 a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .card h3 a:hover { text-decoration: underline; }
+
+    .open-link {
+      flex: 0 0 auto;
+      color: #fff;
+      background: var(--accent);
+      text-decoration: none;
+      font-weight: 800;
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+
+    .open-link:hover { background: var(--accent-dark); }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px 18px;
+      margin: 18px 0 0;
+    }
+
+    dt {
+      color: var(--muted);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    dd {
+      margin: 3px 0 0;
+      overflow-wrap: anywhere;
+    }
+
+    .events {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .events span {
+      border: 1px solid #cfd8e6;
+      background: #f7fafc;
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: #2d3748;
+      font-size: 0.86rem;
+    }
+
+    .empty {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    footer {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 0 24px 32px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .search-panel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .search-panel button { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 700px) {
+      .hero { padding: 34px 18px 24px; }
+      main { padding: 18px; }
+      .search-panel, .details { grid-template-columns: 1fr; }
+      .choice-options label { display: flex; margin: 6px 0; }
+      .results-head, .card-top { display: block; }
+      .tools { justify-content: flex-start; margin-top: 14px; }
+      .open-link { display: inline-block; margin-top: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <nav class="top-nav">
+        <a href="https://www.usta.com/en/home.html" target="_blank" rel="noopener">USTA Home</a>
+      </nav>
+      <h1>USTA Junior Tournament Finder</h1>
+      <p class="subtitle">Find Junior singles Level 6 and doubles Level 5/6 tournaments with open registration near a supported ZIP code. Results come directly from USTA Play Tennis.</p>
+
+      <form id="searchForm" class="search-panel">
+        <label>
+          ZIP code
+          <input id="locationInput" value="94539" autocomplete="postal-code">
+        </label>
+        <label>
+          Distance
+          <select id="distanceInput">
+            <option value="10">10 miles</option>
+            <option value="25">25 miles</option>
+            <option value="50" selected>50 miles</option>
+            <option value="100">100 miles</option>
+            <option value="200">200 miles</option>
+          </select>
+        </label>
+        <fieldset class="choice-options">
+          <legend>Level</legend>
+          <label><input type="checkbox" name="levelFilter" value="00000000-0000-0000-0000-000000000005" data-label="Level 5 Open"> Level 5 Open</label>
+          <label><input type="checkbox" name="levelFilter" value="00000000-0000-0000-0000-0000000000b5" data-label="Level 5 Closed"> Level 5 Closed</label>
+          <label><input type="checkbox" name="levelFilter" value="00000000-0000-0000-0000-000000000006" data-label="Level 6" checked> Level 6</label>
+        </fieldset>
+        <fieldset class="choice-options">
+          <legend>Event type</legend>
+          <label><input type="checkbox" name="eventTypeFilter" value="singles" data-label="Singles" checked> Singles</label>
+          <label><input type="checkbox" name="eventTypeFilter" value="doubles" data-label="Doubles"> Doubles</label>
+        </fieldset>
+        <label>
+          Start date
+          <input id="startDateInput" type="date">
+        </label>
+        <label>
+          End date
+          <input id="endDateInput" type="date">
+        </label>
+        <button id="searchButton" type="submit">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <div id="status" class="status"></div>
+    <section class="results-head">
+      <div>
+        <h2 id="resultTitle">Ready to search</h2>
+        <p id="resultSubtitle">Junior · Singles Level 6 · Doubles Level 5 Open/Closed + Level 6 · Registrations open</p>
+      </div>
+      <div class="tools">
+        <button id="downloadCsvButton" class="tool-button" type="button" disabled>Download CSV</button>
+        <button id="printButton" class="tool-button" type="button" disabled>Print / Save PDF</button>
+      </div>
+    </section>
+    <section id="results"></section>
+  </main>
+
+  <footer>
+    Standalone page. Share this file with friends; they only need a browser and internet access.
+  </footer>
+
+  <script>
+    const SEARCH_URL = "https://prd-usta-kube.clubspark.pro/unified-search-api/api/Search/tournaments/Query?indexSchema=tournament";
+    const TOURNAMENT_BASE_URL = "https://playtennis.usta.com";
+    const JUNIOR_LEVELS = {
+      level5Open: "00000000-0000-0000-0000-000000000005",
+      level5Closed: "00000000-0000-0000-0000-0000000000b5",
+      level6: "00000000-0000-0000-0000-000000000006"
+    };
+    const EVENT_LEVEL_RULES = {
+      singles: [JUNIOR_LEVELS.level6],
+      doubles: [JUNIOR_LEVELS.level5Open, JUNIOR_LEVELS.level5Closed, JUNIOR_LEVELS.level6]
+    };
+    const EVENT_LEVEL_DEFAULTS = {
+      singles: [JUNIOR_LEVELS.level6],
+      doubles: [JUNIOR_LEVELS.level5Open, JUNIOR_LEVELS.level5Closed, JUNIOR_LEVELS.level6]
+    };
+
+    const ZIP_COORDS = {
+      "94539": { address: "94539, CA", latitude: 37.51167679, longitude: -121.93199158 },
+      "94538": { address: "94538, CA", latitude: 37.5042, longitude: -121.9644 },
+      "94536": { address: "94536, CA", latitude: 37.5626, longitude: -121.9999 },
+      "94555": { address: "94555, CA", latitude: 37.5511, longitude: -122.0828 },
+      "94550": { address: "94550, CA", latitude: 37.6819, longitude: -121.7680 },
+      "94549": { address: "94549, CA", latitude: 37.8936, longitude: -122.1170 },
+      "94598": { address: "94598, CA", latitude: 37.9188, longitude: -122.0212 },
+      "94702": { address: "94702, CA", latitude: 37.8655, longitude: -122.2860 },
+      "95035": { address: "95035, CA", latitude: 37.4323, longitude: -121.8996 },
+      "95118": { address: "95118, CA", latitude: 37.2566, longitude: -121.8891 },
+      "95125": { address: "95125, CA", latitude: 37.2968, longitude: -121.8950 },
+      "95133": { address: "95133, CA", latitude: 37.3719, longitude: -121.8615 },
+      "45440": { address: "45440, OH", latitude: 39.67498, longitude: -84.10001 }
+    };
+
+    let currentRows = [];
+
+    const form = document.getElementById("searchForm");
+    const statusBox = document.getElementById("status");
+    const resultTitle = document.getElementById("resultTitle");
+    const resultSubtitle = document.getElementById("resultSubtitle");
+    const results = document.getElementById("results");
+    const searchButton = document.getElementById("searchButton");
+    const downloadCsvButton = document.getElementById("downloadCsvButton");
+    const printButton = document.getElementById("printButton");
+
+    function levelInputs() {
+      return document.querySelectorAll("input[name=levelFilter]");
+    }
+
+    function eventTypeInputs() {
+      return document.querySelectorAll("input[name=eventTypeFilter]");
+    }
+
+    function showStatus(message, isWarning) {
+      isWarning = Boolean(isWarning);
+      statusBox.textContent = message;
+      statusBox.className = `status show${isWarning ? " warning" : ""}`;
+    }
+
+    function clearStatus() {
+      statusBox.textContent = "";
+      statusBox.className = "status";
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function parseDateInput(value) {
+      if (!value) return null;
+      const parts = value.split("-").map(Number);
+      if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
+      return new Date(parts[0], parts[1] - 1, parts[2]);
+    }
+
+    function formatDateTime(value, timeZone) {
+      if (!value) return "";
+      const date = new Date(value);
+      return new Intl.DateTimeFormat("en-US", {
+        timeZone: timeZone || "America/Los_Angeles",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZoneName: "short"
+      }).format(date);
+    }
+
+    function localDateKey(value, timeZone) {
+      if (!value) return "";
+      const date = new Date(value);
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: timeZone || "America/Los_Angeles",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(date);
+      const byType = {};
+      parts.forEach(part => {
+        byType[part.type] = part.value;
+      });
+      return `${byType.year}-${byType.month}-${byType.day}`;
+    }
+
+    function tournamentUrl(item) {
+      const segment = item.organization && item.organization.urlSegment;
+      const path = item.url || `/Tournaments/Overview/${item.id || ""}`;
+      return segment ? `${TOURNAMENT_BASE_URL}/${segment}${path}` : `${TOURNAMENT_BASE_URL}${path}`;
+    }
+
+    function eventSummary(events) {
+      return (events || []).map(event => {
+        const division = event.division || {};
+        const age = division.ageCategory || {};
+        return [titleCase(division.gender), age.todsCode, titleCase(division.eventType)]
+          .filter(Boolean)
+          .join(" ");
+      }).filter(Boolean);
+    }
+
+    function titleCase(value) {
+      if (!value) return "";
+      return String(value).slice(0, 1).toUpperCase() + String(value).slice(1);
+    }
+
+    function flattenResult(result) {
+      const item = result.item;
+      const location = item.primaryLocation || {};
+      const registration = item.registrationRestrictions || {};
+      const timeZone = registration.timeZone || item.timeZone || "America/Los_Angeles";
+      const address = [location.address1, location.town, location.county, location.postcode].filter(Boolean).join(", ");
+
+      return {
+        name: item.name || "",
+        code: item.identificationCode || "",
+        distance_miles: Number(result.distance || 0).toFixed(1),
+        start: formatDateTime(item.startDateTime, timeZone),
+        start_key: localDateKey(item.startDateTime, timeZone),
+        end: formatDateTime(item.endDateTime, timeZone),
+        registration_closes: formatDateTime(registration.entriesCloseDateTime, timeZone),
+        venue: item.location && item.location.name ? item.location.name : "",
+        address,
+        organization: item.organization && item.organization.name ? item.organization.name : "",
+        events: eventSummary(item.events),
+        url: tournamentUrl(item)
+      };
+    }
+
+    function selectedLevels() {
+      const inputs = document.querySelectorAll("input[name=levelFilter]:checked");
+      return Array.prototype.map.call(inputs, input => ({
+        value: input.value,
+        label: input.getAttribute("data-label") || input.value
+      }));
+    }
+
+    function levelSummary(levels) {
+      if (!levels.length) return "No levels selected";
+      return levels.map(level => level.label).join(" + ");
+    }
+
+    function selectedEventTypes() {
+      const inputs = document.querySelectorAll("input[name=eventTypeFilter]:checked");
+      return Array.prototype.map.call(inputs, input => ({
+        value: input.value,
+        label: input.getAttribute("data-label") || input.value
+      }));
+    }
+
+    function applyEventTypePreset(eventTypeValue) {
+      const defaults = EVENT_LEVEL_DEFAULTS[eventTypeValue] || [];
+      Array.prototype.forEach.call(levelInputs(), input => {
+        input.checked = defaults.indexOf(input.value) >= 0;
+      });
+    }
+
+    function setEventTypeMode(eventTypeValue) {
+      Array.prototype.forEach.call(eventTypeInputs(), input => {
+        input.checked = input.value === eventTypeValue;
+      });
+      applyEventTypePreset(eventTypeValue);
+    }
+
+    function eventTypeSummary(eventTypes) {
+      if (!eventTypes.length) return "No event types selected";
+      return eventTypes.map(eventType => eventType.label).join(" + ");
+    }
+
+    function allowedLevelsForEventType(levels, eventTypeValue) {
+      const allowedIds = EVENT_LEVEL_RULES[eventTypeValue] || [];
+      return levels.filter(level => allowedIds.indexOf(level.value) >= 0);
+    }
+
+    function buildSearchGroups(levels, eventTypes) {
+      const groups = [];
+      eventTypes.forEach(eventType => {
+        const eventLevels = allowedLevelsForEventType(levels, eventType.value);
+        if (eventLevels.length) {
+          groups.push({ eventType, levels: eventLevels });
+        }
+      });
+      return groups;
+    }
+
+    function searchGroupSummary(groups) {
+      return groups.map(group => `${group.eventType.label} ${levelSummary(group.levels)}`).join(" · ");
+    }
+
+    function buildPayload(place, distance, searchGroup, from, size) {
+      from = from || 0;
+      size = size || 100;
+      const filters = [
+        { key: "level-category", operator: "Or", items: [{ value: "junior" }] },
+        { key: "publish-target", operator: "Or", items: [{ value: 1 }] },
+        { key: "distance", operator: "Or", items: [{ value: Number(distance) }] },
+        { key: "tournament-status", operator: "Or", items: [{ value: "registrations-open" }] },
+        { key: "tournament-level", operator: "Or", items: searchGroup.levels.map(level => ({ value: level.value })) },
+        { key: "event-division-event-type", operator: "Or", items: [{ value: searchGroup.eventType.value }] }
+      ];
+
+      return {
+        options: {
+          from,
+          size,
+          sortKey: "date",
+          latitude: place.latitude,
+          longitude: place.longitude
+        },
+        filters
+      };
+    }
+
+    async function fetchTournamentsForGroup(place, distance, searchGroup) {
+      const rows = [];
+      let from = 0;
+      let total = null;
+      const size = 100;
+
+      while (total === null || from < total) {
+        const response = await fetch(SEARCH_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildPayload(place, distance, searchGroup, from, size))
+        });
+        if (!response.ok) throw new Error(`USTA search failed: HTTP ${response.status}`);
+        const data = await response.json();
+        total = Number(data.total || 0);
+        const page = data.searchResults || [];
+        rows.push(...page.map(flattenResult));
+        if (!page.length) break;
+        from += size;
+      }
+
+      return rows.slice(0, total || rows.length);
+    }
+
+    async function fetchTournaments(place, distance, searchGroups) {
+      const byId = {};
+      for (const searchGroup of searchGroups) {
+        const groupRows = await fetchTournamentsForGroup(place, distance, searchGroup);
+        groupRows.forEach(row => {
+          byId[row.url || row.code || row.name] = row;
+        });
+      }
+      return Object.keys(byId)
+        .map(key => byId[key])
+        .sort((a, b) => String(a.start_key).localeCompare(String(b.start_key)) || Number(a.distance_miles) - Number(b.distance_miles));
+    }
+
+    function filterByDate(rows, startDate, endDate) {
+      if (!startDate && !endDate) return rows;
+      return rows.filter(row => {
+        if (!row.start_key) return false;
+        const rowDate = parseDateInput(row.start_key);
+        if (startDate && rowDate < startDate) return false;
+        if (endDate && rowDate > endDate) return false;
+        return true;
+      });
+    }
+
+    function renderRows(rows) {
+      if (!rows.length) {
+        results.innerHTML = `
+          <section class="empty">
+            <h2>No matching tournaments found</h2>
+            <p>Try widening the date range or distance, then search again.</p>
+          </section>
+        `;
+        return;
+      }
+
+      results.innerHTML = rows.map(row => `
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <p class="eyebrow">${escapeHtml(row.code)} · ${escapeHtml(row.distance_miles)} miles</p>
+              <h3><a href="${escapeHtml(row.url)}" target="_blank" rel="noopener">${escapeHtml(row.name)}</a></h3>
+            </div>
+            <a class="open-link" href="${escapeHtml(row.url)}" target="_blank" rel="noopener">Open USTA</a>
+          </div>
+          <dl class="details">
+            <div><dt>Start</dt><dd>${escapeHtml(row.start)}</dd></div>
+            <div><dt>Registration closes</dt><dd>${escapeHtml(row.registration_closes)}</dd></div>
+            <div><dt>Venue</dt><dd>${escapeHtml(row.venue)}</dd></div>
+            <div><dt>Address</dt><dd>${escapeHtml(row.address)}</dd></div>
+            <div><dt>Organization</dt><dd>${escapeHtml(row.organization)}</dd></div>
+          </dl>
+          <div class="events">${row.events.map(event => `<span>${escapeHtml(event)}</span>`).join("")}</div>
+        </article>
+      `).join("");
+    }
+
+    function toCsv(rows) {
+      const headers = ["name", "code", "distance_miles", "start", "end", "registration_closes", "venue", "address", "organization", "events", "url"];
+      const quote = value => `"${String(value == null ? "" : value).replace(/"/g, '""')}"`;
+      const lines = [headers.join(",")];
+      rows.forEach(row => {
+        lines.push(headers.map(header => quote(header === "events" ? row.events.join("; ") : row[header])).join(","));
+      });
+      return lines.join("\n");
+    }
+
+    function downloadFile(filename, content, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function dateInputValue(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1);
+      const day = String(date.getDate());
+      return `${year}-${twoDigits(month)}-${twoDigits(day)}`;
+    }
+
+    function twoDigits(value) {
+      value = String(value);
+      return value.length === 1 ? `0${value}` : value;
+    }
+
+    function setDefaultDateRange() {
+      const today = new Date();
+      const nextMonth = new Date(today);
+      nextMonth.setMonth(nextMonth.getMonth() + 1);
+      document.getElementById("startDateInput").value = dateInputValue(today);
+      document.getElementById("endDateInput").value = dateInputValue(nextMonth);
+    }
+
+    form.addEventListener("submit", async event => {
+      event.preventDefault();
+      clearStatus();
+
+      if (!window.fetch) {
+        showStatus("This browser is too old to call the USTA search API. Please open this page in current Safari or Chrome.", true);
+        return;
+      }
+
+      const zip = document.getElementById("locationInput").value.trim();
+      const distance = document.getElementById("distanceInput").value;
+      const startDate = parseDateInput(document.getElementById("startDateInput").value);
+      const endDate = parseDateInput(document.getElementById("endDateInput").value);
+      const levels = selectedLevels();
+      const eventTypes = selectedEventTypes();
+      const searchGroups = buildSearchGroups(levels, eventTypes);
+
+      if (!levels.length) {
+        showStatus("Choose at least one level.", true);
+        return;
+      }
+
+      if (!eventTypes.length) {
+        showStatus("Choose Singles, Doubles, or both.", true);
+        return;
+      }
+
+      if (!searchGroups.length) {
+        showStatus("Choose a valid level for the selected event type. Singles uses Level 6. Doubles uses Level 5 Open, Level 5 Closed, and Level 6.", true);
+        return;
+      }
+
+      if (startDate && endDate && startDate > endDate) {
+        showStatus("Start date must be before or equal to end date.", true);
+        return;
+      }
+
+      const place = ZIP_COORDS[zip];
+      if (!place) {
+        showStatus(`ZIP ${zip} is not in this standalone page's built-in ZIP list. Use 94539, 45440, or add this ZIP's latitude/longitude to ZIP_COORDS in the file.`, true);
+        return;
+      }
+
+      searchButton.disabled = true;
+      searchButton.textContent = "Searching...";
+      resultTitle.textContent = "Searching USTA...";
+      resultSubtitle.textContent = `${place.address} · within ${distance} miles`;
+      results.innerHTML = "";
+
+      try {
+        const allRows = await fetchTournaments(place, distance, searchGroups);
+        currentRows = filterByDate(allRows, startDate, endDate);
+        resultTitle.textContent = `${currentRows.length} tournaments found`;
+        resultSubtitle.textContent = `${place.address} · within ${distance} miles · Junior · ${searchGroupSummary(searchGroups)} · Registrations open`;
+        renderRows(currentRows);
+        downloadCsvButton.disabled = !currentRows.length;
+        printButton.disabled = !currentRows.length;
+      } catch (error) {
+        resultTitle.textContent = "Search failed";
+        resultSubtitle.textContent = "Please try again in a moment.";
+        showStatus(error.message || String(error), true);
+        downloadCsvButton.disabled = true;
+        printButton.disabled = true;
+      } finally {
+        searchButton.disabled = false;
+        searchButton.textContent = "Search";
+      }
+    });
+
+    downloadCsvButton.addEventListener("click", () => {
+      downloadFile("usta_junior_tournaments.csv", toCsv(currentRows), "text/csv;charset=utf-8");
+    });
+
+    printButton.addEventListener("click", () => {
+      window.print();
+    });
+
+    Array.prototype.forEach.call(eventTypeInputs(), input => {
+      input.addEventListener("change", () => {
+        if (input.checked) {
+          setEventTypeMode(input.value);
+        } else {
+          input.checked = true;
+        }
+      });
+    });
+
+    window.addEventListener("error", event => {
+      showStatus(`Page script error: ${event.message}. Try opening this file in Safari or Chrome instead of a chat/file preview.`, true);
+    });
+
+    setDefaultDateRange();
+    setEventTypeMode("singles");
+    showStatus("Ready. If Search does nothing on phone, open this file in Safari or Chrome instead of a chat/file preview.");
+  </script>
+</body>
+</html>

@@ -184,6 +184,11 @@ h1 {
   max-width: 430px;
 }
 
+.private-link-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 870px;
+}
+
 .metric-card {
   min-height: 96px;
   padding: 13px 14px;
