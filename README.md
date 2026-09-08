@@ -78,7 +78,11 @@ After DNS propagates, enable `Enforce HTTPS` in GitHub Pages.
 
 The new `.github/workflows/deploy-homepage.yml` builds the homepage from
 `awolf08/stock_dashboard` (`main`) and merges it with this repository's tracked
-report archive. It runs hourly at minute 17 UTC, on eligible pushes, and manually.
+report archive. It runs on eligible pushes, manual dispatches and scheduled
+checks every 10 minutes at minutes 7, 17, 27, 37, 47 and 57 UTC. Scheduled checks
+skip the build when a successful GitHub Pages deployment is less than 55 minutes
+old, so the target quote refresh cadence stays near one hour while missed
+GitHub schedule triggers get more chances to recover.
 The old root `index.html` remains the source for `/report-index.html` in the output;
 existing daily-report scripts can continue updating that file normally.
 
@@ -111,9 +115,10 @@ the apex to the configured `www` domain. No DNS or Access policy is changed by
 the workflow itself.
 
 Report-generator commits made with GitHub's automatic token may not trigger
-another workflow; the hourly run still incorporates the latest archive.
-GitHub can delay scheduled runs and can disable schedules in inactive public
-repositories. Check Actions notifications and the Dashboard's snapshot timestamp.
+another workflow; the scheduled recovery checks still incorporate the latest
+archive. GitHub can delay scheduled runs and can disable schedules in inactive
+public repositories. Check Actions notifications and the Dashboard's snapshot
+timestamp.
 
 Local checks (build the Dashboard at the domain root first):
 
