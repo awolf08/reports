@@ -1,0 +1,73 @@
+name: Update Baybell homepage
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: baybell-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: reports
+      - uses: actions/checkout@v4
+        with:
+          repository: awolf08/stock_dashboard
+          ref: main
+          path: dashboard
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: dashboard/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+        working-directory: dashboard
+      - run: pnpm test && pnpm lint && pnpm typecheck
+        working-directory: dashboard
+      - name: Fetch hourly market snapshot
+        working-directory: dashboard
+        run: pnpm fetch:data
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      - name: Build homepage for the domain root
+        working-directory: dashboard
+        run: pnpm build:pages
+        env:
+          NEXT_PUBLIC_BASE_PATH: ''
+          NEXT_PUBLIC_BAYBELL_HOME: '1'
+          NEXT_PUBLIC_PRIVATE_REPORTS_URL: https://baybell.com/private/
+      - name: Test archive preservation
+        run: python3 -m unittest discover -s reports/tests -v
+      - name: Assemble homepage and existing report archive
+        run: python3 reports/scripts/assemble-site.py --reports reports --dashboard dashboard/dist/client --output site
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
