@@ -5,15 +5,15 @@ on:
   push:
     branches: [main]
   schedule:
-    # Check more often to recover missed triggers, but build about once an hour.
-    - cron: '7,17,27,37,47,57 * * * *'
+    # Refresh the baybell.com homepage once per hour. GitHub may delay scheduled runs by a few minutes.
+    - cron: '43 * * * *'
 
 permissions:
   contents: read
 
 concurrency:
   group: baybell-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh:
