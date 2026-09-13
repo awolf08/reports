@@ -34,6 +34,9 @@ class AssembleSiteTests(unittest.TestCase):
             (dashboard / '_next/app.js').write_text('app')
             (dashboard / 'data').mkdir()
             (dashboard / 'data/market.json').write_text('{"provider":"finnhub"}')
+            for name in ('daily-finance', 'weekly-finance'):
+                (dashboard / name).mkdir()
+                (dashboard / name / 'index.html').write_text(f'new {name} landing')
             (dashboard / '.vite').mkdir()
             (dashboard / '.vite/manifest.json').write_text('build internals')
             module.assemble(reports, dashboard, output)
@@ -41,8 +44,12 @@ class AssembleSiteTests(unittest.TestCase):
             self.assertEqual((output / 'report-index.html').read_text(), 'old homepage')
             self.assertEqual((reports / 'index.html').read_text(), 'old homepage')
             for name in files:
+                if name in ('daily-finance/index.html', 'weekly-finance/index.html'):
+                    continue
                 if name.split('/')[0] in module.REPORT_DIRS or name == 'CNAME':
                     self.assertEqual((output / name).read_bytes(), (reports / name).read_bytes())
+            self.assertEqual((output / 'daily-finance/index.html').read_text(), 'new daily-finance landing')
+            self.assertEqual((output / 'weekly-finance/index.html').read_text(), 'new weekly-finance landing')
             for name in ('README.md', '.github', '.git', '.vite', 'private/untracked.json'):
                 self.assertFalse((output / name).exists())
             with self.assertRaises(ValueError):

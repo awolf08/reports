@@ -7,6 +7,8 @@ import hashlib
 
 REPORT_DIRS = ('assets', 'daily-finance', 'weekly-finance', 'guru-position', 'private')
 DASHBOARD_ITEMS = ('index.html', 'index.rsc', '_next', 'data', 'favicon.svg')
+DASHBOARD_ROUTE_DIRS = ('daily-finance', 'weekly-finance')
+DASHBOARD_ROUTE_LANDINGS = {Path(name) / 'index.html' for name in DASHBOARD_ROUTE_DIRS}
 
 
 def assemble(reports: Path, dashboard: Path, output: Path):
@@ -25,6 +27,8 @@ def assemble(reports: Path, dashboard: Path, output: Path):
         relative = Path(name)
         if relative.parts[0] not in REPORT_DIRS and name != 'CNAME':
             continue
+        if relative in DASHBOARD_ROUTE_LANDINGS and (dashboard / relative).is_file():
+            continue
         source = reports / relative
         if source.is_symlink() or not source.is_file():
             raise ValueError(f'Only regular tracked report files are supported: {name}')
@@ -40,6 +44,10 @@ def assemble(reports: Path, dashboard: Path, output: Path):
             shutil.copytree(source, output / name)
         elif source.is_file():
             shutil.copy2(source, output / name)
+    for name in DASHBOARD_ROUTE_DIRS:
+        source = dashboard / name
+        if source.is_dir():
+            shutil.copytree(source, output / name, dirs_exist_ok=True)
     (output / '.nojekyll').write_text('')
     for relative in preserved:
         if hashlib.sha256((reports / relative).read_bytes()).digest() != hashlib.sha256((output / relative).read_bytes()).digest():
