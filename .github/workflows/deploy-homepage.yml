@@ -66,6 +66,11 @@ jobs:
         run: pnpm fetch:data
         env:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      - name: Fetch verified events
+        working-directory: dashboard
+        run: pnpm fetch:events
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       - name: Build homepage for the domain root
         working-directory: dashboard
         run: pnpm build:pages
