@@ -5,8 +5,9 @@ on:
   push:
     branches: [main]
   schedule:
-    # Refresh the baybell.com homepage once per hour. GitHub may delay scheduled runs by a few minutes.
-    - cron: '43 * * * *'
+    # Check twice per hour because GitHub may delay or skip individual scheduled starts.
+    # The freshness gate skips builds when a successful deployment is less than 55 minutes old.
+    - cron: '13,43 * * * *'
 
 permissions:
   contents: read
