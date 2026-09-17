@@ -48,6 +48,16 @@ def assemble(reports: Path, dashboard: Path, output: Path):
         source = dashboard / name
         if source.is_dir():
             shutil.copytree(source, output / name, dirs_exist_ok=True)
+    # Stable latest URLs refer to existing archives, including weekends/holidays.
+    for name in ('daily-finance', 'weekly-finance'):
+        dated = sorted(path for path in (output / name).glob('????-??-??.html'))
+        if dated:
+            target = dated[-1].name
+            (output / name / 'latest.html').write_text(
+                '<!doctype html><html><head><meta charset="utf-8">'
+                f'<meta http-equiv="refresh" content="0;url=./{target}">'
+                f'</head><body><a href="./{target}">Open latest report</a></body></html>'
+            )
     (output / '.nojekyll').write_text('')
     for relative in preserved:
         if hashlib.sha256((reports / relative).read_bytes()).digest() != hashlib.sha256((output / relative).read_bytes()).digest():

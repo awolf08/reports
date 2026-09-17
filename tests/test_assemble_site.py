@@ -18,6 +18,8 @@ class AssembleSiteTests(unittest.TestCase):
             dashboard.mkdir()
             subprocess.run(['git', 'init', '-q', str(reports)], check=True)
             files = {'index.html': 'old homepage', 'CNAME': 'baybell.com',
+                     'daily-finance/2026-05-27.html': 'older report',
+                     'daily-finance/2026-05-28.html': 'latest report',
                      'assets/styles.css': 'existing styles', 'README.md': 'internal docs',
                      'private/report.json': '{"sample":"private fixture"}',
                      '.github/workflows/example.yml': 'not a web asset'}
@@ -40,6 +42,7 @@ class AssembleSiteTests(unittest.TestCase):
             (dashboard / '.vite').mkdir()
             (dashboard / '.vite/manifest.json').write_text('build internals')
             module.assemble(reports, dashboard, output)
+            self.assertIn('./2026-05-28.html', (output / 'daily-finance/latest.html').read_text())
             self.assertEqual((output / 'index.html').read_text(), 'new dashboard')
             self.assertEqual((output / 'report-index.html').read_text(), 'old homepage')
             self.assertEqual((reports / 'index.html').read_text(), 'old homepage')
