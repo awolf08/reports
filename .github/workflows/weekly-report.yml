@@ -1,0 +1,43 @@
+name: Generate Weekly Report
+
+on:
+  schedule:
+    # 08:05 Pacific in summer; the second slot covers winter. Existing reports skip.
+    - cron: '5 15,16 * * 0'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Regenerate an existing report
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: finance-publication
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      REPORT_TIMEZONE: ${{ vars.REPORT_TIMEZONE || 'America/Los_Angeles' }}
+      REPORT_ALLOWED_HOURS: ${{ github.event_name == 'schedule' && '8-23' || '' }}
+      REPORT_FORCE_GENERATE: ${{ github.event_name == 'workflow_dispatch' && inputs.force || false }}
+      REPORT_WATCHLIST: ${{ vars.REPORT_WATCHLIST || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Generate, validate and publish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python scripts/publish-report.py --weekly

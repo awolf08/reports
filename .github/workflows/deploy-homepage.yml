@@ -2,6 +2,9 @@ name: Update Baybell homepage
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: [Generate Daily Report, Generate Weekly Report]
+    types: [completed]
   push:
     branches: [main]
   schedule:
@@ -18,11 +21,13 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           path: reports
       - uses: actions/checkout@v4
         with:
@@ -61,8 +66,13 @@ jobs:
           NEXT_PUBLIC_PRIVATE_REPORTS_URL: https://baybell.com/private/
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_DAILY_SUMMARY_MODEL: ${{ vars.OPENAI_DAILY_SUMMARY_MODEL || 'gpt-4.1-mini' }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r reports/requirements.txt
       - name: Test archive preservation
-        run: python3 -m unittest discover -s reports/tests -v
+        run: python3 -m unittest discover -s tests -v
+        working-directory: reports
       - name: Assemble homepage and existing report archive
         run: python3 reports/scripts/assemble-site.py --reports reports --dashboard dashboard/dist/client --output site
       - uses: actions/upload-pages-artifact@v4

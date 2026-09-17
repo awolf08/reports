@@ -1,135 +1,72 @@
 # Baybell Reports
 
-Static HTML report site for Baybell.
+The single repository for Baybell's report generators, report archives and GitHub Pages publishing at https://baybell.com. The homepage and report landing pages remain maintained independently in [stock_dashboard](https://github.com/awolf08/stock_dashboard).
 
-This project is designed for GitHub Pages and GoDaddy DNS at:
+## Layout
 
-```text
-https://baybell.com
-```
+- `finance_daily_report/`: Python daily/weekly generation and intraday snapshots.
+- `daily-finance/YYYY-MM-DD.{html,md,snapshots.json}`: canonical daily archive.
+- `weekly-finance/YYYY-MM-DD.{html,md}`: canonical weekly archive.
+- `ChatGPT/`: curated market-close Markdown; `latest.md` is read by the Dashboard build.
+- `guru-position/`, `private/`, `assets/`: existing report pages and assets.
+- `scripts/assemble-site.py`: merges the Dashboard build with tracked report files.
 
-Use `https://reports.baybell.com` as a forwarding URL to the same site.
-
-- Daily finance reports
-- Guru position reports
-- Other future static research pages
-
-## GitHub Pages
-
-Suggested GitHub Pages settings:
-
-1. Repository: `Settings` -> `Pages`
-2. Source: `Deploy from a branch`
-3. Branch: `main`
-4. Folder: `/`
-5. Custom domain: `baybell.com`
-
-The `CNAME` file already contains:
-
-```text
-baybell.com
-```
-
-## Report Paths
-
-Suggested report paths:
-
-```text
-daily-finance/2026-05-28.html
-guru-position/2026-q2.html
-options-flow/2026-05-28.html
-```
-
-## Private Report Paths
-
-Private reports should live under:
-
-```text
-private/
-private/trip-list/
-```
-
-Protect `https://baybell.com/private/*` with Cloudflare Access before publishing
-real private content. Until that protection is active, anything committed under
-`private/` is still publicly reachable on a static hosting service.
-
-## GoDaddy DNS
-
-Point the apex domain to GitHub Pages:
-
-```text
-@   A   185.199.108.153
-@   A   185.199.109.153
-@   A   185.199.110.153
-@   A   185.199.111.153
-```
-
-Optional but recommended:
-
-```text
-www   CNAME   awolf08.github.io
-```
-
-Forward `reports.baybell.com` to `https://baybell.com` in GoDaddy domain forwarding.
-
-After DNS propagates, enable `Enforce HTTPS` in GitHub Pages.
-
-## Dashboard homepage publishing
-
-The new `.github/workflows/deploy-homepage.yml` builds the homepage from
-`awolf08/stock_dashboard` (`main`) and merges it with this repository's tracked
-report archive. It runs on eligible pushes, manual dispatches and scheduled
-checks every 10 minutes at minutes 7, 17, 27, 37, 47 and 57 UTC. Scheduled checks
-skip the build when a successful GitHub Pages deployment is less than 55 minutes
-old, so the target quote refresh cadence stays near one hour while missed
-GitHub schedule triggers get more chances to recover.
-The old root `index.html` remains the source for `/report-index.html` in the output;
-existing daily-report scripts can continue updating that file normally.
-
-The build enables `NEXT_PUBLIC_BAYBELL_HOME=1` so the Dashboard includes the
-Daily Finance, Weekly Finance, Guru Positions, Options and Private Reports links.
-Private Reports continues to point to `https://baybell.com/private/`, using the
-owner's existing Cloudflare Access setup. The build does not create or modify
-Access policies. Report files and their paths are copied without modification.
-Only tracked report/archive files and the Dashboard's public build are published;
-source code, untracked local files and build internals are excluded.
-
-One-time setup:
+## Generate locally
 
 ```bash
-gh secret set FINNHUB_API_KEY --repo awolf08/reports
-gh api --method PUT repos/awolf08/reports/pages -f build_type=workflow
-gh workflow run deploy-homepage.yml --repo awolf08/reports --ref main
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m finance_daily_report
+python -m finance_daily_report --weekly
 ```
 
-The first command prompts for the key privately. The existing key in the
-`stock_dashboard` repository cannot be read back or automatically copied.
-Switch the Pages publishing mode only when the new workflow and secret are ready.
-A failed quote fetch or build leaves the last deployment online.
+Daily output defaults to `daily-finance/`; weekly output defaults to `weekly-finance/`. `--date YYYY-MM-DD`, `--output-dir PATH` and `--format md|html|both` remain available. For optional email, configure a local ignored `.env` using `.env.example`, then explicitly run `python -m finance_daily_report --email-if-configured`. The publisher sends optional configured email only after a successful commit/push, not during retries or dry runs. No SMTP repository secrets were configured in the source repository at migration.
 
-The `CNAME` is preserved from this repository. Keep it set to `baybell.com`
-until the `www` canonical-domain migration is ready. Before changing the custom
-domain to `www.baybell.com`, verify Cloudflare Access protects private paths on
-both hostnames and that the `www` DNS record remains proxied. GitHub may redirect
-the apex to the configured `www` domain. No DNS or Access policy is changed by
-the workflow itself.
+## Publish
 
-Report-generator commits made with GitHub's automatic token may not trigger
-another workflow; the scheduled recovery checks still incorporate the latest
-archive. GitHub can delay scheduled runs and can disable schedules in inactive
-public repositories. Check Actions notifications and the Dashboard's snapshot
-timestamp.
-
-Local checks (build the Dashboard at the domain root first):
+From a clean `main` checkout, with Python dependencies installed:
 
 ```bash
-python3 -m unittest discover -s tests -v
-python3 scripts/assemble-site.py --reports . --dashboard ../stock_dashboard/dist/client --output site
+scripts/fallback-publish-report.sh
+scripts/publish-weekly-report.sh
 ```
 
-The assembly command requires a new output directory and checks every preserved
-file's SHA-256 digest. `site/` is ignored by Git. For another local assembly, choose
-a different empty output directory or remove only the previously generated `site/`.
+The publishers fast-forward from origin, generate in a temporary directory, validate the report, and commit/push only the dated report files in this repository. They retain existing snapshots. A local lock and shared Actions concurrency group coordinate daily/weekly writers; unrelated remote commits are rebased with bounded retries, and conflicts stop without a force push. Unpublished local commits are never pushed automatically.
 
-Rollback: change Pages back to branch publishing (`main`, root). The original
-homepage and report archive remain tracked in this repository.
+`REPORT_DATE`, `REPORT_FORCE_GENERATE=true`, `REPORT_SNAPSHOT_SLOT`, `REPORT_TIMEZONE`, and `REPORT_ALLOWED_HOURS` control generation. `--dry-run` (or `REPORT_DRY_RUN=true`) generates and validates without modifying the archive, Git history, email or deployed site. Existing reports/slots are skipped unless forced.
+
+- `daily-report.yml`: existing weekday backup schedule and snapshot-slot checks, plus manual dispatch.
+- `weekly-report.yml`: Sunday generation, plus manual dispatch; existing reports are skipped.
+- `deploy-homepage.yml`: builds on main pushes, successful report workflow completion, manual dispatch and every quarter-hour at UTC minutes 7, 22, 37 and 52. GitHub schedules may be delayed.
+
+`workflow_run` explicitly deploys report changes committed by `GITHUB_TOKEN`, which do not trigger a new push workflow. The deployment checks out current main, pulls stock_dashboard/main, fetches market data, validates, assembles and deploys one Pages artifact. A failed build leaves the last deployment online.
+
+Keep the existing `FINNHUB_API_KEY` secret and optional Dashboard variables. Cross-repository `REPORTS_DEPLOY_KEY` is no longer needed by this repository. Report settings can use repository variables `REPORT_TIMEZONE`, `REPORT_NEWS_LIMIT`, `REPORT_STOCK_LIMIT`, and `REPORT_WATCHLIST`.
+
+## URLs and hosting
+
+The custom domain remains `baybell.com`, with Pages source set to GitHub Actions. DNS and access policies are unchanged.
+
+- `/`: Dashboard homepage.
+- `/daily-finance/`, `/weekly-finance/`: Dashboard report landing pages.
+- `/daily-finance/latest.html`, `/weekly-finance/latest.html`: redirects to the newest existing archived HTML report, including weekends.
+- `/daily-finance/YYYY-MM-DD.html`, `/weekly-finance/YYYY-MM-DD.html`: unchanged dated report URLs.
+- `/report-index.html`: original report navigation homepage.
+
+The site assembler publishes only tracked report/assets directories, CNAME, and Dashboard public output. Generator source, tests, `.env`, and ChatGPT source files are not copied into the Pages artifact. Public repository files remain accessible on GitHub. Existing private paths require the owner's existing access protection.
+
+## Validation
+
+```bash
+python -m unittest discover -s tests -v
+python scripts/assemble-site.py --reports . --dashboard ../stock_dashboard/dist/client --output site
+```
+
+## Migration and rollback
+
+Imported generator and tests from `awolf08/FinanceDailyReport` at `b3473f50b27da3cc4ef02803848921d9c8844202`. The 245 overlapping report files were byte-identical; May 26/27 HTML and Markdown were added to complete the archive. ChatGPT sources were retained. Original Git history remains in the old repository; it is not rewritten or deleted.
+
+After the new workflows are verified, disable the old daily generation workflow and retarget the existing Codex daily automation to this repository without force-regeneration. The old Pages deployment is replaced with a compatibility redirect site so existing dated and latest links continue to work. Do not run both generators concurrently.
+
+For rollback, disable the new generation workflows, restore the previous reports revision through a reviewed revert, restore the old publisher and automation target, and deploy again. Keep all newly produced report files when reverting code. The existing Dashboard homepage dependency and domain remain unchanged throughout.
