@@ -1,170 +1,133 @@
-# 2026-10-02 美股盘前报告
+# 2026-10-05 美股 Premarket Report（中文）
+ 
+> 报告日期：2026-10-05（星期一）。编写开始：2026-10-05 12:07 ET / 09:07 PT；此时已开盘。本文为**盘前资料回溯、午间补写版**，并非在开盘前发布。主体采用当天早报及 10/2 收盘资料；盘中补充单列，不用于倒推开盘策略。不同来源并非同一秒快照，以下均非实时交易报价。全文明确区分事实、来源限制与分析。
 
-> 数据截点：2026-10-02 约 9:10 AM ET / 6:10 AM PT。美国 9 月就业报告已于 8:30 AM ET 发布，因此本文使用就业数据公布后的盘前行情。行情会继续变化。
+## 1. 核心判断
 
-## 一、盘前主线
+**事实：** 当天早报显示美国三大股指期货小幅下跌，前一交易日 SPX 收于 7,722.72；科技股接近高位，但盘前部分芯片股回落。[Investrade 早报](https://investrade.com/morning-preview-october-05-2026/)、[Reuters / MarketScreener，08:36 ET](https://ca.marketscreener.com/news/wall-st-set-for-muted-open-as-tech-stocks-take-a-breather-ce785dd8d98cff2c)
 
-**事实：** 9 月非农就业仅增加 **2.9 万**，明显低于约 **9 万**的市场预期；失业率升至 **4.2%**，高于预期的 4.1%，7–8 月就业合计下修约 6 万。就业数据公布后，美债收益率明显回落，美股期货扩大涨幅：Dow E-mini 约 **+0.85%**、S&P 500 E-mini 约 **+0.79%**、Nasdaq-100 E-mini 约 **+1.01%**。10Y 收益率约 **5.18%**，2Y 约 **4.72%**。
+**分析：** 基准判断为高位震荡、等待利率与科技领涨确认。油价与长端利率仍可能抵消 AI 盈利预期的支撑；期货小跌本身不足以确认趋势反转。今天的宏观焦点是服务业活动和价格压力是否同时偏强。
 
-**分析：** 盘前市场目前把“就业降温”主要解读为 Fed 10 月继续加息必要性下降，因此出现“债券涨、收益率跌、成长股期货领涨”的典型组合。但 10Y 仍处历史高位附近，且能源/地缘政治通胀风险没有消失，因此不能简单把弱就业等同于持续利好股市。
+## 2. Overnight / Global context
 
-## 二、隔夜 / 全球市场
+**事实（当天早报，具体报价分钟未披露）：**
 
-### 事实
-- 欧洲股市盘前时段整体反弹，STOXX Europe 600 一度约 **+0.8%**。
-- 亚洲表现偏弱且分化：日本 Nikkei 225 约 **-0.94%**，香港恒生指数约 **-2.6%**，韩国 Kospi 约 **+0.46%**；中国内地市场因假期休市。
-- 原油明显回落，缓解了近期“能源价格 → 通胀 → 利率”的压力。
-- 法国财政担忧仍令欧洲债券市场保持一定压力。
+- 日本 Nikkei 约 69,946，涨约 2.4%；恒生约 24,040，上涨 68 点。
+- 中国内地市场国庆假期休市。
+- 欧洲 DAX 约 25,194，下跌 35 点；FTSE 100 约 10,486，上涨 24 点。
+- 报道称伊朗仍将霍尔木兹海峡重开与条件挂钩；属于新闻报道口径，不能把可能的谈判结果当成已实现的原油供给恢复。
 
-### 分析
-今天全球风险资产的关键变量已经从“等待 payroll”切换成“市场如何消化明显偏弱的就业数据”。如果欧洲时段继续维持 risk-on、同时美债收益率保持回落，美国开盘环境相对有利；若收益率快速反弹，则需要防范期货涨幅被回吐。
+来源：[Investrade 10/5](https://investrade.com/morning-preview-october-05-2026/)。
 
-## 三、盘前资产快照
+**分析：** 亚洲上涨与欧洲分化意味着全球风险偏好并不一致。观察美股开盘后的市场宽度：如果只有少数科技权重上涨，不能仅凭指数走高认定全面 risk-on。油价再升会同时影响通胀预期、企业成本和债券收益率。
 
-| 项目 | 盘前观察 |
-|---|---:|
-| ES / S&P 500 E-mini | **约 +0.79%** |
-| NQ / Nasdaq-100 E-mini | **约 +1.01%** |
-| YM / Dow E-mini | **约 +0.85% / +439 点** |
-| VIX | 前一交易日约 **16.39**；盘前 VIX futures 早段约 +1.5%，就业数据后需继续观察 |
-| U.S. 2Y | **约 4.72%** |
-| U.S. 10Y | **约 5.18%**，较近期 5.34% 高点明显回落 |
-| DXY | 就业数据后美元走弱；重点观察能否继续跌破近期强势区间 |
-| WTI | **约 $89.5/bbl**，盘前约跌 3%–4% |
-| Brent | **约 $99.9/bbl** |
-| Gold spot | **约 $4,182/oz**，本周仍偏弱 |
+## 3. 盘前跨资产快照
 
-> 注：不同数据源更新时间存在数分钟差异，以上用于盘前方向判断而非逐 tick 报价。
+| 资产 | 可核实的报道值 | 时间及口径 |
+|---|---:|---|
+| ES / 标普期货参考 | 7,762；-14.25 点，约 -0.18% | 10/5 Investrade Early Look；原表未列合约月份或精确分钟 |
+| NQ / 纳指100期货参考 | 30,978；-83.50 点，约 -0.27% | 同上 |
+| YM / 道指期货参考 | 51,366；-111 点，约 -0.22% | 同上；原表百分比有明显错位，本文按点数重算 |
+| VIX | 10/2 收盘参考 15.31；隔夜指示约 16.3 | Cannon 早报；隔夜值不是经本报告独立核验的 Cboe 现货报价 |
+| 美国 2Y | 约 4.79% | Cestrian 明确标为 10/5 开盘前图表快照，未列统一分钟 |
+| 美国 10Y | 约 5.26% | 与上述 2Y 同一份晨报；其他早报有 5.287%，不视为同步数据 |
+| DXY | 约 102.1，约 +0.2% | Cannon 盘前指示值；精确分钟未提供 |
+| WTI / NYMEX 原油 | $90.85/桶，-0.26 | Investrade 早报，合约月份未披露 |
+| Brent | $103.00/桶，+0.75 | 同上 |
+| 黄金 | $4,187/盎司，+24.70 | 同上；原表未明确现货/合约，故不标作现货黄金 |
 
-## 四、今日美国宏观 / Fed / 财报
+来源：[Investrade](https://investrade.com/morning-preview-october-05-2026/)、[Cannon 盘前简报](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct05-2026-readers-web-v1.html)、[Cestrian 盘前图表说明](https://www.cestriancapitalresearch.com/cestrian-daily-market-review-monday-5-october-2026/)。
 
-### 8:30 AM ET — September Employment Report（已公布）
-- Nonfarm Payrolls：**+29K**，预期约 +90K
-- Unemployment Rate：**4.2%**，预期 4.1%
-- Average Hourly Earnings：同比约 **+3.0%**
-- July/August payrolls：合计下修约 **60K**
+**计算说明：** 期货百分比 = 点数变化 ÷（当前值 − 点数变化）；不得将期货相对结算价的变化与现货收盘价直接比较。来源未披露合约月份，实际下单前须用交易终端确认 ES/NQ/YM 合约及实时价格。
 
-**市场含义：** 就业降温明显，使市场降低对 10 月再次加息的定价。就业报告后，市场对 10 月加息的概率已降到 20% 以下附近。
+**分析：** 2Y/10Y 约有 47bp 正斜率，但这里只能作晨间近似。10Y 的方向比单一数值更重要：若向上突破 5.30%，科技估值压力可能增加；若回落至 5.25% 下方并保持，才更有利于成长股。5.25%/5.30% 是本报告观察阈值，不是已验证技术支撑或阻力。
 
-### Fed
-今天继续关注 Fed 官员讲话，尤其是 **Dallas Fed President Lorie Logan**。本周 Vice Chair Philip Jefferson 已明确强调政策可以等待更多数据，市场因此更加关注 Fed 是否形成“10 月暂停、年底再评估”的倾向。
+## 4. 今日经济数据、Fed 与财报
 
-### Earnings / company events
-今天没有特别密集的大型盘前财报，但个股事件很多：
-- **NKE**：财报后盘前跌约 8%–10%，公司下调全年销售展望，Greater China 仍是压力点。
-- **TSLA**：市场等待 Q3 deliveries，盘前小幅上涨。
-- **ON / SYNA**：ON Semiconductor 宣布约 $5.7B 全现金收购 Synaptics，ON 盘前明显上涨。
-- **AMZN / NVDA**：报道称 Amazon 考虑通过 SPV 将约 $8B Nvidia Grace Blackwell 芯片融资/售后回租，反映 AI 基础设施资本开支继续快速扩大。
+所有时间为美东 EDT；美西 PDT 减 3 小时。
 
-## 五、SPX / QQQ / DIA / ES 技术位
+| 时间 ET / PT | 事件 | 盘前已知内容与处理 |
+|---|---|---|
+| 09:45 / 06:45 | S&P Global 9 月服务业/综合 PMI 终值 | 重点看初值修订；本报告未取得可靠的终值官方原文，不填未经核实实际值 |
+| 10:00 / 07:00 | ISM 9 月服务业 PMI | 官方日历确认当天发布；盘前早报预期约 55.0，各调查口径可能不同 |
+| 11:00 / 08:00 | 财政部回购公告 | 关注债券供需，非 Fed 官员讲话 |
+| 11:30 / 08:30 | 13 周、26 周国库券拍卖 | 关注短端定价；不是 2Y/10Y 国债拍卖 |
 
-技术位主要采用 10/1 RTH 高低收盘计算的传统 Pivot，并结合近期区间。它们是参考区域，不是确定反转点。
+来源：[纽约联储 10 月日历](https://www.newyorkfed.org/research/calendars/i-oct26.html)、[Econoday 当周日历](https://us.econoday.com/byweek?day=5&lid=0&month=10&year=2026)、[Wrightson 财政部日程](https://www.wrightson.com/commentary)、[Investrade 预期](https://investrade.com/morning-preview-october-05-2026/)。
 
-### SPX
-10/1：High **7,684.75** / Low **7,616.78** / Close **7,666.45**
+**Fed 讲话事实及限制：** 本次核验未确认 10/5 有具体的主要 Fed 政策讲话及时间；这不等于证明全天没有讲话。部分聚合日历相互冲突，因此不沿用旧报告中的 Logan 讲话安排，也不把纽约联储票据操作称作政策讲话。[Fed 官方日历](https://www.federalreserve.gov/newsevents/calendar.htm)
 
-- Pivot：**7,656**
-- R1：**7,695**
-- R2：**7,724**
-- S1：**7,627**
-- S2：**7,588**
-- 近期重要高点：**7,724–7,752**
-- 更上方：**7,782** 附近
+**财报：** 所查周历未列出今天值得关注的大型财报；不是所有上市公司均无财报的断言。PEP、DAL 是本周后续观察对象，不能写作今天已公布。[Kiplinger 财报周历](https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks)
 
-**分析：** 就业后期货跳升使 7,695–7,724 成为开盘后的第一测试区。若 SPX 能在开盘波动后站稳 7,724，才更有利于继续挑战 7,750/7,780；如果高开后重新跌回 7,656 下方，则属于明显的 gap-fade 警告。
+**分析：** PMI 应拆开看总量、新订单、就业和价格。增长略降但价格仍热，可能不利于“弱数据推动利率下降”的交易；增长与价格同时降温且债券上涨，则相对有利于科技。不能只凭 PMI 总值高于 50 就判定股市利多。
 
-### QQQ
-10/1：High **744.67** / Low **736.25** / Close **742.03**
+## 5. SPX / QQQ / DIA / ES 关键技术位
 
-- Pivot：**740.98**
-- R1：**745.72**
-- R2：**749.40**
-- S1：**737.30**
-- S2：**732.56**
-- 近期区间高点：**748–749**
+### 事实输入与计算方法
 
-**分析：** QQQ 今天最重要的是能否真正突破最近反复压制的 **745–749**。如果 NQ 强势但 QQQ 开盘后无法守住 745，则不宜追高。
+以下采用 10/2 高、低、收盘。传统 Pivot：P=(H+L+C)/3；R1=2P−L；S1=2P−H；R2=P+(H−L)；S2=P−(H−L)。枢轴是计算参考，不代表真实挂单或机构仓位。
 
-### DIA
-10/1：High **510.95** / Low **504.70** / Close **508.62**
+| 标的 | 10/2 H / L / C | S2 | S1 | P | R1 | R2 |
+|---|---|---:|---:|---:|---:|---:|
+| SPX | 7,728.65 / 7,718.15 / 7,722.72 | 7,712.67 | 7,717.70 | 7,723.17 | 7,728.20 | 7,733.67 |
+| QQQ | 754.54 / 747.53 / 749.58 | 743.54 | 746.56 | 750.55 | 753.57 | 757.56 |
+| DIA | 513.06 / 508.69 / 511.10 | 506.58 | 508.84 | 510.95 | 513.21 | 515.32 |
 
-- Pivot：**508.09**
-- R1：**511.48**
-- R2：**514.34**
-- S1：**505.23**
-- S2：**501.84**
+来源：[SPX 历史表](https://chartexchange.com/symbol/index-spx/historical/)、[QQQ 历史表](https://stockanalysis.com/etf/qqq/history/)、[DIA 报价及前日区间](https://stockanalysis.com/etf/dia/)、[DIA 历史表](https://stockanalysis.com/etf/dia/history/)。
 
-Dow 最近明显弱于 Nasdaq，今天若 YM 在就业数据后能够收复 511–514 区域，将改善短线结构。
+**质量说明：** SPX 来源所列 10/2 日内区间仅 10.50 点，尚未得到第二套完整 OHLC 独立确认；因此其枢轴列为暂定，不能单独用于机械止损。QQQ 的 10/2 高低收盘在另一历史表一致；页面顶部最后一笔成交可能与正式收盘不同，本文统一用历史行数据。[QQQ 交叉来源](https://chartexchange.com/symbol/nasdaq-qqq/historical/)
 
-### ES
-- 第一观察区：**7,700**
-- 上方：**7,725–7,750**
-- 强压力：**7,780–7,800**
-- 下方第一支撑：**7,650–7,660**
-- 更下方：**7,615–7,625**
+### 分析与观察区
 
-**分析：** 今天不宜只看 ES 点位。**ES + 10Y** 联动更重要：ES 突破同时 10Y 保持在 5.20% 下方，比单纯指数突破更可信。
+- **SPX：** 首看 7,718–7,729；若向上站稳，留意 7,752.07（9/25 高）及 7,782.19（9/22 高）。失守后看 7,700 心理位，再看 7,684.75（10/1 高）。这些层级不保证逐一触及。
+- **QQQ：** 750.55 为计算中轴，753.57–754.54 为上方首要测试区；确认突破后才看 757.56。下方先看 749.58 前收、747.53 前低，再看 746.56/743.54。
+- **DIA：** 510.95–511.10 为中轴/前收带，513.06–513.21 为上方测试区；下方 508.69–508.84，再看 506.58。09:27 ET 盘前报价约 510.75，略低于中轴。[DIA](https://stockanalysis.com/etf/dia/)
+- **ES：** 未取得带明确合约月份的前日完整 OHLC 和隔夜高低，因此不伪造 ES Pivot。以报道值 7,762 为背景，**7,750 / 7,775 / 7,800** 和下方 **7,725** 仅为人工设置的四分之一百点观察网格，绝非已核验成交密集区。交易时必须加上真实隔夜高低、开盘区间和 VWAP。SPX 与 ES 存在基差，不能直接互换。
 
-## 六、板块 / Mega-cap / 半导体
+## 6. 科技、半导体与 mega-cap
 
-### 半导体 / AI
-就业数据后收益率下降理论上最直接利好 duration 较长的科技/AI 估值。重点观察：
-- **NVDA / AVGO / MU / ASML / SMH**
-- MU 强劲财报后继续提供 memory/HBM 基本面支撑。
-- AI capex 仍然强劲，但 Amazon 芯片 SPV、Broadcom 为 AI 客户提供融资等消息也提醒市场：AI 基建越来越依赖巨额融资，未来资本成本值得持续监控。
+**已核实报道：** Reuters 08:36 ET 盘前稿称 INTC 约 -3.8%、MU 约 -0.6%，反映半导体内部并非一致强势；不将个股下跌推广为整个 AI 需求反转。[Reuters / MarketScreener](https://ca.marketscreener.com/news/wall-st-set-for-muted-open-as-tech-stocks-take-a-breather-ce785dd8d98cff2c)
 
-**确认信号：** NQ 上涨同时 SMH/NVDA 跑赢 QQQ。  
-**警告信号：** NQ 高开，但 SMH/NVDA 无法确认新高或快速翻绿。
+**分析 / 开盘观察名单：**
 
-### Mega-cap
-AAPL、MSFT、NVDA、AMZN、META、GOOGL、TSLA 今天首先看“收益率下降 beta”。如果 10Y 继续向 5.15% 靠近，mega-cap growth 通常更容易获得估值支持；若 10Y 重返 5.25% 以上，则需要降低这种判断的权重。
+| 组别 | 观察重点 | 对指数判断的意义 |
+|---|---|---|
+| NVDA、AVGO、AMD、MU；SMH/SOXX | 半导体能否收复开盘区间、相对 QQQ 转强 | 若 QQQ 上涨而芯片持续落后，科技突破可信度下降 |
+| MSFT、AMZN、GOOGL、META | 云/AI 权重能否共同站稳 VWAP | 多股参与比单一大权重拉升更有说服力 |
+| AAPL | 与 QQQ 的相对表现及开盘量能 | 若与上述权重同步走强，指数宽度改善 |
+| TSLA | 自身波动、成交量及消息核验 | 不把 TSLA 单股波动视作整个科技板块方向 |
+| DIA、XLF、IWM | 周期/金融/小盘能否跟上 | 检查上涨是否扩散至科技之外 |
 
-### Consumer
-NKE 财报后的大跌说明消费板块内部压力仍大。就业降温若进一步转化为收入/消费放缓，consumer discretionary 可能出现明显分化。
+本报告未取得上述所有个股的同步盘前报价，不填写估计涨跌幅。社交媒体关于公司订单、融资或新品的说法未经企业公告验证，不作为事实写入。
 
-### Energy
-油价从高位快速回落短期有利于市场通胀预期，但 XLE 昨日仍是强势板块。若 WTI 很快重新站回 $92–94，则“油价 → 通胀 → 长端收益率”交易可能重新出现。
+## 7. 情景化开盘交易计划（回溯框架，非已实现信号）
 
-## 七、开盘情景交易计划
+以下是根据盘前信息构建的条件计划；编写时已过开盘，不能声称策略在当时已发出，也不能用盘中结果证明策略有效。
 
-### Scenario A — Bullish continuation
-条件：
-- ES 开盘后守住 **7,695–7,700**
-- QQQ 突破并守住 **745–746**
-- 10Y 保持 **5.20% 以下**
-- SMH/NVDA 相对强于大盘
+### A：震荡后向上延续
 
-策略思路：等待第一波开盘波动结束后再考虑顺势，而不是直接追 premarket gap。上方关注 SPX 7,724 → 7,750，QQQ 749 附近。
+**条件：** QQQ 重新站稳 750.55，突破 753.57–754.54 后回踩守住；SPX 守住前收附近；半导体相对转强；10Y 不持续走高。
+**执行思路：** 等首 15 分钟区间及回踩确认，再考虑顺势；QQQ 下一参考 757.56，SPX 先看 7,752。跌回突破区、VWAP 和开盘区间下方则取消顺势假设。避免把首次瞬间穿越当作有效突破。
 
-### Scenario B — Gap-and-fade
-条件：
-- ES/QQQ 高开但前 15–30 分钟无法突破阻力
-- 10Y 从 5.18% 快速反弹至 **5.22%–5.25%**
-- 半导体不确认 NQ 涨幅
+### B：高位受阻、风险偏好回落
 
-策略思路：降低追涨仓位；SPX 若重新失守 **7,656**、QQQ 跌回 **741** 下方，则盘前 risk-on 信号明显减弱。
+**条件：** QQQ 冲击 753.57–754.54 失败并跌回 750.55/749.58；SPX 跌破前低附近；10Y 向 5.30% 上行且 VIX 同步抬升；SMH 落后。
+**执行思路：** 不追涨，等待反弹失败再评估减仓或对冲；下方关注 QQQ 747.53/746.56、DIA 508.69–508.84。价格重返 VWAP 且利率回落时，空头假设失效。
 
-### Scenario C — “Bad news becomes bad news”
-条件：
-- 市场从“Fed 不加息”转向担心就业/增长快速恶化
-- 银行、小盘、周期股明显落后
-- VIX 上升且指数无法维持就业数据后的涨幅
+### C：宏观数据前后双向震荡
 
-策略思路：不要把弱 payroll 自动视为 bullish。观察 IWM、XLF 和市场 breadth；如果只有 mega-cap 撑指数而 breadth 恶化，谨防午后回落。
+**条件：** 指数围绕前收与 Pivot 来回穿越，10Y/美元方向不一致，市场宽度缺乏跟随。
+**执行思路：** 等 09:45 和 10:00 数据后的首轮波动消化，再观察是否形成清晰区间；不开在区间中央。若反复假突破，保持观望，不能把交易频率当作机会数量。
 
-## 八、今天最重要的 Dashboard
+**执行纪律（分析）：** 每笔先确定失效位，再由可承受亏损反推数量；未核实实时合约、点差和隔夜区间时不使用本文 ES 网格机械下单。临近数据发布不要扩大既有风险；目标、止损距离不合理时放弃该笔交易。
 
-**10Y 5.18% / 5.20% → ES 7,700 → QQQ 745–749 → SMH/NVDA leadership → WTI $89–90**
+## 8. 午间补充：与盘前信息严格分开
 
-今天开盘的核心不是预测方向，而是确认就业数据后的第一轮市场定价是否能够维持。当前盘前信号偏 risk-on，但 10Y 仍处异常高位，因此更适合等待价格确认后行动，而不是把期货上涨视为确定性趋势。
+**盘中事实快照：** AP 报道正文明确为 10:10 ET：SPX 约 +0.3%，Nasdaq Composite 约 +0.5%，Dow 约 -0.3%；10Y 约 5.29%，Brent 约 $101.94。其网页机器发布时间与正文时刻存在不一致，因此按正文时间识别，**不作为 12:07 ET 的实时行情**。[AP 盘中报道](https://apnews.com/article/f83cf147deaf5a2361b1ae7eee74a627)
 
-## Sources
+**已发布数据的核验限制：** 10:00 的 ISM 公布时间已经过去。多家二级报道出现服务业 PMI 54.9，但本次打开的官方 September 服务业页面仍显示 2025 年版本，未取得对应 2026 年原文，因此不把该数字标为官方核实值，也不补造分项或 S&P Global 实际值。[二级市场报道](https://economyworld.org/treasury-yields-rise-to-start-week-traders-look-ahead-to-fed-minutes/)、[ISM 页面](https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/services/september/)
 
-- Reuters — Wall St futures extend gains after non-farm payrolls data: https://www.reuters.com/business/wall-st-futures-gain-yields-oil-prices-ease-ahead-jobs-report-2026-10-02/
-- Reuters — Fed seen skipping October rate hike as job market cools: https://www.reuters.com/business/fed-seen-skipping-october-rate-hike-job-market-cools-2026-10-02/
-- Reuters — Gold steadies ahead of US payrolls: https://www.reuters.com/world/india/gold-slips-before-us-payrolls-data-set-second-weekly-loss-2026-10-02/
-- AP — US futures climb as oil prices ease: https://apnews.com/article/a2b99562febc21d84955e243c87f5d31
-- AP — September jobs report: https://apnews.com/article/44b99f9ccbff863888af99402ddf535e
-- Reuters — Oct. 1 US market close: https://www.reuters.com/business/dow-futures-hit-three-month-low-yields-surge-micron-earnings-offer-support-2026-10-01/
-- QQQ historical data: https://stockanalysis.com/etf/qqq/history/
-- SPX historical data: https://chartexchange.com/symbol/index-spx/historical/
+**分析：** 10:10 的表现显示科技与道指分化，尚不足以确认全天单边方向。本文有可追溯的最新已取得资料，但不是完整实时终端快照；正式交易应重新加载即时行情及官方数据。
+
+---
+报告类型：中文美股 Premarket 回溯补写；日期：2026-10-05。未使用 FinanceDailyReport。来源链接逐项附在对应事实旁；分析、计算与未核实事项已独立标明。
