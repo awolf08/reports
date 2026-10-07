@@ -1,168 +1,136 @@
-# 2026-10-06 美股 Premarket Report（中文）
+# 2026-10-07 美股 Premarket Report（中文）
 
-> 报告日期：2026-10-06（星期二）。编写开始于 11:25 ET / 08:25 PT；资料核验截至约 11:28 ET。**本文为盘前资料回溯、盘中补写版，并非开盘前发布。** 盘前快照、已公布经济数据与盘中补充分别标注；所有报价保留来源时间，不能视为同一时刻的实时交易终端。未使用 FinanceDailyReport。
+> 报告日期：2026-10-07（星期三）。资料核验基于公开市场来源，主要盘前报价来自 2026-10-07 开盘前资料；编写时公开页面已显示美股开盘后的若干报价，因此本文把**盘前事实**、**技术计算**、**分析判断**和**盘中补充**分开标注。本文未使用 FinanceDailyReport。所有报价可能延迟或滚动更新，不构成投资建议。
 
-## 1. 核心判断
+## 1. 核心结论
 
-**事实：** 10/5 标普500收于 7,773.95（+0.66%）、道指 51,267.90（+0.18%）、纳斯达克综合指数 27,477.31（+1.05%）。10/6 早间三大股指期货上涨，油价、10Y 收益率回落。[AP 前日收盘](https://apnews.com/article/7f89624b604f25f313502c77d4d0b010)、[Reuters 盘前稿](https://www.investing.com/news/economy-news/wall-st-futures-rise-as-yields-oil-dip-4933888)
+**事实：** 10/6 标普500收于 7,818.93（+0.58%），纳斯达克综合指数收于 27,599.79/27,599.89 附近（不同来源尾数略有差异），道指收于 51,521.28（+0.49%），标普和纳指均刷新收盘纪录。盘前 ES/NQ/YM 回落，长端收益率重新上行，美元走强，黄金承压，油价因地缘风险保持支撑。来源：[Cannon 10/7 盘前简报](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct07-2026-readers-web-v2.html)、[Investrade 10/7 Morning Preview](https://investrade.com/morning-preview-october-07-2026/)、[Ringside Pre-Bell](https://buttondown.com/Ringside/archive/ringside-pre-bell-october-7/)。
 
-**分析：** 盘前环境偏向“科技领涨下的上涨延续”，但靠近前高时，利率能否继续回落、半导体是否广泛参与，比单一指数创新高更重要。优先等待突破后的回踩确认；若指数高开后失守前高、利率反弹，则转为防范冲高回落。本文不赋予未经统计验证的情景概率。
+**分析：** 今天不是典型“低波动无事件日”。指数刚创纪录，但盘前压力来自三个方向：10Y 回到 5.3%上方、美元指数回升、半导体/日韩科技股走弱。开盘交易重点不是追问“牛市是否结束”，而是检验昨日纪录高位是否能转化为支撑：SPX 7,818.93 / 7,800 区域、QQQ 759.66 / 758.22 区域、ES 7,840–7,865 区域若反抽失败，短线容易从趋势延续切到获利了结。
 
-## 2. Overnight / Global context
+## 2. Overnight / Global Context
 
-**事实（当天早报，全球报价分钟未披露）：** 日本 Nikkei 约 70,883、上涨737点；恒生约24,280、上涨240点；上海市场国庆假期休市。欧洲 DAX 约25,414、上涨160点，FTSE 100约10,555、上涨58点。[eOption / Hammerstone 早报](https://www.eoption.com/morning-preview-october-06-2026/)
+**事实：** 亚欧市场风险偏好偏弱。Ringside 的盘前表显示 Euro Stoxx 50 -1.54%、DAX -1.35%、CAC 40 -1.13%、FTSE 100 -0.71%；亚洲方面 Nikkei 225 -0.92%、Kospi -1.98%、Hang Seng -0.62%，中国内地市场因假期继续休市至 10/7。Investrade 也报道日经、恒生和欧洲主要指数下跌。来源：[Ringside](https://buttondown.com/Ringside/archive/ringside-pre-bell-october-7/)、[Investrade](https://investrade.com/morning-preview-october-07-2026/)。
 
-**分析：** 亚欧同向上涨为美国风险资产提供背景支持，但不能代替美股自身的开盘成交量与市场宽度。油价下降可缓解成本压力；如果长端收益率仍因债券供给、期限溢价而反弹，科技估值压力不会随油价下降自动消失。
+**事实：** 油价受到中东/海湾航运风险支撑；Ringside 指出 Brent 维持在 100 美元上方，Cannon 显示 Brent Dec 约 101.67、WTI Nov 约 89.84。来源：[Ringside](https://buttondown.com/Ringside/archive/ringside-pre-bell-october-7/)、[Cannon](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct07-2026-readers-web-v2.html)。
 
-**事实：** Reuters 凌晨稿显示，06:20 UTC（02:20 ET）现货黄金约4,127.87美元/盎司、下跌0.3%，美国黄金期货约4,155.30美元。它与稍后晨间黄金上涨并不构成同一时刻矛盾。[Reuters 黄金报道](https://www.marketscreener.com/news/gold-inches-lower-as-firmer-dollar-higher-yields-weigh-ce785dd8dc88f420)
+**分析：** 海外下跌、油价高企和收益率上行构成“估值压力 + 成本压力”的组合。美股仍有 AI/mega-cap 趋势支撑，但今天需要更高质量的市场宽度来确认，而不能只靠少数权重股维持指数。
 
 ## 3. 盘前跨资产快照
 
-| 资产 | 报道值 | 时间、口径与限制 |
+| 资产 | 盘前/公开快照 | 事实口径 |
 |---|---:|---|
-| ES / 标普500期货参考 | 7,846；+19.25，+0.25% | eOption 10/6 Early Look；未列合约月及分钟 |
-| NQ / 纳指100期货参考 | 31,443；+126.50，+0.40% | 同上 |
-| YM / 道指期货参考 | 51,774；+215，+0.42% | 同上 |
-| VIX | 15.32；-0.20，-1.29% | Schwab 页面标注09:11 ET；前日参考15.52 |
-| 美国2Y收益率 | 约4.82% | Cannon 约04:10 ET盘前读数；非官方日终值 |
-| 美国10Y收益率 | 5.28%；约-3bp | Schwab 09:11 ET页面快照 |
-| DXY | 101.86；-0.31% | 同上 |
-| WTI原油 | 87.37美元/桶；-2.28% | 同上；原表未列合约月 |
-| Brent原油 | 98.50美元/桶；-1.82美元 | eOption早报；未列合约月和分钟 |
-| 黄金 | 4,199.20美元/盎司；+1.03% | Schwab原表仅标Gold，未明确现货/合约 |
+| ES Dec 26 | 7,862.50，-0.15% vs settle；另有来源约 7,857 / 7,858.50 | Cannon / Investrade / Ringside，盘前来源时间不同 |
+| NQ Dec 26 | 31,339，-0.46%；另有来源约 31,324 / 31,320.25 | 同上 |
+| YM Dec 26 | 51,673，-0.28%；另有来源约 51,583 / 51,589 | 同上 |
+| VIX | 15.01，10/6 收盘；前值 15.52 | Cannon 风险表 |
+| 美国2Y收益率 | 4.81% | Cannon 盘前表 |
+| 美国10Y收益率 | 5.32%，约 +4bp；Trading Economics 页面显示 10Y 回到约 5.32%/5.35%区域 | Cannon / Trading Economics |
+| DXY | 102.30，+0.45% | Cannon 盘前表 |
+| WTI | 89.84，+0.45% | Cannon 盘前表 |
+| Brent | 101.67，+1.1% | Cannon 盘前表 |
+| Gold Dec 26 | 4,144.90，-1.01% | Cannon 盘前表 |
 
-来源：[eOption](https://www.eoption.com/morning-preview-october-06-2026/)、[Schwab 当日市场更新](https://www.schwab.com/learn/story/stock-market-update-open)、[Cannon 10/6盘前简报](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct06-2026-readers-web-v1.html)。
+来源：[Cannon](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct07-2026-readers-web-v2.html)、[Investrade](https://investrade.com/morning-preview-october-07-2026/)、[Ringside](https://buttondown.com/Ringside/archive/ringside-pre-bell-october-7/)、[Trading Economics 10Y](https://tradingeconomics.com/united-states/government-bond-yield%3F%26sa%3Du%26ei%3Dkkqhvnwhfcpkppumgba%26ved%3D0ceuqfjai%26usg%3Dafqjcngokmtugojcdlec7t4z1zw1qmq5vq%26%26sa%3Du%26ei%3Dkkqhvnwhfcpkppumgba%26ved%3D0ceuqfjai%26usg%3Dafqjcngokmtugojcdlec7t4z1zw1qmq5vq)。
 
-**时间质量说明：** Schwab 页首标09:11 ET，正文却含开盘措辞；此处按页面标注时间引用表格，不能证明每笔报价均于09:11采集。不同来源的期货涨跌基准和时间不同，不拼成同步行情。FRED 本次读取的官方2Y最新观察仍为10/2的4.83%，故没有拿它充当今天盘前数据。[FRED DGS2](https://fred.stlouisfed.org/series/DGS2)
+**分析：** 2Y 约 4.81%、10Y 约 5.32%意味着曲线仍明显正斜率，压力集中在期限溢价和长端供给，而不只是近端政策利率。DXY 上到 102.30、黄金回落，说明宏观资金更偏“美元/收益率约束风险资产”的框架。VIX 15 附近仍属低波动区，但低 VIX 在长端利率冲高日不等于低风险。
 
-**分析：** 油、美元和长端收益率在晨间回落，方向上有利于风险偏好；但VIX约15并不意味着不存在跳空风险。观察10Y能否保持在5.30%下方、DXY是否重新站上102；这些是本报告人为设置的观察阈值，不是已验证技术阻力。不同分钟的2Y/10Y不用于计算精确收益率曲线变化。
+## 4. 今日经济数据、Fed 与财报
 
-## 4. 今日经济数据、Fed讲话与财报
+时间为美东 ET；美西 PT 减 3 小时。
 
-时间均为美东EDT；美西PDT减3小时。
-
-### 经济数据与债券供给
-
-| 时间 ET / PT | 事件 | 核实情况 |
+| 时间 | 事件 | 事实状态 |
 |---|---|---|
-| 08:30 / 05:30 | 8月美国商品及服务贸易 | 已发布；官方实际值见下文 |
-| 10:00 / 07:00 | 纽约联储全球供应链压力指数 | 官方日历列于今天；未取得本次实际值，不填估计 |
-| 13:00 / 10:00 | 3年期国债拍卖，580亿美元 | 盘前券商日历一致列示；编写时尚未举行 |
-| 16:30 / 13:30 | API每周原油库存 | 早报日历；属于行业数据，非EIA官方库存 |
-| 10/7 14:00 / 11:00 | FOMC会议纪要 | Fed官方日历确认；是明天，不是今天 |
+| 7:00 | MBA mortgage applications | Cannon / Ringside 日历列示，前值 -6.0% |
+| 10:30 | EIA/DOE 原油库存 | Cannon / Investrade / Ringside 均列示 |
+| 13:00 | 390 亿美元 10 年期国债 reopening/auction | 多来源列示；收益率背景是当天核心风险之一 |
+| 14:00 | FOMC Minutes，9/15–9/16 会议纪要 | Fed 官方 10 月日历列示 |
+| 15:00 | 8 月 Consumer Credit / G.19 | Fed 官方日历列示；Ringside 给出市场预期约 144 亿美元，前值约 180.6 亿美元 |
+| 盘后 | Levi Strauss、Applied Digital；另有 RELL、RGP 等 | Cannon / Investrade / Kiplinger 列示；Kiplinger称盘前无重要财报，APLD 盘后受关注 |
 
-来源：[纽约联储10月日历](https://www.newyorkfed.org/research/calendars/i-oct26.html)、[Cannon 今日安排](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct06-2026-readers-web-v1.html)、[eOption](https://www.eoption.com/morning-preview-october-06-2026/)、[Fed官方月历](https://www.federalreserve.gov/newsevents/2026-october.htm)。
+来源：[Fed 2026 年 10 月官方日历](https://www.federalreserve.gov/newsevents/2026-october.htm)、[Kiplinger 经济日历](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar)、[Kiplinger 财报日历](https://www.kiplinger.com/investing/stocks/17494/next-week-earnings-calendar-stocks)、[Cannon](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct07-2026-readers-web-v2.html)、[Ringside](https://buttondown.com/Ringside/archive/ringside-pre-bell-october-7/)。
 
-**已公布事实（08:30，开盘前已可知）：** 8月贸易逆差 **1,056亿美元**，7月修订为928亿美元；出口3,152亿美元（环比+1.4%），进口4,208亿美元（+4.3%）。官方公布逆差环比增加127亿美元；因显示值四舍五入，直接相减可能出现1亿美元差异。数据为季调名义值。[Census / BEA 官方发布PDF，第1页](https://www.census.gov/foreign-trade/Press-Release/ft900/ft900_2608.pdf)
+**分析：** 今天下午的组合很关键：13:00 10Y 拍卖先测试真实需求，14:00 FOMC 纪要再测试政策叙事。如果拍卖尾部偏弱并且纪要偏鹰，长端利率可能重新压制科技估值；若拍卖需求尚可、纪要未强化连续加息预期，则早盘回落更可能被视作纪录高位后的常规整理。
 
-**分析：** 进口增速明显快于出口，净出口可能给GDP核算带来压力，但不能只凭逆差扩大就判断国内需求衰退；还需看实际数量、价格、库存及投资构成。关注拍卖结果对利率的影响：若中标收益率高于发行前交易水平且需求偏弱，早间利率回落可能逆转。
+## 5. SPX / SPY / QQQ / DIA / ES 技术位
 
-### Fed讲话
+### 5.1 静态计算位
 
-| 时间 ET / PT | 人物、事项 | 证据等级 |
-|---|---|---|
-| 09:05 / 06:05 | John Williams，活动/发言 | Cannon及当日市场日历列示；未核实讲话原文 |
-| 10:45 / 07:45 | Michelle Bowman，监管现代化主题 | Fed官方10月日历确认；不预设会释放加息信号 |
-| 10:45 / 07:45 | Alberto Musalem，银行研究会议 | 二级日历列示，未独立取得官方时刻 |
-| 13:15 / 10:15 | Jeff Schmid，炉边谈话 | 二级日历列示，未独立取得官方时刻 |
-| 晚间，二级日历19:00 / 16:00 | Logan与Agustín Carstens活动 | Dallas Fed确认今天有该活动；具体时刻存在二级来源18:00/19:00冲突，保留待核实 |
+以下枢轴位使用 10/6 常规交易时段高、低、收盘计算：P=(H+L+C)/3；R1=2P-L；S1=2P-H；R2=P+(H-L)；S2=P-(H-L)。这些是**计算参考位**，不是实际订单流或交易建议。
 
-来源：[Fed官方月历](https://www.federalreserve.gov/newsevents/2026-october.htm)、[Dallas Fed活动页](https://www.dallasfed.org/research/perspectives)、[Cannon](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct06-2026-readers-web-v1.html)、[当日讲话日历](https://stockhub.kr/en/news/news_53ae35b1623d)、[Kiplinger周历](https://www.kiplinger.com/investing/economy/this-weeks-economic-calendar)。
-
-**分析：** 把监管主题与货币政策表态分开。只有实际提及通胀、就业或政策路径，并得到2Y收益率反应确认，才提高其政策信号权重。编写时已过的活动不代表本报告已核实其全部发言。
-
-### 财报
-
-- **盘前：** APOG、LW、RPM。
-- **盘后：** STZ、PENG、WS；另有NEOG。
-- **已官方核实：** NEOG在10/6收盘后发布，16:30 ET电话会。部分周历把NEOG归在另一组，本文以公司公告为准。
-- 上述其他公司时段依据当天早报；本报告不将日历预期当成已公布业绩，也不填未经统一口径核实的EPS预期。
-
-来源：[eOption财报日历](https://www.eoption.com/morning-preview-october-06-2026/)、[Neogen投资者关系公告](https://investors.neogen.com/news/news-details/2026/Neogen-Announces-First-Quarter-Earnings-Release-Date/default.aspx)。
-
-**分析：** RPM/APOG关注成本与工业需求，LW/STZ关注消费、销量及利润率；PENG关注AI计算业务及指引。它们提供行业线索，不能直接代表mega-cap整体盈利。
-
-## 5. SPX / QQQ / DIA / ES关键技术位
-
-### 已核实历史输入与计算
-
-使用10/5常规交易时段高、低、收盘。传统Pivot公式：P=(H+L+C)/3；R1=2P−L；S1=2P−H；R2=P+(H−L)；S2=P−(H−L)。这些是计算参考位，不是已观察到的真实买卖盘。
-
-| 标的 | 10/5 H / L / C | S2 | S1 | P | R1 | R2 |
+| 标的 | 10/6 H / L / C | S2 | S1 | P | R1 | R2 |
 |---|---|---:|---:|---:|---:|---:|
-| SPX | 7,794.35 / 7,727.59 / 7,773.95 | 7,698.54 | 7,736.24 | 7,765.30 | 7,803.00 | 7,832.06 |
-| QQQ | 756.92 / 749.08 / 756.20 | 746.23 | 751.21 | 754.07 | 759.05 | 761.91 |
-| DIA | 513.28 / 507.84 / 512.11 | 505.64 | 508.87 | 511.08 | 514.31 | 516.52 |
+| SPX | 7,844.52 / 7,805.96 / 7,818.93 | 7,784.58 | 7,801.75 | 7,823.14 | 7,840.31 | 7,861.70 |
+| SPY | 781.62 / 777.96 / 779.09 | 775.90 | 777.49 | 779.56 | 781.15 | 783.22 |
+| QQQ | 762.86 / 759.10 / 759.66 | 756.78 | 758.22 | 760.54 | 761.98 | 764.30 |
+| DIA | 515.99 / 513.49 / 514.56 | 512.18 | 513.37 | 514.68 | 515.87 | 517.18 |
 
-来源：[SPX ChartExchange](https://chartexchange.com/symbol/index-spx/historical/)、[SPX第二来源](https://www.investing.com/indices/us-spx-500-historical-data)、[QQQ历史表](https://stockanalysis.com/etf/qqq/history/)、[QQQ交叉核验](https://www.investing.com/etfs/powershares-qqqq-historical-data)、[DIA历史表](https://stockanalysis.com/etf/dia/history/)。SPX的10/5高低收盘在两表一致；DIA当日10/6尚未完成的历史行不用于计算。
+来源：[SPX Investing.com 历史数据](https://www.investing.com/indices/us-spx-500-historical-data?cid=40826)、[SPY ChartExchange](https://chartexchange.com/symbol/nyse-spy/historical/)、[QQQ ChartExchange](https://chartexchange.com/symbol/nasdaq-qqq/historical/)、[DIA ChartExchange](https://chartexchange.com/symbol/nyse-dia/historical/)。
 
-**ES 2026年12月合约：** Cannon发布P=7,812.42、S1=7,777.33、S2=7,725.17、R1=7,864.58、R2=7,899.67；报道前日结算7,826.25。这是来源提供的技术计算，本文未取得完整原始OHLC自行重算。实际可成交报价须按合约最小跳动处理。[Cannon ES技术表](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct06-2026-readers-web-v1.html)
+### 5.2 盘前/开盘观察位
 
-### 分析：优先观察顺序
+**事实：** SPY 盘前 9:29:30 ET 显示 775.73（-0.431%），QQQ 盘前 9:29:45 ET 显示 754.03（-0.741%），DIA 盘前 9:29:30 ET 显示 510.18（-0.851%）。这些页面随后已进入盘中状态，因此只把对应行作为盘前最后快照。来源：[SPY](https://chartexchange.com/symbol/nyse-spy/historical/)、[QQQ](https://chartexchange.com/symbol/nasdaq-qqq/historical/)、[DIA](https://chartexchange.com/symbol/nyse-dia/historical/)。
 
-- **SPX：** 上方7,794.35前高 → 7,803.00 → 7,816.70（历史表所列8/13高点）→ 7,832.06；下方7,773.95前收 / 7,765.30中轴，继而7,736.24及7,727.59前低。
-- **QQQ：** 756.20–756.92为前收/前高区域；站稳后观察759.05、761.91。跌回754.07下方，转看751.21与749.08。
-- **DIA：** 513.28前高、514.31首阻力；突破回踩守住后观察516.52。下方512.11前收、511.08中轴，其后508.87、507.84。
-- **ES：** 7,826.25是前结算参考，7,812.42是中轴；上方7,864.58、7,899.67，下方7,777.33。须加入真实隔夜高低、09:30–09:45开盘区间及当日VWAP后才形成入场条件；本文没有取得可靠的隔夜高低，故不补造。
-- SPX为现货指数，ES为期货，有基差；QQQ是ETF而非纳指100点位，DIA也不能简单当作道指除100。四者技术位不得互换。
+**分析：**
 
-## 6. 科技、半导体与mega-cap重点
+- **SPX：** 7,818.93 前收与 7,823.14 枢轴是多空分界；7,840.31 / 7,844.52 是第一压力，7,861.70 是上方扩展。若跌破 7,801.75，7,800 整数位失守会削弱纪录高后的承接。
+- **SPY：** 779.09/779.56 为回补强弱区；上方 781.15/781.62 是首要压力。若 777.49 失守，775.90 与盘前 775.73 附近成为下一支撑。
+- **QQQ：** 759.66 前收、760.54 枢轴与 762.86 前高构成压力带；盘前 754.03 明显低于 S1/S2，说明科技开盘前已经承压。若反抽不能收回 758.22，倾向先按弱反弹处理。
+- **DIA：** 514.56/514.68 是关键回补位；盘前 510.18 低于 S2 512.18，意味着道指 ETF 开盘前承接弱于前日区间。上方先看 512.18/513.37，收不回则不急于判断反转。
+- **ES：** Cannon 给出 ES Dec 26 盘前 7,862.50，Investrade 约 7,857，Ringside 约 7,858.50；Cannon 同页称 Tuesday cash close 对应 dealer gamma 仍偏 dampened。实盘看 7,865 附近是否转阻力，以及 7,840/7,825 区域是否有买盘承接。
 
-**新闻事实：**
+## 6. 科技、半导体与 Mega-cap 重点
 
-1. Reuters盘前稿报道NVDA约+0.7%；前日NVDA、MSFT是纳指上涨的重要权重。该百分比属于早盘稿时点，不是本文编写时的实时报价。[Reuters](https://www.investing.com/news/economy-news/wall-st-futures-rise-as-yields-oil-dip-4933888)
-2. Schwab报道AMD早间接近+2%，Citi提高目标价；并指出前日SOX仅约+0.2%，半导体内部强度不齐。[Schwab](https://www.schwab.com/learn/story/stock-market-update-open)
-3. Google官方新闻条目宣布与Constellation合作增加890MW核电容量；Reuters报道总购电规模3,590MW。早期“接近达成”的传闻已被当天公告更新，不能继续当作仅有谈判的状态。[Google新闻公告](https://www.googlecloudpresscorner.com/2026-10-06-Google-and-Constellation-Announce-Landmark-Agreement-to-Bring-890-MW-of-New-Nuclear-Capacity-to-PJM-Grid-as-Part-of-Long-Term-Power-Deal)、[Reuters交易细节](https://finance.yahoo.com/energy/articles/google-enters-massive-3-6-103617066.html)
+**事实：** 周二纪录高位主要由科技、AI、电力基础设施相关板块支撑。Cannon 指出 Marvell 因长期展望上调而上涨，Broadcom 也走强，Constellation Energy 和 Vistra 因 Google 相关电力协议/融资消息大涨；但 Russell 2000 下跌，说明上涨并非全面扩散。来源：[Cannon](https://www.cannontrading.com/tools/daily-updates/uploads/briefing-oct07-2026-readers-web-v2.html)。
+
+**事实：** Ringside 指出盘前半导体设备链偏弱，东京 Disco 下跌，韩国市场也受芯片股拖累；NQ 盘前跌幅大于 ES/YM。来源：[Ringside](https://buttondown.com/Ringside/archive/ringside-pre-bell-october-7/)。
 
 **分析 / 观察清单：**
 
-| 标的组 | 观察什么 | 如何影响交易判断 |
+| 主题 | 需要确认的事实 | 交易含义 |
 |---|---|---|
-| NVDA、AMD、AVGO；SMH/SOXX | 相对QQQ强弱、前高突破后是否守住VWAP | 多只芯片参与可提高科技突破可信度 |
-| MU及存储链 | 是否跟随算力芯片，还是继续分化 | 不把NVDA独强当作整个半导体景气同步改善 |
-| MSFT、AMZN、GOOGL、META、ORCL | 云/AI资本开支预期与股价承接 | 电力投入说明建设需求，也带来成本与回报率问题 |
-| AAPL | 能否与云/芯片权重共同走强 | 检验QQQ上涨参与面 |
-| TSLA | 自身消息、成交量和波动 | 不以其单股波动替代全市场信号 |
-| CEG及电力配套链 | 公告后跳空是否获得持续买盘 | 订单/协议与当期利润兑现之间仍有距离 |
-| DIA、IWM、XLF及等权指数 | 是否与科技同步改善 | 若持续落后，降低“全面风险偏好回升”的判断强度 |
+| NVDA / AVGO / MRVL / AMD | 是否同步强于 QQQ、是否站回 VWAP | 多股共振才支持科技延续；单股独强不够 |
+| 半导体设备与 SOX/SMH | 亚洲设备链压力是否传导到美股 | 若设备股持续落后，NQ 反弹质量下降 |
+| MSFT / GOOGL / AMZN / META | 云、AI capex、能源/电力叙事是否继续被买入 | 继续强势可缓冲利率压力，但不能完全抵消 10Y 上行 |
+| AAPL | 是否参与 mega-cap 承接 | 若 AAPL 与半导体同时弱，QQQ 更容易反抽失败 |
+| TSLA | 是否独立波动、是否与纳指方向一致 | 不用 TSLA 单股走势代表整体科技风险偏好 |
+| CEG / VST / 电力链 | 周二跳涨后是否守住缺口/前高 | AI 电力主题强，但连续追高需防事件后回吐 |
+| IWM / RSP / DIA | 宽度是否改善 | 若小盘、等权、道指继续落后，指数创新高后的结构仍偏窄 |
 
-没有可靠新公告的公司只列观察逻辑，不虚构催化或盘前涨跌幅。
+## 7. 情景化开盘交易计划
 
-## 7. 情景化开盘交易计划（回溯条件框架）
+以下是基于盘前资料构建的条件框架。由于本文写入时部分公开页面已显示盘中状态，所有计划仅作为“开盘前应如何组织观察”的回溯框架，不声称已经提前触发信号。
 
-以下完全依据开盘前已可得的前日价格、晨报与08:30数据构建。本文实际发布晚于开盘，**不能声称已提前发出信号，也不能用盘中上涨证明计划有效**。
+### 情景 A：回落后快速收复，纪录高延续
 
-### A. 高开守住、上涨延续
+**事实触发条件：** SPY/QQQ/DIA 开盘后收复各自 S1 或前收区域；SPX 重新站上 7,818.93/7,823.14；ES 重新站上 7,865 附近并守住回踩；10Y 不继续上冲，DXY 不扩大涨幅；NVDA/AVGO/AMD 或至少 SMH 重新强于 QQQ。
 
-**条件：** 首15分钟后QQQ守住756.20–756.92，突破开盘区间高点后回踩不破；SPX站稳7,794.35；ES持于前结算及中轴上方；半导体参与，10Y不持续上行。
+**分析计划：** 等第一次回踩守住 VWAP 或开盘区间上沿，再考虑顺势。上方 SPX 看 7,840/7,844，再看 7,861；QQQ 看 758.22、760.54、761.98；SPY 看 779.56、781.15。若价格直接远离 VWAP，不追第一笔扩张。
 
-**执行思路：** 等回踩形成更高低点，再评估顺势；QQQ目标参考759.05/761.91，SPX观察7,803/7,816.70，ES观察7,864.58/7,899.67。若开盘已越过某目标，不把该目标当成尚未发生的机会，也不追逐远离VWAP的扩张。
+**失效条件：** 指数反抽到前收/枢轴附近后被卖回，且半导体没有确认；此时把上涨延续假设降级。
 
-**失效：** 突破后跌回前高区域下方，且失守VWAP/回踩低点。价格确认优先于宏观叙事。
+### 情景 B：反抽失败，利率压制主导
 
-### B. 高开失败、回补涨幅
+**事实触发条件：** QQQ 无法收回 758.22，SPY 无法收回 777.49/779.09，DIA 低于 512.18；ES 反抽 7,840–7,865 失败；10Y 维持 5.32%上方或继续走高，DXY 站稳 102 上方，VIX 从 15 附近上行。
 
-**条件：** QQQ无法维持756.92上方，跌破756.20并反抽失败；SPX跌回7,773.95/7,765.30；ES失守7,826.25及7,812.42；VIX抬升、10Y向5.30%回升或芯片明显落后。
+**分析计划：** 优先等失败反抽，而不是追低。下方观察 QQQ 756.78 以及盘前/盘中低点，SPY 775.90，DIA 510.18/508–509 区域，SPX 7,801.75 与 7,784.58。若下午 10Y 拍卖偏弱或 FOMC 纪要偏鹰，弱势情景可延续到尾盘。
 
-**执行思路：** 等失败反抽再考虑减仓或对冲。QQQ下看754.07，继而751.21；DIA看512.11/511.08；ES看7,777.33。只出现VIX一个指标变化不足以触发交易。
+**失效条件：** 10Y 回落、美元回吐、科技重新领涨并收复 VWAP；停止沿用空头偏见。
 
-**失效：** 指数重新收复VWAP及失败突破区，市场宽度改善；停止沿用空头假设。
+### 情景 C：午前震荡，等待 10Y 拍卖与 FOMC 纪要
 
-### C. 区间震荡、等待利率催化
+**事实触发条件：** 指数在 S1/S2 与前收之间反复穿越，板块轮动快，成交量集中在开盘后逐步下降。
 
-**条件：** QQQ反复穿越前收/前高，SPX与ES无法建立连续更高高点，权重与等权表现分化。
+**分析计划：** 避免在区间中央交易。13:00 拍卖前降低对单边趋势的置信度；14:00 纪要前后等待第一轮利率和美元反应，再判断方向。若没有明确优势，观望是有效交易决策。
 
-**执行思路：** 不在区间中央追单；只在边界出现明确拒绝或突破回踩时评估交易。13:00国债拍卖前重新检查利率与已有风险，拍卖后等首轮波动消化。若没有明确优势，观望就是有效选择。
+**通用纪律：** 先定义失效位，再反推仓位；同向 SPY/QQQ/半导体/mega-cap 敞口高度相关，不视为分散。任何盘前价位在下单前都必须用实时行情重新核验。
 
-**通用纪律（分析）：** 先定义结构失效位，再按可承受亏损反推仓位；把滑点计入风险。多个指数与科技股仓位高度相关，不视为独立分散。资料报价不替代下单前实时核验，不执行证券交易。
+## 8. 盘中补充（与盘前事实分开）
 
-## 8. 盘中补充：与盘前快照分开
+**事实：** ChartExchange 页面在 11:00 ET 后显示 SPY、QQQ、DIA 均处于盘中下跌状态，例如 SPY 约 774.44、QQQ 约 754.04、DIA 约 509.02（页面时间分别约 11:04–11:12 ET）。这些不是盘前数据，不能回填为开盘前判断。来源：[SPY](https://chartexchange.com/symbol/nyse-spy/historical/)、[QQQ](https://chartexchange.com/symbol/nasdaq-qqq/historical/)、[DIA](https://chartexchange.com/symbol/nyse-dia/historical/)。
 
-**最新取得的盘中/当日指示：** Trading Economics在本次读取时显示2Y约4.787%（四舍五入4.79%），同页10Y约5.26%、DXY约101.839。页面更新日期为10/6，但没有统一成交分钟，因此仅作当日指示，不能回填成09:30前报价；也不能将其OTC指示与FRED日终常数期限收益率视作完全相同的序列。[Trading Economics 2Y及跨资产表](https://tradingeconomics.com/united-states/2-year-note-yield)
-
-**已注明时刻的盘中报道：** AP正文09:35 ET称SPX约+0.5%、Nasdaq Composite约+0.6%，道指上涨185点（约+0.4%）；10Y约5.28%、Brent约97.97美元。其网页机器发布时间与正文时刻不一致，采用正文09:35识别，不标为11:28实时报价。[AP盘中稿](https://apnews.com/article/e8285ec7afbe81e9df277e8ee2127982)
-
-**分析：** 这些资料说明早盘风险偏好获得一定延续，但不足以断言全天趋势。现在已过开盘，实际决策应从当前价格、最新VWAP及下午拍卖风险重新评估，不能追认回溯计划的进场点。
+**分析：** 盘中补充与盘前框架方向一致：QQQ/DIA 相对前日区间承压，说明“反抽能否收复 S1/前收”比“是否低开”本身更重要。下午 10Y 拍卖和 FOMC 纪要仍是能改变日内节奏的事件。
 
 ---
-报告日期：2026-10-06。事实均附来源；计算、分析和未核实项目分开标识。公开网页可能延迟、滚动更新或时间不一致，本报告保留具体口径。未使用 FinanceDailyReport。
+
+报告日期：2026-10-07。事实、计算与分析已分开标识；公开网页可能延迟、滚动更新或时间口径不同。未使用 FinanceDailyReport。
