@@ -1,56 +1,50 @@
-# 2026-10-20 美股 Premarket Report
+# 2026-10-21 美股早盘更新（Premarket / Opening Update）
 
-> 生成时间：2026-10-20 08:25 PT（11:25 ET，**美股已经开盘**）。本版为“盘前信息 + 早盘跟踪”，不是11:25 ET实时行情。盘前报道来自不同时间，禁止把它们当作同步现价。
+> 更新时点：2026-10-21 约08:26 PT / 11:26 ET。**已经开盘**。以下包括昨日收盘、今天盘前报道及开盘后早盘报道，均标明时点；不是实时行情终端报价。
 
-## 今日主线
-**已报道事实：** 今早科技/半导体偏弱，油价因中东局势维持高位。Investopedia盘前报道纳指期货约 -0.8%、标普期货约 -0.3%，WTI约 $106.20；MarketWatch盘前报道10年期美债收益率约5.126%。以上均为报道时点快照，不能作为此刻可交易价格。
+## 核心结论
+**已报道事实：** AI交易情绪改善，SpaceX和SMCI财报相关消息提振科技股；Netflix财报指引逊于预期，表现相对疲弱。油价仍在高位，投资者等待META、TSLA盘后财报。
+**分析判断：** 目前是“AI财报推动反弹”与“能源通胀及融资成本压力”并存的环境。观察NQ相对ES强弱、SOX和市场广度，避免把盘前涨幅视为全天趋势。
 
-**分析判断：** 市场关注AI资本开支能否兑现收益；油价与通胀压力限制成长股估值扩张。昨日科技反弹尚需成交量、市场广度及半导体领涨确认。
+## 盘前与早盘快照（各自时间不同）
+| 指标 | 数值 | 时点与解释 |
+|---|---:|---|
+| SPX | 7,712.57 | 10/20收盘，非今天现价 |
+| Dow | 52,495.88 | 10/20收盘 |
+| Nasdaq Composite | 26,424.82 | 10/20收盘，不是NDX/NQ |
+| S&P 500期货 | +0.3% | 10/21盘前媒体报道，非当前 |
+| Nasdaq期货 | +0.7% | 10/21盘前媒体报道，非当前 |
+| Dow期货 | +0.2% | 10/21盘前媒体报道，非当前 |
+| SPX | 7,730.06 (+0.23%) | 10/21 09:54 ET 路透早盘快照 |
+| Nasdaq Composite | 26,572.61 (+0.56%) | 同上 |
+| Dow | 52,586.74 (+0.17%) | 同上 |
+| SOX | +1.2% | 10/21 09:54 ET附近报道 |
+| 10年期国债收益率 | 约5.10%–5.11% | 10/21盘前来源，非同步 |
+| 2年期国债收益率 | 4.785% | 10/20收盘参考 |
+| WTI | $98.40/桶 | 10/21盘前报道 |
+| Brent | 约$110/桶 | 10/21早盘报道 |
+| 黄金期货 | 约$4,160/盎司 | 10/21盘前报道 |
+| VIX、DXY、ES/NQ/YM绝对点位 | 未核实同步报价 | 不使用猜测值 |
 
-## 市场快照（不同来源、不同时点）
-| 指标 | 参考信息 | 时点及限制 |
-|---|---|---|
-| ES | 约7,714（-0.27%） | Swingfolio 08:31 ET盘前；非当前价格 |
-| NQ | 约29,513（-0.70%） | 同上；非当前价格 |
-| YM | 未核实可比绝对报价 | 请核对CME主力合约 |
-| SPX | 7,690.73 | 10/19收盘参考，非今日实时 |
-| Nasdaq Composite | 10/19涨约1.11% | 不是NDX或NQ |
-| VIX | 18.84 | Swingfolio盘前快照；不是实时 |
-| 10Y | 约5.126%–5.136% | 早间来源有差异 |
-| 2Y | 未核实 | 不填猜测值 |
-| DXY | 约101.8 | Swingfolio早间快照 |
-| WTI | 约$106.20 | Investopedia盘前报道 |
-| Brent | 约$111.22 | Swingfolio早间报道 |
-| 黄金 | 偏弱 | 不填未经同步核实的现价 |
+## 今日重要公司与事件
+- **SpaceX (SPCX)**：报告首个季度盈利，盘前大涨；与TSLA潜在合并仅在讨论，不能视为已决定。
+- **SMCI**：初步财务展望强于预期，带动AI服务器供应链（DELL、HPE）情绪。
+- **NFLX**：第四季度指引不及预期，股价承压。
+- **META / TSLA**：预计美股收盘后公布财报。关注AI资本开支、广告变现、汽车利润率及业绩指引。
+- **能源与宏观**：中东供给风险令油价高位波动，继续影响通胀与Fed预期。
+- **半导体**：SOX早盘反弹；此前持续回调意味着仍需确认是否真正止跌。
 
-## 今日经济和财报
-- **08:30 ET**：9月美国新屋开工与营建许可。Swingfolio报道新屋开工年化约122.1万户、环比 -5.2%；发布后数据需核对Census官方版本。
-- **10:00 ET**：待售房屋销售（以实际发布时间及发布结果为准）。
-- **盘前**：3M、GE Aerospace、General Motors、RTX、Halliburton等财报；业绩与股价反应并不总是同向。
-- **盘后**：Netflix（NFLX）、SpaceX、Intuitive Surgical（ISRG）、United Airlines（UAL）等。
-- **明日盘后**：Meta、Tesla、Texas Instruments、IBM、Lam Research等预计披露财报，核对公司IR时间。
-
-## 板块和个股
-- **AI/半导体：NVDA、AMD、MU、SMH、SOXX**。重点观察是否跑赢QQQ，以及昨日反弹是否有后续。
-- **AI基础设施：CRWV、ORCL**。关注债务融资、资本开支与现金流。
-- **NFLX**：盘后财报，期权隐含波动可能迅速变化；不以单一方向重仓赌财报。
-- **能源XLE**：高油价受益，但油价跳空与地缘风险可能迅速反转。
-- **工业/金融**：关注财报指引与市场轮动。
-
-## ES / NQ / QQQ 交易计划
-> 目前没有同一时间、同一合约的可靠OHLC与实时行情，以下为条件策略而非虚构精确支撑位。
-
-1. **偏多**：ES、NQ同时站稳当日VWAP及开盘区间高点，SMH同步转强，回踩不破后再考虑顺势。
-2. **偏空**：NQ持续弱于ES，半导体领跌，反弹未能收复VWAP或开盘区间低点，考虑等待确认后的防守性交易。
-3. **震荡**：VWAP上下反复、广度分歧时降低交易频率；避免把08:31 ET期货报价当作当前支撑阻力。
-4. **风险控制**：严格遵守预设单笔仓位、日亏损上限；财报与油价突发波动时避免追单。
-5. **Pivot计算**：用上一RTH同一ES合约的H/L/C，P=(H+L+C)/3，R1=2P-L，S1=2P-H；不能直接混用SPX和ES。
+## 交易计划：ES、NQ、QQQ、SPX
+1. **多头确认**：NQ相对ES领先，SMH/SOX持续走强，ES与NQ守住当日VWAP并突破开盘区间高点；等待回踩确认。
+2. **反弹失败**：芯片板块冲高回落，NQ跌回VWAP下方且市场广度恶化；不追涨，优先防守。
+3. **震荡**：油价上冲、指数围绕VWAP反复时减少DT频率。
+4. **财报风险**：META、TSLA盘后发布可能引发隔夜跳空；避免在不明确承担隔夜风险时持有过大方向性仓位。
+5. **关键价位方法**：使用交易终端对应ES主力合约上一RTH的H/L/C计算Pivot，P=(H+L+C)/3，R1=2P-L，S1=2P-H；不把SPX指数点位当作ES合约支撑位。具体ES/NQ绝对技术位因缺乏同一时点可靠报价暂不填写。
 
 ## 信息来源
-- Investopedia（2026-10-20盘前）：https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-on-tuesday-october-20-2026-12183821
-- MarketWatch（2026-10-20盘前）：https://www.marketwatch.com/livecoverage/stock-market-today-nasdaq-lower-dow-sp500-up-after-rally-spacex-and-netflix-earnings/card/s-p-500-futures-flat-but-tech-lags-after-sour-asian-trading-TOW4cK7PgZLGSJdE93Ui
-- Swingfolio（2026-10-20 08:31 ET快照）：https://swingfolio.com/daily/us/2026-10-20/morning
-- Reuters（2026-10-20）：https://www.reuters.com/world/asia-pacific/nasdaq-futures-dip-oil-prices-climb-earnings-loom-2026-10-20/
-- Barron's（本周财报）：https://www.barrons.com/articles/tesla-meta-ge-aerospace-gm-ibm-and-more-stocks-to-watch-this-week-05925992
+- Reuters，10/21早盘：https://www.reuters.com/legal/transactional/nasdaq-futures-lead-gains-spacex-super-micro-results-lift-ai-trade-2026-10-21/
+- Investopedia，10/21盘前：https://www.investopedia.com/5-things-to-know-before-the-stock-market-opens-on-wednesday-octoebr-21-2026-12185761
+- Wall Street Journal，10/20收盘：https://www.wsj.com/finance/stocks/u-s-stocks-mixed-as-strong-earnings-offset-ai-credit-fears-d55414c3
+- MarketWatch，10/21盘前：https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-meta-tesla-third-quarter-earnings-season-big-tech/card/s-p-500-futures-near-session-lows-as-oil-prices-rise-QBoghLc0q835QIzirjbB
 
 *仅供研究，不构成投资建议。*
