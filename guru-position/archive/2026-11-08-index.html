@@ -1,0 +1,2690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guru Position Changes</title>
+<style>
+:root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f6f7f9; color: #1f2937; }
+body { margin: 0; padding: 28px; }
+main { max-width: 1280px; margin: 0 auto; }
+h1 { margin: 0 0 8px; font-size: 28px; }
+.note { margin: 0 0 22px; color: #5b6472; font-size: 14px; }
+.report-header { display: flex; justify-content: space-between; gap: 20px; align-items: start; margin-bottom: 18px; }
+.report-title { min-width: 0; }
+.creator-badge { display: block; padding: 6px; border: 1px solid #dde2ea; border-radius: 50%; background: #fff; box-shadow: 0 6px 18px rgba(31, 41, 55, 0.06); line-height: 0; }
+.creator-avatar { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid #d7e8ff; }
+.legend { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 0 0 22px; font-size: 13px; color: #374151; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.swatch { width: 13px; height: 13px; border-radius: 3px; display: inline-block; }
+section { background: #fff; border: 1px solid #dde2ea; border-radius: 8px; padding: 18px; margin: 0 0 18px; }
+h2 { margin: 0; font-size: 18px; }
+.meta { margin: 6px 0 14px; font-size: 13px; color: #6b7280; }
+.pies { display: grid; grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 18px; align-items: start; }
+.piebox { display: grid; grid-template-columns: 220px 1fr; gap: 16px; align-items: center; min-width: 0; }
+.pie-title { margin: 0 0 10px; font-size: 14px; font-weight: 700; color: #374151; }
+.pie { width: 220px; aspect-ratio: 1; border-radius: 50%; border: 1px solid #d7dce5; box-shadow: inset 0 0 0 34px #fff; }
+.entries { display: grid; gap: 7px; min-width: 0; }
+.entry { display: grid; grid-template-columns: 13px minmax(0, 1fr) 56px; gap: 8px; align-items: center; font-size: 12px; }
+.entry-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.entry-value { text-align: right; color: #374151; font-variant-numeric: tabular-nums; }
+.movers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
+.mover { border: 1px solid #e2e6ee; border-radius: 6px; padding: 10px; min-width: 0; }
+.mover-label { margin: 0 0 4px; font-size: 11px; color: #6b7280; text-transform: uppercase; }
+.mover-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mover-value { margin-top: 3px; font-size: 12px; color: #374151; font-variant-numeric: tabular-nums; }
+.summary-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 14px; }
+.summary-head p { margin: 4px 0 0; color: #6b7280; font-size: 13px; }
+.top-list { display: grid; gap: 10px; }
+.top-row { display: grid; grid-template-columns: 44px minmax(0, 1fr) 92px 82px; gap: 12px; align-items: center; border: 1px solid #e2e6ee; border-radius: 6px; padding: 10px 12px; }
+.rank { color: #6b7280; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.top-name { font-size: 13px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-meta { margin-top: 4px; color: #6b7280; font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { height: 9px; margin-top: 7px; background: #e8ecf2; border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, #1f9d55, #2563eb); border-radius: 999px; }
+.top-pct, .top-holders { text-align: right; font-variant-numeric: tabular-nums; }
+.top-pct { font-size: 13px; font-weight: 800; }
+.top-holders { color: #6b7280; font-size: 12px; }
+.empty { color: #6b7280; font-size: 13px; }
+.warning { color: #9a3412; font-size: 13px; margin: 8px 0 0; }
+@media (max-width: 960px) { .pies { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .movers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { body { padding: 14px; } .report-header { display: block; } .creator-badge { width: fit-content; margin: 12px 0 0; } .piebox { grid-template-columns: 1fr; } .pie { width: min(100%, 260px); } .movers { grid-template-columns: 1fr; } .summary-head { display: block; } .top-row { grid-template-columns: 34px minmax(0, 1fr); } .top-pct, .top-holders { text-align: left; grid-column: 2; } }
+</style>
+</head>
+<body><main>
+<div class="report-header">
+<div class="report-title">
+<h1>Guru Position Changes</h1>
+<p class="note">Generated 2026-10-13 15:15 UTC. Pie slices are total portfolio weight. Positions below 1% are grouped as Other.</p>
+</div>
+<div class="creator-badge">
+<img class="creator-avatar" src="creator-avatar.jpg" alt="Weicheng creator avatar">
+</div>
+</div>
+<div class="legend">
+<span><i class="swatch" style="background:#1f9d55"></i>NEW</span>
+<span><i class="swatch" style="background:#2563eb"></i>ADD</span>
+<span><i class="swatch" style="background:#d97706"></i>REDUCE</span>
+<span><i class="swatch" style="background:#dc2626"></i>EXIT</span>
+<span><i class="swatch" style="background:#64748b"></i>HOLD</span>
+<span><i class="swatch" style="background:#e5e7eb"></i>OTHER</span>
+</div>
+<section>
+<h2>Warren Buffett - Berkshire Hathaway Inc</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="ALPHABET INC">ALPHABET INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 5.93% → 9.41% (+3.48 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="KROGER CO">KROGER CO</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 1.38% → 0.72% (-0.65 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#64748b 0.00deg 79.15deg, #64748b 79.15deg 141.90deg, #64748b 141.90deg 183.52deg, #d97706 183.52deg 217.78deg, #64748b 217.78deg 241.67deg, #64748b 241.67deg 265.24deg, #2563eb 265.24deg 286.58deg, #64748b 286.58deg 301.86deg, #64748b 301.86deg 316.58deg, #64748b 316.58deg 326.60deg, #d97706 326.60deg 332.93deg, #d97706 332.93deg 337.88deg, #64748b 337.88deg 341.83deg, #2563eb 341.83deg 345.45deg, #2563eb 345.45deg 346.85deg, #e5e7eb 346.85deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="APPLE INC · HOLD">APPLE INC · HOLD</div>
+<div class="entry-value">21.99%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="AMERICAN EXPRESS CO · HOLD">AMERICAN EXPRESS CO · HOLD</div>
+<div class="entry-value">17.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="COCA COLA CO · HOLD">COCA COLA CO · HOLD</div>
+<div class="entry-value">11.56%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BANK OF AMER CORP · REDUCE">BANK OF AMER CORP · REDUCE</div>
+<div class="entry-value">9.52%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CHEVRON CORPORATION · HOLD">CHEVRON CORPORATION · HOLD</div>
+<div class="entry-value">6.64%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="OCCIDENTAL PETE CORP · HOLD">OCCIDENTAL PETE CORP · HOLD</div>
+<div class="entry-value">6.55%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">5.93%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CHUBB LIMITED · HOLD">CHUBB LIMITED · HOLD</div>
+<div class="entry-value">4.24%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="MOODYS CORP · HOLD">MOODYS CORP · HOLD</div>
+<div class="entry-value">4.09%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="KRAFT HEINZ CO · HOLD">KRAFT HEINZ CO · HOLD</div>
+<div class="entry-value">2.78%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="DAVITA INC · REDUCE">DAVITA INC · REDUCE</div>
+<div class="entry-value">1.76%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="KROGER CO · REDUCE">KROGER CO · REDUCE</div>
+<div class="entry-value">1.38%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="SIRIUSXM HOLDINGS INC · HOLD">SIRIUSXM HOLDINGS INC · HOLD</div>
+<div class="entry-value">1.09%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="DELTA AIR LINES INC · ADD">DELTA AIR LINES INC · ADD</div>
+<div class="entry-value">1.01%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">0.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">3.65%</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#64748b 0.00deg 79.34deg, #64748b 79.34deg 141.03deg, #64748b 141.03deg 180.14deg, #2563eb 180.14deg 214.01deg, #d97706 214.01deg 247.15deg, #64748b 247.15deg 263.97deg, #64748b 263.97deg 279.45deg, #64748b 279.45deg 293.49deg, #64748b 293.49deg 306.93deg, #2563eb 306.93deg 318.49deg, #64748b 318.49deg 327.74deg, #d97706 327.74deg 335.47deg, #2563eb 335.47deg 341.93deg, #64748b 341.93deg 346.36deg, #d97706 346.36deg 348.97deg, #e5e7eb 348.97deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="APPLE INC · HOLD">APPLE INC · HOLD</div>
+<div class="entry-value">22.04%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="AMERICAN EXPRESS CO · HOLD">AMERICAN EXPRESS CO · HOLD</div>
+<div class="entry-value">17.14%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="COCA COLA CO · HOLD">COCA COLA CO · HOLD</div>
+<div class="entry-value">10.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">9.41%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BANK OF AMER CORP · REDUCE">BANK OF AMER CORP · REDUCE</div>
+<div class="entry-value">9.20%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CHEVRON CORPORATION · HOLD">CHEVRON CORPORATION · HOLD</div>
+<div class="entry-value">4.67%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="OCCIDENTAL PETE CORP · HOLD">OCCIDENTAL PETE CORP · HOLD</div>
+<div class="entry-value">4.30%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CHUBB LIMITED · HOLD">CHUBB LIMITED · HOLD</div>
+<div class="entry-value">3.90%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="MOODYS CORP · HOLD">MOODYS CORP · HOLD</div>
+<div class="entry-value">3.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">3.21%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="KRAFT HEINZ CO · HOLD">KRAFT HEINZ CO · HOLD</div>
+<div class="entry-value">2.57%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="DAVITA INC · REDUCE">DAVITA INC · REDUCE</div>
+<div class="entry-value">2.15%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="DELTA AIR LINES INC · ADD">DELTA AIR LINES INC · ADD</div>
+<div class="entry-value">1.79%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="SIRIUSXM HOLDINGS INC · HOLD">SIRIUSXM HOLDINGS INC · HOLD</div>
+<div class="entry-value">1.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="KROGER CO · REDUCE">KROGER CO · REDUCE</div>
+<div class="entry-value">0.72%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">3.06%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Bill Ackman - Pershing Square Capital Management, L.P.</h2>
+<p class="meta">Current 2026-03-31 filed 2026-05-15; previous 2025-12-31 filed 2026-02-17.</p>
+<p class="warning">Latest 13F report date is 196 days old.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="AMAZON COM INC">AMAZON COM INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 14.28% → 17.39% (+3.11 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="ALPHABET INC">ALPHABET INC</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 12.46% → 0.65% (-11.81 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="MICROSOFT CORP">MICROSOFT CORP</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 15.26% (+15.26 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="HILTON WORLDWIDE HLDGS INC">HILTON WORLDWIDE HLDGS INC</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 5.60% → 0.00% (-5.60 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 65.33deg, #d97706 65.33deg 122.56deg, #2563eb 122.56deg 173.98deg, #d97706 173.98deg 218.83deg, #d97706 218.83deg 259.75deg, #d97706 259.75deg 295.92deg, #64748b 295.92deg 330.79deg, #dc2626 330.79deg 350.96deg, #d97706 350.96deg 355.88deg, #e5e7eb 355.88deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BROOKFIELD CORP · REDUCE">BROOKFIELD CORP · REDUCE</div>
+<div class="entry-value">18.15%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="UBER TECHNOLOGIES INC · REDUCE">UBER TECHNOLOGIES INC · REDUCE</div>
+<div class="entry-value">15.90%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">14.28%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">12.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="META PLATFORMS INC · REDUCE">META PLATFORMS INC · REDUCE</div>
+<div class="entry-value">11.37%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="RESTAURANT BRANDS INTL INC · REDUCE">RESTAURANT BRANDS INTL INC · REDUCE</div>
+<div class="entry-value">10.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="HOWARD HUGHES HOLDINGS INC · HOLD">HOWARD HUGHES HOLDINGS INC · HOLD</div>
+<div class="entry-value">9.69%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="HILTON WORLDWIDE HLDGS INC · EXIT">HILTON WORLDWIDE HLDGS INC · EXIT</div>
+<div class="entry-value">5.60%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">1.37%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">1.14%</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 63.42deg, #2563eb 63.42deg 126.03deg, #d97706 126.03deg 182.59deg, #1f9d55 182.59deg 237.53deg, #d97706 237.53deg 281.46deg, #d97706 281.46deg 321.43deg, #64748b 321.43deg 352.73deg, #d97706 352.73deg 355.08deg, #d97706 355.08deg 355.32deg, #e5e7eb 355.32deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BROOKFIELD CORP · REDUCE">BROOKFIELD CORP · REDUCE</div>
+<div class="entry-value">17.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">17.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="UBER TECHNOLOGIES INC · REDUCE">UBER TECHNOLOGIES INC · REDUCE</div>
+<div class="entry-value">15.71%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="MICROSOFT CORP · NEW">MICROSOFT CORP · NEW</div>
+<div class="entry-value">15.26%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="RESTAURANT BRANDS INTL INC · REDUCE">RESTAURANT BRANDS INTL INC · REDUCE</div>
+<div class="entry-value">12.20%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="META PLATFORMS INC · REDUCE">META PLATFORMS INC · REDUCE</div>
+<div class="entry-value">11.10%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="HOWARD HUGHES HOLDINGS INC · HOLD">HOWARD HUGHES HOLDINGS INC · HOLD</div>
+<div class="entry-value">8.70%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">0.65%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">0.07%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">1.30%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Michael Burry - Scion Asset Management, LLC</h2>
+<p class="meta">Current 2025-09-30 filed 2025-11-03; previous 2025-06-30 filed 2025-08-14.</p>
+<p class="warning">Latest 13F report date is 378 days old.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="LULULEMON ATHLETICA INC">LULULEMON ATHLETICA INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 2.05% → 1.29% (-0.77 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="PALANTIR TECHNOLOGIES INC">PALANTIR TECHNOLOGIES INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 66.04% (+66.04 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="UNITEDHEALTH GROUP INC">UNITEDHEALTH GROUP INC</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 18.88% → 0.00% (-18.88 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#dc2626 0.00deg 67.97deg, #dc2626 67.97deg 133.33deg, #dc2626 133.33deg 192.48deg, #dc2626 192.48deg 238.43deg, #dc2626 238.43deg 263.57deg, #dc2626 263.57deg 283.89deg, #dc2626 283.89deg 301.54deg, #dc2626 301.54deg 314.01deg, #dc2626 314.01deg 324.98deg, #dc2626 324.98deg 332.53deg, #2563eb 332.53deg 339.92deg, #dc2626 339.92deg 346.33deg, #dc2626 346.33deg 351.24deg, #dc2626 351.24deg 356.12deg, #dc2626 356.12deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="UNITEDHEALTH GROUP INC · EXIT">UNITEDHEALTH GROUP INC · EXIT</div>
+<div class="entry-value">18.88%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="REGENERON PHARMACEUTICALS · EXIT">REGENERON PHARMACEUTICALS · EXIT</div>
+<div class="entry-value">18.16%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="LULULEMON ATHLETICA INC · EXIT">LULULEMON ATHLETICA INC · EXIT</div>
+<div class="entry-value">16.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="META PLATFORMS INC · EXIT">META PLATFORMS INC · EXIT</div>
+<div class="entry-value">12.76%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="LAUDER ESTEE COS INC · EXIT">LAUDER ESTEE COS INC · EXIT</div>
+<div class="entry-value">6.99%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="JD.COM INC · EXIT">JD.COM INC · EXIT</div>
+<div class="entry-value">5.64%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="ALIBABA GROUP HLDG LTD · EXIT">ALIBABA GROUP HLDG LTD · EXIT</div>
+<div class="entry-value">4.90%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="ASML HOLDING N V · EXIT">ASML HOLDING N V · EXIT</div>
+<div class="entry-value">3.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="V F CORP · EXIT">V F CORP · EXIT</div>
+<div class="entry-value">3.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="LAUDER ESTEE COS INC · EXIT">LAUDER ESTEE COS INC · EXIT</div>
+<div class="entry-value">2.10%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LULULEMON ATHLETICA INC · ADD">LULULEMON ATHLETICA INC · ADD</div>
+<div class="entry-value">2.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="BRUKER CORP · EXIT">BRUKER CORP · EXIT</div>
+<div class="entry-value">1.78%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="REGENERON PHARMACEUTICALS · EXIT">REGENERON PHARMACEUTICALS · EXIT</div>
+<div class="entry-value">1.36%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="MERCADOLIBRE INC · EXIT">MERCADOLIBRE INC · EXIT</div>
+<div class="entry-value">1.36%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="UNITEDHEALTH GROUP INC · EXIT">UNITEDHEALTH GROUP INC · EXIT</div>
+<div class="entry-value">1.08%</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#1f9d55 0.00deg 237.73deg, #1f9d55 237.73deg 286.36deg, #1f9d55 286.36deg 326.21deg, #1f9d55 326.21deg 342.24deg, #1f9d55 342.24deg 348.48deg, #2563eb 348.48deg 353.11deg, #e5e7eb 353.11deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="PALANTIR TECHNOLOGIES INC · NEW">PALANTIR TECHNOLOGIES INC · NEW</div>
+<div class="entry-value">66.04%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · NEW">NVIDIA CORPORATION · NEW</div>
+<div class="entry-value">13.51%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="PFIZER INC · NEW">PFIZER INC · NEW</div>
+<div class="entry-value">11.07%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="HALLIBURTON CO · NEW">HALLIBURTON CO · NEW</div>
+<div class="entry-value">4.45%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="MOLINA HEALTHCARE INC · NEW">MOLINA HEALTHCARE INC · NEW</div>
+<div class="entry-value">1.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LULULEMON ATHLETICA INC · ADD">LULULEMON ATHLETICA INC · ADD</div>
+<div class="entry-value">1.29%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">1.91%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>David Tepper - Appaloosa LP</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="TAIWAN SEMICONDUCTOR MANUFAC">TAIWAN SEMICONDUCTOR MANUFAC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 7.56% → 10.20% (+2.64 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="ALIBABA GROUP HLDG LTD">ALIBABA GROUP HLDG LTD</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 7.33% → 2.48% (-4.84 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="APPLE INC">APPLE INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 3.13% (+3.13 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="SANDISK CORP">SANDISK CORP</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 3.01% → 0.00% (-3.01 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 54.59deg, #d97706 54.59deg 88.72deg, #2563eb 88.72deg 118.87deg, #2563eb 118.87deg 146.51deg, #2563eb 146.51deg 173.73deg, #d97706 173.73deg 200.11deg, #2563eb 200.11deg 218.55deg, #2563eb 218.55deg 236.46deg, #2563eb 236.46deg 252.03deg, #2563eb 252.03deg 267.41deg, #2563eb 267.41deg 282.57deg, #dc2626 282.57deg 293.41deg, #dc2626 293.41deg 302.73deg, #d97706 302.73deg 309.10deg, #dc2626 309.10deg 314.68deg, #64748b 314.68deg 319.64deg, #2563eb 319.64deg 324.32deg, #dc2626 324.32deg 328.47deg, #dc2626 328.47deg 332.47deg, #2563eb 332.47deg 336.44deg, #d97706 336.44deg 340.33deg, #d97706 340.33deg 343.07deg, #e5e7eb 343.07deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">15.16%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICRON TECHNOLOGY INC · REDUCE">MICRON TECHNOLOGY INC · REDUCE</div>
+<div class="entry-value">9.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">8.38%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="UBER TECHNOLOGIES INC · ADD">UBER TECHNOLOGIES INC · ADD</div>
+<div class="entry-value">7.68%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · ADD">TAIWAN SEMICONDUCTOR MANUFAC · ADD</div>
+<div class="entry-value">7.56%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALIBABA GROUP HLDG LTD · REDUCE">ALIBABA GROUP HLDG LTD · REDUCE</div>
+<div class="entry-value">7.33%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="VISTRA CORP · ADD">VISTRA CORP · ADD</div>
+<div class="entry-value">5.12%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ISHARES INC · ADD">ISHARES INC · ADD</div>
+<div class="entry-value">4.98%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · ADD">NVIDIA CORPORATION · ADD</div>
+<div class="entry-value">4.33%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NRG ENERGY INC · ADD">NRG ENERGY INC · ADD</div>
+<div class="entry-value">4.27%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="META PLATFORMS INC · ADD">META PLATFORMS INC · ADD</div>
+<div class="entry-value">4.21%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="SANDISK CORP · EXIT">SANDISK CORP · EXIT</div>
+<div class="entry-value">3.01%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="CORNING INC · EXIT">CORNING INC · EXIT</div>
+<div class="entry-value">2.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="WHIRLPOOL CORP · REDUCE">WHIRLPOOL CORP · REDUCE</div>
+<div class="entry-value">1.77%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="PDD HOLDINGS INC · EXIT">PDD HOLDINGS INC · EXIT</div>
+<div class="entry-value">1.55%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · HOLD">LAM RESEARCH CORP · HOLD</div>
+<div class="entry-value">1.38%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 23 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 55.53deg, #d97706 55.53deg 107.98deg, #2563eb 107.98deg 144.70deg, #2563eb 144.70deg 175.16deg, #2563eb 175.16deg 201.03deg, #2563eb 201.03deg 223.85deg, #2563eb 223.85deg 241.56deg, #2563eb 241.56deg 257.94deg, #2563eb 257.94deg 272.16deg, #2563eb 272.16deg 284.14deg, #1f9d55 284.14deg 295.40deg, #d97706 295.40deg 304.34deg, #1f9d55 304.34deg 312.41deg, #64748b 312.41deg 320.14deg, #2563eb 320.14deg 327.03deg, #1f9d55 327.03deg 333.35deg, #d97706 333.35deg 338.69deg, #1f9d55 338.69deg 343.70deg, #2563eb 343.70deg 348.33deg, #d97706 348.33deg 350.48deg, #d97706 350.48deg 351.80deg, #e5e7eb 351.80deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">15.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICRON TECHNOLOGY INC · REDUCE">MICRON TECHNOLOGY INC · REDUCE</div>
+<div class="entry-value">14.57%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · ADD">TAIWAN SEMICONDUCTOR MANUFAC · ADD</div>
+<div class="entry-value">10.20%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">8.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="UBER TECHNOLOGIES INC · ADD">UBER TECHNOLOGIES INC · ADD</div>
+<div class="entry-value">7.19%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ISHARES INC · ADD">ISHARES INC · ADD</div>
+<div class="entry-value">6.34%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="META PLATFORMS INC · ADD">META PLATFORMS INC · ADD</div>
+<div class="entry-value">4.92%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="VISTRA CORP · ADD">VISTRA CORP · ADD</div>
+<div class="entry-value">4.55%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · ADD">NVIDIA CORPORATION · ADD</div>
+<div class="entry-value">3.95%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NRG ENERGY INC · ADD">NRG ENERGY INC · ADD</div>
+<div class="entry-value">3.33%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="APPLE INC · NEW">APPLE INC · NEW</div>
+<div class="entry-value">3.13%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALIBABA GROUP HLDG LTD · REDUCE">ALIBABA GROUP HLDG LTD · REDUCE</div>
+<div class="entry-value">2.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="BOEING CO · NEW">BOEING CO · NEW</div>
+<div class="entry-value">2.24%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · HOLD">LAM RESEARCH CORP · HOLD</div>
+<div class="entry-value">2.15%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="BAIDU INC · ADD">BAIDU INC · ADD</div>
+<div class="entry-value">1.92%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="AMERICAN AIRLINES GROUP INC · NEW">AMERICAN AIRLINES GROUP INC · NEW</div>
+<div class="entry-value">1.75%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 22 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Stanley Druckenmiller - Duquesne Family Office LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="Amazon Com Inc">Amazon Com Inc</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 0.28% → 2.48% (+2.19 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="Alcoa Corp">Alcoa Corp</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 2.93% → 0.19% (-2.75 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="Insmed Inc">Insmed Inc</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 2.76% (+2.76 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="Broadcom Inc">Broadcom Inc</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 1.80% → 0.00% (-1.80 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 65.32deg, #2563eb 65.32deg 85.44deg, #2563eb 85.44deg 103.28deg, #64748b 103.28deg 120.59deg, #64748b 120.59deg 137.38deg, #d97706 137.38deg 153.33deg, #64748b 153.33deg 167.39deg, #d97706 167.39deg 179.12deg, #d97706 179.12deg 189.68deg, #64748b 189.68deg 200.15deg, #64748b 200.15deg 209.86deg, #2563eb 209.86deg 219.49deg, #d97706 219.49deg 227.55deg, #d97706 227.55deg 235.19deg, #d97706 235.19deg 242.75deg, #dc2626 242.75deg 249.22deg, #64748b 249.22deg 255.46deg, #64748b 255.46deg 260.83deg, #dc2626 260.83deg 266.19deg, #2563eb 266.19deg 270.63deg, #2563eb 270.63deg 274.86deg, #dc2626 274.86deg 279.03deg, #d97706 279.03deg 282.88deg, #64748b 282.88deg 286.49deg, #2563eb 286.49deg 289.77deg, #d97706 289.77deg 292.35deg, #2563eb 292.35deg 294.93deg, #2563eb 294.93deg 297.05deg, #2563eb 297.05deg 299.13deg, #2563eb 299.13deg 300.15deg, #e5e7eb 300.15deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Natera Inc · ADD">Natera Inc · ADD</div>
+<div class="entry-value">18.14%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Insmed Inc · ADD">Insmed Inc · ADD</div>
+<div class="entry-value">5.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Taiwan Semiconductor Manufac · ADD">Taiwan Semiconductor Manufac · ADD</div>
+<div class="entry-value">4.96%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Ishares Inc · HOLD">Ishares Inc · HOLD</div>
+<div class="entry-value">4.81%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Invesco Exchange Traded Fd T · HOLD">Invesco Exchange Traded Fd T · HOLD</div>
+<div class="entry-value">4.67%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Ypf Sociedad Anonima · REDUCE">Ypf Sociedad Anonima · REDUCE</div>
+<div class="entry-value">4.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Ishares Inc · HOLD">Ishares Inc · HOLD</div>
+<div class="entry-value">3.91%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Bbb Foods Inc · REDUCE">Bbb Foods Inc · REDUCE</div>
+<div class="entry-value">3.26%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Alcoa Corp · REDUCE">Alcoa Corp · REDUCE</div>
+<div class="entry-value">2.93%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Newamsterdam Pharma Company · HOLD">Newamsterdam Pharma Company · HOLD</div>
+<div class="entry-value">2.91%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Sea Ltd · HOLD">Sea Ltd · HOLD</div>
+<div class="entry-value">2.70%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Stmicroelectronics N V · ADD">Stmicroelectronics N V · ADD</div>
+<div class="entry-value">2.67%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Woodward Inc · REDUCE">Woodward Inc · REDUCE</div>
+<div class="entry-value">2.24%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Teva Pharmaceutical Inds Ltd · REDUCE">Teva Pharmaceutical Inds Ltd · REDUCE</div>
+<div class="entry-value">2.12%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Roku Inc · REDUCE">Roku Inc · REDUCE</div>
+<div class="entry-value">2.10%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="Broadcom Inc · EXIT">Broadcom Inc · EXIT</div>
+<div class="entry-value">1.80%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 31 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 59.75deg, #2563eb 59.75deg 79.21deg, #2563eb 79.21deg 95.26deg, #64748b 95.26deg 107.33deg, #2563eb 107.33deg 117.83deg, #64748b 117.83deg 127.90deg, #1f9d55 127.90deg 137.85deg, #d97706 137.85deg 147.71deg, #2563eb 147.71deg 156.63deg, #d97706 156.63deg 164.98deg, #1f9d55 164.98deg 173.28deg, #64748b 173.28deg 181.47deg, #2563eb 181.47deg 189.61deg, #1f9d55 189.61deg 197.55deg, #2563eb 197.55deg 205.11deg, #2563eb 205.11deg 212.58deg, #64748b 212.58deg 219.86deg, #1f9d55 219.86deg 227.09deg, #64748b 227.09deg 234.28deg, #2563eb 234.28deg 241.13deg, #d97706 241.13deg 246.61deg, #2563eb 246.61deg 251.78deg, #64748b 251.78deg 256.43deg, #1f9d55 256.43deg 260.89deg, #2563eb 260.89deg 264.99deg, #1f9d55 264.99deg 268.89deg, #1f9d55 268.89deg 272.55deg, #64748b 272.55deg 275.75deg, #64748b 275.75deg 278.08deg, #d97706 278.08deg 280.16deg, #d97706 280.16deg 282.13deg, #d97706 282.13deg 283.89deg, #d97706 283.89deg 285.35deg, #d97706 285.35deg 286.02deg, #e5e7eb 286.02deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Natera Inc · ADD">Natera Inc · ADD</div>
+<div class="entry-value">16.60%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Taiwan Semiconductor Manufac · ADD">Taiwan Semiconductor Manufac · ADD</div>
+<div class="entry-value">5.40%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Stmicroelectronics N V · ADD">Stmicroelectronics N V · ADD</div>
+<div class="entry-value">4.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Invesco Exchange Traded Fd T · HOLD">Invesco Exchange Traded Fd T · HOLD</div>
+<div class="entry-value">3.35%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Insmed Inc · ADD">Insmed Inc · ADD</div>
+<div class="entry-value">2.92%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Ishares Inc · HOLD">Ishares Inc · HOLD</div>
+<div class="entry-value">2.80%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="Insmed Inc · NEW">Insmed Inc · NEW</div>
+<div class="entry-value">2.76%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Ypf Sociedad Anonima · REDUCE">Ypf Sociedad Anonima · REDUCE</div>
+<div class="entry-value">2.74%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Amazon Com Inc · ADD">Amazon Com Inc · ADD</div>
+<div class="entry-value">2.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Bbb Foods Inc · REDUCE">Bbb Foods Inc · REDUCE</div>
+<div class="entry-value">2.32%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="Alphabet Inc · NEW">Alphabet Inc · NEW</div>
+<div class="entry-value">2.31%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Ishares Inc · HOLD">Ishares Inc · HOLD</div>
+<div class="entry-value">2.27%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Seagate Technology Hldngs Pl · ADD">Seagate Technology Hldngs Pl · ADD</div>
+<div class="entry-value">2.26%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="Fox Corp · NEW">Fox Corp · NEW</div>
+<div class="entry-value">2.21%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Amazon Com Inc · ADD">Amazon Com Inc · ADD</div>
+<div class="entry-value">2.10%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="United Airls Hldgs Inc · ADD">United Airls Hldgs Inc · ADD</div>
+<div class="entry-value">2.07%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 35 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Seth Klarman - Baupost Group LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-13; previous 2026-03-31 filed 2026-05-14.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="AMAZON COM INC">AMAZON COM INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 12.70% → 16.48% (+3.78 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="WESCO INTL INC">WESCO INTL INC</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 7.69% → 4.23% (-3.46 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="CME GROUP INC">CME GROUP INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 2.52% (+2.52 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="WILLIS TOWERS WATSON PLC LTD">WILLIS TOWERS WATSON PLC LTD</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 5.08% → 0.00% (-5.08 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 45.71deg, #d97706 45.71deg 87.74deg, #d97706 87.74deg 115.41deg, #d97706 115.41deg 141.72deg, #64748b 141.72deg 167.99deg, #2563eb 167.99deg 191.84deg, #2563eb 191.84deg 215.52deg, #dc2626 215.52deg 233.79deg, #d97706 233.79deg 251.26deg, #64748b 251.26deg 266.18deg, #d97706 266.18deg 279.60deg, #d97706 279.60deg 291.50deg, #2563eb 291.50deg 302.60deg, #d97706 302.60deg 313.66deg, #64748b 313.66deg 323.25deg, #2563eb 323.25deg 331.88deg, #d97706 331.88deg 338.16deg, #64748b 338.16deg 344.10deg, #64748b 344.10deg 348.91deg, #2563eb 348.91deg 353.69deg, #e5e7eb 353.69deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">12.70%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="RESTAURANT BRANDS INTL INC · REDUCE">RESTAURANT BRANDS INTL INC · REDUCE</div>
+<div class="entry-value">11.67%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="WESCO INTL INC · REDUCE">WESCO INTL INC · REDUCE</div>
+<div class="entry-value">7.69%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="UNION PAC CORP · REDUCE">UNION PAC CORP · REDUCE</div>
+<div class="entry-value">7.31%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="ELEVANCE HEALTH INC FORMERLY · HOLD">ELEVANCE HEALTH INC FORMERLY · HOLD</div>
+<div class="entry-value">7.30%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">6.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="FERGUSON ENTERPRISES INC · ADD">FERGUSON ENTERPRISES INC · ADD</div>
+<div class="entry-value">6.58%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="WILLIS TOWERS WATSON PLC LTD · EXIT">WILLIS TOWERS WATSON PLC LTD · EXIT</div>
+<div class="entry-value">5.08%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AON PLC · REDUCE">AON PLC · REDUCE</div>
+<div class="entry-value">4.85%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="VISA INC · HOLD">VISA INC · HOLD</div>
+<div class="entry-value">4.14%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TELEFLEX INCORPORATED · REDUCE">TELEFLEX INCORPORATED · REDUCE</div>
+<div class="entry-value">3.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="EAGLE MATLS INC · REDUCE">EAGLE MATLS INC · REDUCE</div>
+<div class="entry-value">3.31%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="GENUINE PARTS CO · ADD">GENUINE PARTS CO · ADD</div>
+<div class="entry-value">3.08%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LIBERTY GLOBAL LTD · REDUCE">LIBERTY GLOBAL LTD · REDUCE</div>
+<div class="entry-value">3.07%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="HERBALIFE LTD · HOLD">HERBALIFE LTD · HOLD</div>
+<div class="entry-value">2.66%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="GDS HLDGS LTD · ADD">GDS HLDGS LTD · ADD</div>
+<div class="entry-value">2.40%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 21 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 59.31deg, #64748b 59.31deg 92.09deg, #d97706 92.09deg 124.64deg, #2563eb 124.64deg 156.86deg, #2563eb 156.86deg 179.74deg, #2563eb 179.74deg 201.83deg, #d97706 201.83deg 223.26deg, #64748b 223.26deg 239.26deg, #d97706 239.26deg 254.48deg, #d97706 254.48deg 269.62deg, #d97706 269.62deg 281.50deg, #2563eb 281.50deg 292.34deg, #64748b 292.34deg 301.97deg, #1f9d55 301.97deg 311.06deg, #64748b 311.06deg 319.16deg, #d97706 319.16deg 327.09deg, #2563eb 327.09deg 334.62deg, #d97706 334.62deg 341.76deg, #d97706 341.76deg 348.00deg, #64748b 348.00deg 353.84deg, #e5e7eb 353.84deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">16.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="ELEVANCE HEALTH INC FORMERLY · HOLD">ELEVANCE HEALTH INC FORMERLY · HOLD</div>
+<div class="entry-value">9.11%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="RESTAURANT BRANDS INTL INC · REDUCE">RESTAURANT BRANDS INTL INC · REDUCE</div>
+<div class="entry-value">9.04%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">8.95%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="FERGUSON ENTERPRISES INC · ADD">FERGUSON ENTERPRISES INC · ADD</div>
+<div class="entry-value">6.36%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="GENUINE PARTS CO · ADD">GENUINE PARTS CO · ADD</div>
+<div class="entry-value">6.13%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="UNION PAC CORP · REDUCE">UNION PAC CORP · REDUCE</div>
+<div class="entry-value">5.95%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="VISA INC · HOLD">VISA INC · HOLD</div>
+<div class="entry-value">4.44%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="WESCO INTL INC · REDUCE">WESCO INTL INC · REDUCE</div>
+<div class="entry-value">4.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AON PLC · REDUCE">AON PLC · REDUCE</div>
+<div class="entry-value">4.21%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TELEFLEX INCORPORATED · REDUCE">TELEFLEX INCORPORATED · REDUCE</div>
+<div class="entry-value">3.30%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NORWEGIAN CRUISE LINE HLDGS · ADD">NORWEGIAN CRUISE LINE HLDGS · ADD</div>
+<div class="entry-value">3.01%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="MOLINA HEALTHCARE INC · HOLD">MOLINA HEALTHCARE INC · HOLD</div>
+<div class="entry-value">2.68%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="CME GROUP INC · NEW">CME GROUP INC · NEW</div>
+<div class="entry-value">2.52%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="HERBALIFE LTD · HOLD">HERBALIFE LTD · HOLD</div>
+<div class="entry-value">2.25%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="EAGLE MATLS INC · REDUCE">EAGLE MATLS INC · REDUCE</div>
+<div class="entry-value">2.21%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 21 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>David Einhorn - Greenlight Capital Inc</h2>
+<p class="meta">Current 2023-12-31 filed 2024-02-14; previous 2023-09-30 filed 2023-11-14.</p>
+<p class="warning">Latest 13F report date is 1017 days old.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="KYNDRYL HLDGS INC">KYNDRYL HLDGS INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 4.79% → 6.45% (+1.66 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="CONSOL ENERGY INC NEW">CONSOL ENERGY INC NEW</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 14.33% → 10.34% (-3.99 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="ALIGHT INC">ALIGHT INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 3.85% (+3.85 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="SOUTHWESTERN ENERGY CO">SOUTHWESTERN ENERGY CO</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 3.70% → 0.00% (-3.70 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 104.76deg, #d97706 104.76deg 156.33deg, #d97706 156.33deg 187.77deg, #2563eb 187.77deg 205.03deg, #2563eb 205.03deg 220.26deg, #d97706 220.26deg 235.38deg, #dc2626 235.38deg 248.71deg, #2563eb 248.71deg 261.59deg, #2563eb 261.59deg 274.42deg, #2563eb 274.42deg 286.71deg, #2563eb 286.71deg 295.47deg, #2563eb 295.47deg 304.22deg, #2563eb 304.22deg 312.16deg, #2563eb 312.16deg 318.74deg, #dc2626 318.74deg 323.90deg, #2563eb 323.90deg 329.00deg, #dc2626 329.00deg 333.92deg, #2563eb 333.92deg 338.18deg, #2563eb 338.18deg 342.18deg, #2563eb 342.18deg 345.48deg, #e5e7eb 345.48deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GREEN BRICK PARTNERS INC · REDUCE">GREEN BRICK PARTNERS INC · REDUCE</div>
+<div class="entry-value">29.10%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="CONSOL ENERGY INC NEW · REDUCE">CONSOL ENERGY INC NEW · REDUCE</div>
+<div class="entry-value">14.33%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BRIGHTHOUSE FINL INC · REDUCE">BRIGHTHOUSE FINL INC · REDUCE</div>
+<div class="entry-value">8.74%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="KYNDRYL HLDGS INC · ADD">KYNDRYL HLDGS INC · ADD</div>
+<div class="entry-value">4.79%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="THE ODP CORP · ADD">THE ODP CORP · ADD</div>
+<div class="entry-value">4.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SPDR GOLD TR · REDUCE">SPDR GOLD TR · REDUCE</div>
+<div class="entry-value">4.20%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="SOUTHWESTERN ENERGY CO · EXIT">SOUTHWESTERN ENERGY CO · EXIT</div>
+<div class="entry-value">3.70%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TECK RESOURCES LTD · ADD">TECK RESOURCES LTD · ADD</div>
+<div class="entry-value">3.58%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LIVANOVA PLC · ADD">LIVANOVA PLC · ADD</div>
+<div class="entry-value">3.57%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TENET HEALTHCARE CORP · ADD">TENET HEALTHCARE CORP · ADD</div>
+<div class="entry-value">3.41%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NET POWER INC · ADD">NET POWER INC · ADD</div>
+<div class="entry-value">2.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="GRAPHIC PACKAGING HLDG CO · ADD">GRAPHIC PACKAGING HLDG CO · ADD</div>
+<div class="entry-value">2.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="WEATHERFORD INTL PLC · ADD">WEATHERFORD INTL PLC · ADD</div>
+<div class="entry-value">2.21%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="FIRST CTZNS BANCSHARES INC N · ADD">FIRST CTZNS BANCSHARES INC N · ADD</div>
+<div class="entry-value">1.83%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="ISHARES SILVER TR · EXIT">ISHARES SILVER TR · EXIT</div>
+<div class="entry-value">1.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="GULFPORT ENERGY CORP · ADD">GULFPORT ENERGY CORP · ADD</div>
+<div class="entry-value">1.42%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 21 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 104.13deg, #d97706 104.13deg 141.34deg, #d97706 141.34deg 169.65deg, #2563eb 169.65deg 192.87deg, #2563eb 192.87deg 210.35deg, #2563eb 210.35deg 227.65deg, #1f9d55 227.65deg 241.50deg, #d97706 241.50deg 254.51deg, #2563eb 254.51deg 266.04deg, #2563eb 266.04deg 277.22deg, #2563eb 277.22deg 288.21deg, #2563eb 288.21deg 296.06deg, #2563eb 296.06deg 302.58deg, #1f9d55 302.58deg 308.97deg, #2563eb 308.97deg 315.16deg, #2563eb 315.16deg 320.47deg, #2563eb 320.47deg 325.69deg, #2563eb 325.69deg 330.21deg, #2563eb 330.21deg 333.50deg, #e5e7eb 333.50deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GREEN BRICK PARTNERS INC · REDUCE">GREEN BRICK PARTNERS INC · REDUCE</div>
+<div class="entry-value">28.92%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="CONSOL ENERGY INC NEW · REDUCE">CONSOL ENERGY INC NEW · REDUCE</div>
+<div class="entry-value">10.34%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BRIGHTHOUSE FINL INC · REDUCE">BRIGHTHOUSE FINL INC · REDUCE</div>
+<div class="entry-value">7.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="KYNDRYL HLDGS INC · ADD">KYNDRYL HLDGS INC · ADD</div>
+<div class="entry-value">6.45%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TENET HEALTHCARE CORP · ADD">TENET HEALTHCARE CORP · ADD</div>
+<div class="entry-value">4.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="THE ODP CORP · ADD">THE ODP CORP · ADD</div>
+<div class="entry-value">4.81%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="ALIGHT INC · NEW">ALIGHT INC · NEW</div>
+<div class="entry-value">3.85%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SPDR GOLD TR · REDUCE">SPDR GOLD TR · REDUCE</div>
+<div class="entry-value">3.61%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TECK RESOURCES LTD · ADD">TECK RESOURCES LTD · ADD</div>
+<div class="entry-value">3.20%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LIVANOVA PLC · ADD">LIVANOVA PLC · ADD</div>
+<div class="entry-value">3.11%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="GRAPHIC PACKAGING HLDG CO · ADD">GRAPHIC PACKAGING HLDG CO · ADD</div>
+<div class="entry-value">3.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="WEATHERFORD INTL PLC · ADD">WEATHERFORD INTL PLC · ADD</div>
+<div class="entry-value">2.18%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="DHT HOLDINGS INC · ADD">DHT HOLDINGS INC · ADD</div>
+<div class="entry-value">1.81%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="VIATRIS INC · NEW">VIATRIS INC · NEW</div>
+<div class="entry-value">1.77%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="FIRST CTZNS BANCSHARES INC N · ADD">FIRST CTZNS BANCSHARES INC N · ADD</div>
+<div class="entry-value">1.72%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NET POWER INC · ADD">NET POWER INC · ADD</div>
+<div class="entry-value">1.48%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 20 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Ray Dalio - Bridgewater Associates, LP</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="STATE STR SPDR S&amp;P 500 ETF T">STATE STR SPDR S&amp;P 500 ETF T</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 12.67% → 16.30% (+3.63 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="AMAZON COM INC">AMAZON COM INC</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 4.08% → 1.98% (-2.10 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 45.61deg, #2563eb 45.61deg 73.73deg, #d97706 73.73deg 88.42deg, #d97706 88.42deg 101.57deg, #d97706 101.57deg 110.80deg, #d97706 110.80deg 119.93deg, #d97706 119.93deg 127.94deg, #d97706 127.94deg 134.39deg, #d97706 134.39deg 140.49deg, #d97706 140.49deg 146.34deg, #d97706 146.34deg 151.73deg, #d97706 151.73deg 155.96deg, #2563eb 155.96deg 159.99deg, #d97706 159.99deg 163.75deg, #d97706 163.75deg 167.24deg, #2563eb 167.24deg 168.77deg, #e5e7eb 168.77deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="STATE STR SPDR S&amp;P 500 ETF T · ADD">STATE STR SPDR S&amp;P 500 ETF T · ADD</div>
+<div class="entry-value">12.67%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ISHARES TR · ADD">ISHARES TR · ADD</div>
+<div class="entry-value">7.81%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">4.08%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">3.65%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">2.56%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BROADCOM INC · REDUCE">BROADCOM INC · REDUCE</div>
+<div class="entry-value">2.54%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICRON TECHNOLOGY INC · REDUCE">MICRON TECHNOLOGY INC · REDUCE</div>
+<div class="entry-value">2.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICROSOFT CORP · REDUCE">MICROSOFT CORP · REDUCE</div>
+<div class="entry-value">1.79%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GE VERNOVA INC · REDUCE">GE VERNOVA INC · REDUCE</div>
+<div class="entry-value">1.69%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">1.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · REDUCE">LAM RESEARCH CORP · REDUCE</div>
+<div class="entry-value">1.50%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ADVANCED MICRO DEVICES INC · REDUCE">ADVANCED MICRO DEVICES INC · REDUCE</div>
+<div class="entry-value">1.17%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NEWMONT CORP · ADD">NEWMONT CORP · ADD</div>
+<div class="entry-value">1.12%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ORACLE CORP · REDUCE">ORACLE CORP · REDUCE</div>
+<div class="entry-value">1.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ISHARES INC · REDUCE">ISHARES INC · REDUCE</div>
+<div class="entry-value">0.97%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="VANGUARD INDEX FDS · ADD">VANGUARD INDEX FDS · ADD</div>
+<div class="entry-value">0.42%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 17 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 58.68deg, #2563eb 58.68deg 91.88deg, #d97706 91.88deg 103.31deg, #d97706 103.31deg 110.66deg, #d97706 110.66deg 117.79deg, #d97706 117.79deg 124.77deg, #d97706 124.77deg 130.77deg, #2563eb 130.77deg 135.42deg, #d97706 135.42deg 140.04deg, #d97706 140.04deg 144.17deg, #d97706 144.17deg 148.09deg, #2563eb 148.09deg 151.81deg, #d97706 151.81deg 154.91deg, #d97706 154.91deg 157.04deg, #d97706 157.04deg 159.03deg, #d97706 159.03deg 159.27deg, #e5e7eb 159.27deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="STATE STR SPDR S&amp;P 500 ETF T · ADD">STATE STR SPDR S&amp;P 500 ETF T · ADD</div>
+<div class="entry-value">16.30%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ISHARES TR · ADD">ISHARES TR · ADD</div>
+<div class="entry-value">9.22%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">3.17%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BROADCOM INC · REDUCE">BROADCOM INC · REDUCE</div>
+<div class="entry-value">2.04%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">1.98%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">1.94%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · REDUCE">LAM RESEARCH CORP · REDUCE</div>
+<div class="entry-value">1.67%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="VANGUARD INDEX FDS · ADD">VANGUARD INDEX FDS · ADD</div>
+<div class="entry-value">1.29%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ADVANCED MICRO DEVICES INC · REDUCE">ADVANCED MICRO DEVICES INC · REDUCE</div>
+<div class="entry-value">1.28%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ISHARES INC · REDUCE">ISHARES INC · REDUCE</div>
+<div class="entry-value">1.15%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICROSOFT CORP · REDUCE">MICROSOFT CORP · REDUCE</div>
+<div class="entry-value">1.09%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NEWMONT CORP · ADD">NEWMONT CORP · ADD</div>
+<div class="entry-value">1.03%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ORACLE CORP · REDUCE">ORACLE CORP · REDUCE</div>
+<div class="entry-value">0.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GE VERNOVA INC · REDUCE">GE VERNOVA INC · REDUCE</div>
+<div class="entry-value">0.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICRON TECHNOLOGY INC · REDUCE">MICRON TECHNOLOGY INC · REDUCE</div>
+<div class="entry-value">0.55%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">0.07%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 17 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Dan Loeb - Third Point LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="ALPHABET INC">ALPHABET INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 2.42% → 7.83% (+5.41 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="AMAZON COM INC">AMAZON COM INC</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 19.40% → 8.91% (-10.49 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="WARNER BROS DISCOVERY INC">WARNER BROS DISCOVERY INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 11.39% (+11.39 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="META PLATFORMS INC">META PLATFORMS INC</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 2.47% → 0.00% (-2.47 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 69.84deg, #d97706 69.84deg 117.86deg, #2563eb 117.86deg 152.39deg, #2563eb 152.39deg 181.40deg, #d97706 181.40deg 202.52deg, #d97706 202.52deg 220.31deg, #2563eb 220.31deg 237.52deg, #2563eb 237.52deg 253.58deg, #2563eb 253.58deg 267.80deg, #2563eb 267.80deg 280.06deg, #dc2626 280.06deg 288.96deg, #2563eb 288.96deg 297.65deg, #dc2626 297.65deg 304.72deg, #2563eb 304.72deg 311.77deg, #dc2626 311.77deg 317.50deg, #2563eb 317.50deg 322.51deg, #2563eb 322.51deg 327.47deg, #2563eb 327.47deg 331.88deg, #2563eb 331.88deg 336.07deg, #64748b 336.07deg 339.69deg, #2563eb 339.69deg 342.43deg, #e5e7eb 342.43deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">19.40%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TELEPHONE &amp; DATA SYS INC · REDUCE">TELEPHONE &amp; DATA SYS INC · REDUCE</div>
+<div class="entry-value">13.34%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="CRH PLC · ADD">CRH PLC · ADD</div>
+<div class="entry-value">9.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="SOMNIGROUP INTERNATIONAL INC · ADD">SOMNIGROUP INTERNATIONAL INC · ADD</div>
+<div class="entry-value">8.06%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="CARPENTER TECHNOLOGY CORP · REDUCE">CARPENTER TECHNOLOGY CORP · REDUCE</div>
+<div class="entry-value">5.87%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MASTEC INC · REDUCE">MASTEC INC · REDUCE</div>
+<div class="entry-value">4.94%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="DANAHER CORP DEL · ADD">DANAHER CORP DEL · ADD</div>
+<div class="entry-value">4.78%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · ADD">TAIWAN SEMICONDUCTOR MANUFAC · ADD</div>
+<div class="entry-value">4.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="API GROUP CORP · ADD">API GROUP CORP · ADD</div>
+<div class="entry-value">3.95%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LIVE NATION ENTERTAINMENT IN · ADD">LIVE NATION ENTERTAINMENT IN · ADD</div>
+<div class="entry-value">3.40%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="META PLATFORMS INC · EXIT">META PLATFORMS INC · EXIT</div>
+<div class="entry-value">2.47%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">2.42%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="SPDR GOLD TR · EXIT">SPDR GOLD TR · EXIT</div>
+<div class="entry-value">1.96%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="HUT 8 CORP · ADD">HUT 8 CORP · ADD</div>
+<div class="entry-value">1.96%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · EXIT">NVIDIA CORPORATION · EXIT</div>
+<div class="entry-value">1.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TRANSDIGM GROUP INC · ADD">TRANSDIGM GROUP INC · ADD</div>
+<div class="entry-value">1.39%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 22 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#1f9d55 0.00deg 41.02deg, #d97706 41.02deg 73.11deg, #2563eb 73.11deg 101.29deg, #2563eb 101.29deg 119.35deg, #d97706 119.35deg 137.22deg, #2563eb 137.22deg 154.12deg, #2563eb 154.12deg 170.11deg, #1f9d55 170.11deg 185.86deg, #2563eb 185.86deg 201.37deg, #1f9d55 201.37deg 216.33deg, #2563eb 216.33deg 230.85deg, #1f9d55 230.85deg 243.69deg, #2563eb 243.69deg 256.43deg, #2563eb 256.43deg 268.10deg, #d97706 268.10deg 278.31deg, #2563eb 278.31deg 287.64deg, #d97706 287.64deg 296.92deg, #2563eb 296.92deg 305.02deg, #2563eb 305.02deg 312.93deg, #2563eb 312.93deg 320.26deg, #1f9d55 320.26deg 327.52deg, #1f9d55 327.52deg 333.33deg, #1f9d55 333.33deg 338.42deg, #2563eb 338.42deg 343.00deg, #1f9d55 343.00deg 346.71deg, #64748b 346.71deg 348.73deg, #e5e7eb 348.73deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="WARNER BROS DISCOVERY INC · NEW">WARNER BROS DISCOVERY INC · NEW</div>
+<div class="entry-value">11.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">8.91%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">7.83%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="CRH PLC · ADD">CRH PLC · ADD</div>
+<div class="entry-value">5.02%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TELEPHONE &amp; DATA SYS INC · REDUCE">TELEPHONE &amp; DATA SYS INC · REDUCE</div>
+<div class="entry-value">4.96%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · ADD">TAIWAN SEMICONDUCTOR MANUFAC · ADD</div>
+<div class="entry-value">4.69%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LIVE NATION ENTERTAINMENT IN · ADD">LIVE NATION ENTERTAINMENT IN · ADD</div>
+<div class="entry-value">4.44%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="KEYSIGHT TECHNOLOGIES INC · NEW">KEYSIGHT TECHNOLOGIES INC · NEW</div>
+<div class="entry-value">4.38%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="SOMNIGROUP INTERNATIONAL INC · ADD">SOMNIGROUP INTERNATIONAL INC · ADD</div>
+<div class="entry-value">4.31%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="BLOCK INC · NEW">BLOCK INC · NEW</div>
+<div class="entry-value">4.16%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="NORFOLK SOUTHN CORP · ADD">NORFOLK SOUTHN CORP · ADD</div>
+<div class="entry-value">4.03%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="FLEX LTD · NEW">FLEX LTD · NEW</div>
+<div class="entry-value">3.57%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="CAPITAL ONE FINL CORP · ADD">CAPITAL ONE FINL CORP · ADD</div>
+<div class="entry-value">3.54%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="HUT 8 CORP · ADD">HUT 8 CORP · ADD</div>
+<div class="entry-value">3.24%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="CARPENTER TECHNOLOGY CORP · REDUCE">CARPENTER TECHNOLOGY CORP · REDUCE</div>
+<div class="entry-value">2.83%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="API GROUP CORP · ADD">API GROUP CORP · ADD</div>
+<div class="entry-value">2.59%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 27 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Chase Coleman - Tiger Global Management LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="INTEL CORP">INTEL CORP</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 0.32% → 2.48% (+2.16 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="ALPHABET INC">ALPHABET INC</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 13.38% → 8.65% (-4.73 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="CEREBRAS SYSTEMS INC">CEREBRAS SYSTEMS INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 2.76% (+2.76 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="APPLOVIN CORP">APPLOVIN CORP</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 1.74% → 0.00% (-1.74 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 48.18deg, #d97706 48.18deg 81.19deg, #d97706 81.19deg 114.01deg, #d97706 114.01deg 143.64deg, #d97706 143.64deg 171.47deg, #d97706 171.47deg 191.59deg, #d97706 191.59deg 209.07deg, #d97706 209.07deg 223.66deg, #d97706 223.66deg 237.04deg, #d97706 237.04deg 250.17deg, #d97706 250.17deg 262.25deg, #2563eb 262.25deg 272.54deg, #d97706 272.54deg 281.47deg, #2563eb 281.47deg 289.50deg, #dc2626 289.50deg 295.77deg, #d97706 295.77deg 302.00deg, #d97706 302.00deg 307.78deg, #2563eb 307.78deg 313.08deg, #dc2626 313.08deg 317.89deg, #2563eb 317.89deg 321.68deg, #dc2626 321.68deg 325.38deg, #2563eb 325.38deg 329.06deg, #2563eb 329.06deg 330.20deg, #e5e7eb 330.20deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">13.38%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">9.17%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">9.12%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">8.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="META PLATFORMS INC · REDUCE">META PLATFORMS INC · REDUCE</div>
+<div class="entry-value">7.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SEA LTD · REDUCE">SEA LTD · REDUCE</div>
+<div class="entry-value">5.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BROADCOM INC · REDUCE">BROADCOM INC · REDUCE</div>
+<div class="entry-value">4.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICROSOFT CORP · REDUCE">MICROSOFT CORP · REDUCE</div>
+<div class="entry-value">4.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GE VERNOVA INC · REDUCE">GE VERNOVA INC · REDUCE</div>
+<div class="entry-value">3.72%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · REDUCE">LAM RESEARCH CORP · REDUCE</div>
+<div class="entry-value">3.65%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SPOTIFY TECHNOLOGY S A · REDUCE">SPOTIFY TECHNOLOGY S A · REDUCE</div>
+<div class="entry-value">3.36%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="COUPANG INC · ADD">COUPANG INC · ADD</div>
+<div class="entry-value">2.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="APPLIED MATLS INC · REDUCE">APPLIED MATLS INC · REDUCE</div>
+<div class="entry-value">2.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="CORPAY INC · ADD">CORPAY INC · ADD</div>
+<div class="entry-value">2.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="APPLOVIN CORP · EXIT">APPLOVIN CORP · EXIT</div>
+<div class="entry-value">1.74%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAKE-TWO INTERACTIVE SOFTWAR · REDUCE">TAKE-TWO INTERACTIVE SOFTWAR · REDUCE</div>
+<div class="entry-value">1.73%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 24 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 34.99deg, #d97706 34.99deg 69.64deg, #d97706 69.64deg 103.28deg, #d97706 103.28deg 134.42deg, #d97706 134.42deg 158.29deg, #d97706 158.29deg 178.87deg, #d97706 178.87deg 196.94deg, #d97706 196.94deg 214.65deg, #d97706 214.65deg 228.72deg, #d97706 228.72deg 241.41deg, #2563eb 241.41deg 252.17deg, #1f9d55 252.17deg 262.12deg, #d97706 262.12deg 272.06deg, #2563eb 272.06deg 281.57deg, #2563eb 281.57deg 290.49deg, #d97706 290.49deg 298.56deg, #d97706 298.56deg 305.35deg, #2563eb 305.35deg 311.94deg, #1f9d55 311.94deg 317.82deg, #2563eb 317.82deg 323.05deg, #d97706 323.05deg 327.88deg, #1f9d55 327.88deg 332.01deg, #1f9d55 332.01deg 336.13deg, #2563eb 336.13deg 340.03deg, #e5e7eb 340.03deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">9.72%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">9.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">9.34%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ALPHABET INC · REDUCE">ALPHABET INC · REDUCE</div>
+<div class="entry-value">8.65%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="META PLATFORMS INC · REDUCE">META PLATFORMS INC · REDUCE</div>
+<div class="entry-value">6.63%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · REDUCE">LAM RESEARCH CORP · REDUCE</div>
+<div class="entry-value">5.72%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SEA LTD · REDUCE">SEA LTD · REDUCE</div>
+<div class="entry-value">5.02%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="APPLIED MATLS INC · REDUCE">APPLIED MATLS INC · REDUCE</div>
+<div class="entry-value">4.92%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GE VERNOVA INC · REDUCE">GE VERNOVA INC · REDUCE</div>
+<div class="entry-value">3.91%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="MICROSOFT CORP · REDUCE">MICROSOFT CORP · REDUCE</div>
+<div class="entry-value">3.53%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="CORPAY INC · ADD">CORPAY INC · ADD</div>
+<div class="entry-value">2.99%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="CEREBRAS SYSTEMS INC · NEW">CEREBRAS SYSTEMS INC · NEW</div>
+<div class="entry-value">2.76%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="BROADCOM INC · REDUCE">BROADCOM INC · REDUCE</div>
+<div class="entry-value">2.76%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="COUPANG INC · ADD">COUPANG INC · ADD</div>
+<div class="entry-value">2.64%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="INTEL CORP · ADD">INTEL CORP · ADD</div>
+<div class="entry-value">2.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SPOTIFY TECHNOLOGY S A · REDUCE">SPOTIFY TECHNOLOGY S A · REDUCE</div>
+<div class="entry-value">2.24%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 25 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Philippe Laffont - Coatue Management LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="MICRON TECHNOLOGY INC">MICRON TECHNOLOGY INC</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 0.19% → 7.46% (+7.27 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="META PLATFORMS INC">META PLATFORMS INC</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 5.54% → 2.93% (-2.61 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="SPACE EXPLORATION TECHN CORP">SPACE EXPLORATION TECHN CORP</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 6.52% (+6.52 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 38.87deg, #d97706 38.87deg 66.69deg, #d97706 66.69deg 93.28deg, #d97706 93.28deg 115.50deg, #2563eb 115.50deg 136.61deg, #2563eb 136.61deg 157.65deg, #2563eb 157.65deg 178.12deg, #d97706 178.12deg 198.05deg, #64748b 198.05deg 214.08deg, #2563eb 214.08deg 229.45deg, #d97706 229.45deg 243.13deg, #2563eb 243.13deg 256.38deg, #2563eb 256.38deg 267.75deg, #d97706 267.75deg 275.96deg, #d97706 275.96deg 284.08deg, #d97706 284.08deg 292.02deg, #d97706 292.02deg 298.38deg, #d97706 298.38deg 304.68deg, #64748b 304.68deg 309.90deg, #d97706 309.90deg 314.79deg, #64748b 314.79deg 319.44deg, #d97706 319.44deg 323.41deg, #d97706 323.41deg 327.15deg, #2563eb 327.15deg 327.84deg, #e5e7eb 327.84deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">10.80%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GE VERNOVA INC · REDUCE">GE VERNOVA INC · REDUCE</div>
+<div class="entry-value">7.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · REDUCE">LAM RESEARCH CORP · REDUCE</div>
+<div class="entry-value">7.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="APPLIED MATLS INC · REDUCE">APPLIED MATLS INC · REDUCE</div>
+<div class="entry-value">6.17%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="BROADCOM INC · ADD">BROADCOM INC · ADD</div>
+<div class="entry-value">5.86%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="EATON CORP PLC · ADD">EATON CORP PLC · ADD</div>
+<div class="entry-value">5.85%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">5.68%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="META PLATFORMS INC · REDUCE">META PLATFORMS INC · REDUCE</div>
+<div class="entry-value">5.54%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CONSTELLATION ENERGY CORP · HOLD">CONSTELLATION ENERGY CORP · HOLD</div>
+<div class="entry-value">4.45%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">4.27%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">3.80%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="EQUINIX INC · ADD">EQUINIX INC · ADD</div>
+<div class="entry-value">3.68%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="MICROSOFT CORP · ADD">MICROSOFT CORP · ADD</div>
+<div class="entry-value">3.16%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NETFLIX INC. · REDUCE">NETFLIX INC. · REDUCE</div>
+<div class="entry-value">2.28%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="ASML HLDG NV · REDUCE">ASML HLDG NV · REDUCE</div>
+<div class="entry-value">2.26%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SPOTIFY TECHNOLOGY S A · REDUCE">SPOTIFY TECHNOLOGY S A · REDUCE</div>
+<div class="entry-value">2.20%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 25 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 31.52deg, #d97706 31.52deg 61.81deg, #2563eb 61.81deg 88.66deg, #1f9d55 88.66deg 112.14deg, #d97706 112.14deg 134.69deg, #d97706 134.69deg 156.94deg, #2563eb 156.94deg 177.82deg, #2563eb 177.82deg 194.17deg, #2563eb 194.17deg 209.84deg, #2563eb 209.84deg 222.69deg, #1f9d55 222.69deg 235.18deg, #1f9d55 235.18deg 246.65deg, #d97706 246.65deg 257.19deg, #2563eb 257.19deg 267.01deg, #d97706 267.01deg 275.98deg, #64748b 275.98deg 284.50deg, #1f9d55 284.50deg 292.98deg, #1f9d55 292.98deg 301.28deg, #2563eb 301.28deg 309.39deg, #d97706 309.39deg 314.42deg, #d97706 314.42deg 318.89deg, #d97706 318.89deg 323.35deg, #d97706 323.35deg 327.70deg, #64748b 327.70deg 331.28deg, #64748b 331.28deg 334.18deg, #d97706 334.18deg 336.67deg, #d97706 336.67deg 339.05deg, #d97706 339.05deg 341.39deg, #d97706 341.39deg 342.43deg, #e5e7eb 342.43deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">8.76%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LAM RESEARCH CORP · REDUCE">LAM RESEARCH CORP · REDUCE</div>
+<div class="entry-value">8.41%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="MICRON TECHNOLOGY INC · ADD">MICRON TECHNOLOGY INC · ADD</div>
+<div class="entry-value">7.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="SPACE EXPLORATION TECHN CORP · NEW">SPACE EXPLORATION TECHN CORP · NEW</div>
+<div class="entry-value">6.52%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="APPLIED MATLS INC · REDUCE">APPLIED MATLS INC · REDUCE</div>
+<div class="entry-value">6.26%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="GE VERNOVA INC · REDUCE">GE VERNOVA INC · REDUCE</div>
+<div class="entry-value">6.18%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="AMAZON COM INC · ADD">AMAZON COM INC · ADD</div>
+<div class="entry-value">5.80%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="BROADCOM INC · ADD">BROADCOM INC · ADD</div>
+<div class="entry-value">4.54%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="EATON CORP PLC · ADD">EATON CORP PLC · ADD</div>
+<div class="entry-value">4.35%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">3.57%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="INTEL CORP · NEW">INTEL CORP · NEW</div>
+<div class="entry-value">3.47%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="CEREBRAS SYSTEMS INC · NEW">CEREBRAS SYSTEMS INC · NEW</div>
+<div class="entry-value">3.19%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="META PLATFORMS INC · REDUCE">META PLATFORMS INC · REDUCE</div>
+<div class="entry-value">2.93%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="EQUINIX INC · ADD">EQUINIX INC · ADD</div>
+<div class="entry-value">2.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">2.49%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CONSTELLATION ENERGY CORP · HOLD">CONSTELLATION ENERGY CORP · HOLD</div>
+<div class="entry-value">2.37%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 30 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Cathie Wood - ARK Investment Management LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-12.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="Alphabet Inc">Alphabet Inc</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 1.61% → 2.39% (+0.79 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="Roku Inc">Roku Inc</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 2.81% → 0.53% (-2.28 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="Space Exploration Technologies Corp">Space Exploration Technologies Corp</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 4.97% (+4.97 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 29.47deg, #d97706 29.47deg 44.92deg, #d97706 44.92deg 59.98deg, #d97706 59.98deg 73.86deg, #2563eb 73.86deg 86.59deg, #2563eb 86.59deg 98.75deg, #2563eb 98.75deg 110.80deg, #d97706 110.80deg 122.44deg, #2563eb 122.44deg 134.04deg, #d97706 134.04deg 144.38deg, #d97706 144.38deg 154.50deg, #2563eb 154.50deg 163.83deg, #d97706 163.83deg 172.27deg, #d97706 172.27deg 180.37deg, #2563eb 180.37deg 188.27deg, #d97706 188.27deg 195.23deg, #2563eb 195.23deg 202.12deg, #2563eb 202.12deg 208.69deg, #d97706 208.69deg 214.98deg, #d97706 214.98deg 220.92deg, #2563eb 220.92deg 226.70deg, #2563eb 226.70deg 232.21deg, #d97706 232.21deg 237.63deg, #d97706 237.63deg 243.00deg, #2563eb 243.00deg 248.21deg, #2563eb 248.21deg 253.42deg, #2563eb 253.42deg 258.47deg, #d97706 258.47deg 262.69deg, #d97706 262.69deg 266.72deg, #d97706 266.72deg 270.62deg, #2563eb 270.62deg 274.45deg, #2563eb 274.45deg 278.22deg, #e5e7eb 278.22deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Tesla Inc · REDUCE">Tesla Inc · REDUCE</div>
+<div class="entry-value">8.19%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Advanced Micro Devices Inc · REDUCE">Advanced Micro Devices Inc · REDUCE</div>
+<div class="entry-value">4.29%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="CRISPR Therapeutics AG · REDUCE">CRISPR Therapeutics AG · REDUCE</div>
+<div class="entry-value">4.19%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Shopify Inc · REDUCE">Shopify Inc · REDUCE</div>
+<div class="entry-value">3.85%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Palantir Technologies Inc · ADD">Palantir Technologies Inc · ADD</div>
+<div class="entry-value">3.54%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Tempus AI Inc · ADD">Tempus AI Inc · ADD</div>
+<div class="entry-value">3.38%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Circle Internet Group Inc · ADD">Circle Internet Group Inc · ADD</div>
+<div class="entry-value">3.35%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Robinhood Markets Inc · REDUCE">Robinhood Markets Inc · REDUCE</div>
+<div class="entry-value">3.24%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Coinbase Global Inc · ADD">Coinbase Global Inc · ADD</div>
+<div class="entry-value">3.22%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Teradyne Inc · REDUCE">Teradyne Inc · REDUCE</div>
+<div class="entry-value">2.87%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Roku Inc · REDUCE">Roku Inc · REDUCE</div>
+<div class="entry-value">2.81%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ROBLOX Corp · ADD">ROBLOX Corp · ADD</div>
+<div class="entry-value">2.59%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Twist Bioscience Corp · REDUCE">Twist Bioscience Corp · REDUCE</div>
+<div class="entry-value">2.34%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Beam Therapeutics Inc · REDUCE">Beam Therapeutics Inc · REDUCE</div>
+<div class="entry-value">2.25%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Amazon.com Inc · ADD">Amazon.com Inc · ADD</div>
+<div class="entry-value">2.19%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="10X Genomics Inc · REDUCE">10X Genomics Inc · REDUCE</div>
+<div class="entry-value">1.93%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 33 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 27.13deg, #d97706 27.13deg 46.36deg, #1f9d55 46.36deg 64.24deg, #2563eb 64.24deg 77.81deg, #d97706 77.81deg 90.09deg, #d97706 90.09deg 102.15deg, #d97706 102.15deg 113.24deg, #d97706 113.24deg 124.18deg, #d97706 124.18deg 133.14deg, #2563eb 133.14deg 142.01deg, #2563eb 142.01deg 150.76deg, #2563eb 150.76deg 159.38deg, #2563eb 159.38deg 167.96deg, #2563eb 167.96deg 176.18deg, #d97706 176.18deg 184.39deg, #d97706 184.39deg 191.68deg, #2563eb 191.68deg 198.35deg, #2563eb 198.35deg 205.03deg, #2563eb 205.03deg 211.49deg, #2563eb 211.49deg 217.67deg, #d97706 217.67deg 223.49deg, #2563eb 223.49deg 229.00deg, #2563eb 229.00deg 234.44deg, #d97706 234.44deg 239.83deg, #2563eb 239.83deg 244.20deg, #d97706 244.20deg 248.49deg, #1f9d55 248.49deg 252.44deg, #d97706 252.44deg 256.32deg, #2563eb 256.32deg 260.01deg, #d97706 260.01deg 263.54deg, #d97706 263.54deg 266.48deg, #2563eb 266.48deg 269.41deg, #d97706 269.41deg 272.15deg, #d97706 272.15deg 274.07deg, #e5e7eb 274.07deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Tesla Inc · REDUCE">Tesla Inc · REDUCE</div>
+<div class="entry-value">7.54%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Advanced Micro Devices Inc · REDUCE">Advanced Micro Devices Inc · REDUCE</div>
+<div class="entry-value">5.34%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="Space Exploration Technologies Corp · NEW">Space Exploration Technologies Corp · NEW</div>
+<div class="entry-value">4.97%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Tempus AI Inc · ADD">Tempus AI Inc · ADD</div>
+<div class="entry-value">3.77%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Robinhood Markets Inc · REDUCE">Robinhood Markets Inc · REDUCE</div>
+<div class="entry-value">3.41%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="CRISPR Therapeutics AG · REDUCE">CRISPR Therapeutics AG · REDUCE</div>
+<div class="entry-value">3.35%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Shopify Inc · REDUCE">Shopify Inc · REDUCE</div>
+<div class="entry-value">3.08%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Twist Bioscience Corp · REDUCE">Twist Bioscience Corp · REDUCE</div>
+<div class="entry-value">3.04%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="10X Genomics Inc · REDUCE">10X Genomics Inc · REDUCE</div>
+<div class="entry-value">2.49%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Amazon.com Inc · ADD">Amazon.com Inc · ADD</div>
+<div class="entry-value">2.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Palantir Technologies Inc · ADD">Palantir Technologies Inc · ADD</div>
+<div class="entry-value">2.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Alphabet Inc · ADD">Alphabet Inc · ADD</div>
+<div class="entry-value">2.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Coinbase Global Inc · ADD">Coinbase Global Inc · ADD</div>
+<div class="entry-value">2.38%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ROBLOX Corp · ADD">ROBLOX Corp · ADD</div>
+<div class="entry-value">2.28%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Beam Therapeutics Inc · REDUCE">Beam Therapeutics Inc · REDUCE</div>
+<div class="entry-value">2.28%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="Teradyne Inc · REDUCE">Teradyne Inc · REDUCE</div>
+<div class="entry-value">2.03%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 35 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>George Soros - Soros Fund Management LLC</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="ENTERGY CORP NEW">ENTERGY CORP NEW</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 0.10% → 1.29% (+1.19 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="STATE STR SPDR S&amp;P 500 ETF T">STATE STR SPDR S&amp;P 500 ETF T</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 8.48% → 0.69% (-7.79 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name" title="SUPER MICRO COMPUTER INC">SUPER MICRO COMPUTER INC</div><div class="mover-value"><i class="swatch" style="background:#1f9d55"></i> NEW · 0.00% → 1.37% (+1.37 pp)</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name" title="SPDR SERIES TRUST">SPDR SERIES TRUST</div><div class="mover-value"><i class="swatch" style="background:#dc2626"></i> EXIT · 2.39% → 0.00% (-2.39 pp)</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 30.51deg, #d97706 30.51deg 46.51deg, #d97706 46.51deg 58.48deg, #d97706 58.48deg 67.16deg, #64748b 67.16deg 75.78deg, #dc2626 75.78deg 84.37deg, #2563eb 84.37deg 92.14deg, #d97706 92.14deg 99.53deg, #64748b 99.53deg 106.90deg, #64748b 106.90deg 114.06deg, #d97706 114.06deg 121.03deg, #2563eb 121.03deg 127.55deg, #dc2626 127.55deg 133.80deg, #d97706 133.80deg 139.87deg, #d97706 139.87deg 145.79deg, #2563eb 145.79deg 150.87deg, #2563eb 150.87deg 155.89deg, #d97706 155.89deg 160.89deg, #d97706 160.89deg 165.70deg, #dc2626 165.70deg 170.27deg, #d97706 170.27deg 174.79deg, #d97706 174.79deg 178.75deg, #64748b 178.75deg 182.63deg, #d97706 182.63deg 186.47deg, #64748b 186.47deg 190.21deg, #d97706 190.21deg 193.47deg, #64748b 193.47deg 196.33deg, #2563eb 196.33deg 199.08deg, #2563eb 199.08deg 201.03deg, #2563eb 201.03deg 201.44deg, #2563eb 201.44deg 201.78deg, #e5e7eb 201.78deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="STATE STR SPDR S&amp;P 500 ETF T · REDUCE">STATE STR SPDR S&amp;P 500 ETF T · REDUCE</div>
+<div class="entry-value">8.48%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">4.44%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SELECT SECTOR SPDR TR · REDUCE">SELECT SECTOR SPDR TR · REDUCE</div>
+<div class="entry-value">3.32%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="COREWEAVE INC · REDUCE">COREWEAVE INC · REDUCE</div>
+<div class="entry-value">2.41%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="GLOBAL PMTS INC · HOLD">GLOBAL PMTS INC · HOLD</div>
+<div class="entry-value">2.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="SPDR SERIES TRUST · EXIT">SPDR SERIES TRUST · EXIT</div>
+<div class="entry-value">2.39%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ELECTRONIC ARTS INC · ADD">ELECTRONIC ARTS INC · ADD</div>
+<div class="entry-value">2.16%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">2.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="BILL HOLDINGS INC · HOLD">BILL HOLDINGS INC · HOLD</div>
+<div class="entry-value">2.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="PG&amp;E CORP · HOLD">PG&amp;E CORP · HOLD</div>
+<div class="entry-value">1.99%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">1.94%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">1.81%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#dc2626"></i>
+<div class="entry-name" title="JAZZ INVESTMENTS I LTD · EXIT">JAZZ INVESTMENTS I LTD · EXIT</div>
+<div class="entry-value">1.74%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="RIVIAN AUTOMOTIVE INC · REDUCE">RIVIAN AUTOMOTIVE INC · REDUCE</div>
+<div class="entry-value">1.69%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="JD.COM INC · REDUCE">JD.COM INC · REDUCE</div>
+<div class="entry-value">1.64%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LINDE PLC · ADD">LINDE PLC · ADD</div>
+<div class="entry-value">1.41%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 32 slices.</p>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#d97706 0.00deg 12.46deg, #d97706 12.46deg 23.48deg, #64748b 23.48deg 33.33deg, #2563eb 33.33deg 42.75deg, #d97706 42.75deg 52.16deg, #2563eb 52.16deg 60.97deg, #64748b 60.97deg 68.98deg, #64748b 68.98deg 76.92deg, #d97706 76.92deg 83.81deg, #2563eb 83.81deg 90.58deg, #2563eb 90.58deg 96.72deg, #d97706 96.72deg 101.99deg, #d97706 101.99deg 107.14deg, #1f9d55 107.14deg 112.06deg, #d97706 112.06deg 116.76deg, #1f9d55 116.76deg 121.40deg, #2563eb 121.40deg 126.04deg, #64748b 126.04deg 130.67deg, #d97706 130.67deg 135.02deg, #2563eb 135.02deg 139.38deg, #2563eb 139.38deg 143.66deg, #64748b 143.66deg 147.78deg, #64748b 147.78deg 151.69deg, #d97706 151.69deg 155.53deg, #1f9d55 155.53deg 159.31deg, #2563eb 159.31deg 163.08deg, #d97706 163.08deg 166.73deg, #d97706 166.73deg 170.32deg, #d97706 170.32deg 173.41deg, #d97706 173.41deg 176.27deg, #d97706 176.27deg 178.75deg, #e5e7eb 178.75deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="AMAZON COM INC · REDUCE">AMAZON COM INC · REDUCE</div>
+<div class="entry-value">3.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TAIWAN SEMICONDUCTOR MANUFAC · REDUCE">TAIWAN SEMICONDUCTOR MANUFAC · REDUCE</div>
+<div class="entry-value">3.06%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="GLOBAL PMTS INC · HOLD">GLOBAL PMTS INC · HOLD</div>
+<div class="entry-value">2.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ALPHABET INC · ADD">ALPHABET INC · ADD</div>
+<div class="entry-value">2.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="NVIDIA CORPORATION · REDUCE">NVIDIA CORPORATION · REDUCE</div>
+<div class="entry-value">2.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="ELECTRONIC ARTS INC · ADD">ELECTRONIC ARTS INC · ADD</div>
+<div class="entry-value">2.44%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="BILL HOLDINGS INC · HOLD">BILL HOLDINGS INC · HOLD</div>
+<div class="entry-value">2.23%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="PG&amp;E CORP · HOLD">PG&amp;E CORP · HOLD</div>
+<div class="entry-value">2.21%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="RIVIAN AUTOMOTIVE INC · REDUCE">RIVIAN AUTOMOTIVE INC · REDUCE</div>
+<div class="entry-value">1.91%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="APPLE INC · ADD">APPLE INC · ADD</div>
+<div class="entry-value">1.88%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="LINDE PLC · ADD">LINDE PLC · ADD</div>
+<div class="entry-value">1.70%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="LUMENTUM HLDGS INC · REDUCE">LUMENTUM HLDGS INC · REDUCE</div>
+<div class="entry-value">1.46%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="TKO GROUP HOLDINGS INC · REDUCE">TKO GROUP HOLDINGS INC · REDUCE</div>
+<div class="entry-value">1.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="SUPER MICRO COMPUTER INC · NEW">SUPER MICRO COMPUTER INC · NEW</div>
+<div class="entry-value">1.37%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="SELECT SECTOR SPDR TR · REDUCE">SELECT SECTOR SPDR TR · REDUCE</div>
+<div class="entry-value">1.30%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#1f9d55"></i>
+<div class="entry-name" title="AMERICAN ELEC PWR CO INC · NEW">AMERICAN ELEC PWR CO INC · NEW</div>
+<div class="entry-value">1.29%</div>
+</div>
+<p class="meta">Showing 16 legend rows of 32 slices.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Carl Icahn - Icahn Carl C</h2>
+<p class="meta">Current 2026-06-30 filed 2026-08-14; previous 2026-03-31 filed 2026-05-15.</p>
+<div class="movers">
+<div class="mover"><p class="mover-label">最大加仓</p><div class="mover-name" title="Icahn Enterprises LP">Icahn Enterprises LP</div><div class="mover-value"><i class="swatch" style="background:#2563eb"></i> ADD · 48.49% → 53.95% (+5.46 pp)</div></div>
+<div class="mover"><p class="mover-label">最大减仓</p><div class="mover-name" title="American Electric Power Company">American Electric Power Company</div><div class="mover-value"><i class="swatch" style="background:#d97706"></i> REDUCE · 1.85% → 0.72% (-1.13 pp)</div></div>
+<div class="mover"><p class="mover-label">最大新进</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+<div class="mover"><p class="mover-label">最大清仓</p><div class="mover-name">None</div><div class="mover-value">-</div></div>
+</div>
+<div class="pies">
+<div>
+<p class="pie-title">原先</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 174.58deg, #64748b 174.58deg 275.42deg, #64748b 275.42deg 297.62deg, #64748b 297.62deg 315.24deg, #64748b 315.24deg 328.29deg, #64748b 328.29deg 335.21deg, #d97706 335.21deg 341.86deg, #d97706 341.86deg 348.12deg, #64748b 348.12deg 351.55deg, #e5e7eb 351.55deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Icahn Enterprises LP · ADD">Icahn Enterprises LP · ADD</div>
+<div class="entry-value">48.49%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CVR Energy Inc · HOLD">CVR Energy Inc · HOLD</div>
+<div class="entry-value">28.01%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CVR Partners, LP · HOLD">CVR Partners, LP · HOLD</div>
+<div class="entry-value">6.17%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Centuri Holdings, Inc. · HOLD">Centuri Holdings, Inc. · HOLD</div>
+<div class="entry-value">4.90%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="International Flavors and Fragrances Inc. · HOLD">International Flavors and Fragrances Inc. · HOLD</div>
+<div class="entry-value">3.63%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="EchoStar Corporation · HOLD">EchoStar Corporation · HOLD</div>
+<div class="entry-value">1.92%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="American Electric Power Company · REDUCE">American Electric Power Company · REDUCE</div>
+<div class="entry-value">1.85%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="JetBlue Airways Corp. · REDUCE">JetBlue Airways Corp. · REDUCE</div>
+<div class="entry-value">1.74%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Monro, Inc. · HOLD">Monro, Inc. · HOLD</div>
+<div class="entry-value">0.95%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">2.35%</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p class="pie-title">现在</p>
+<div class="piebox">
+<div class="pie" style="background:conic-gradient(#2563eb 0.00deg 194.23deg, #64748b 194.23deg 279.65deg, #64748b 279.65deg 299.87deg, #64748b 299.87deg 318.76deg, #64748b 318.76deg 333.51deg, #64748b 333.51deg 339.72deg, #d97706 339.72deg 344.87deg, #64748b 344.87deg 348.66deg, #d97706 348.66deg 351.25deg, #e5e7eb 351.25deg 360.00deg)"></div>
+<div class="entries">
+<div class="entry">
+<i class="swatch" style="background:#2563eb"></i>
+<div class="entry-name" title="Icahn Enterprises LP · ADD">Icahn Enterprises LP · ADD</div>
+<div class="entry-value">53.95%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CVR Energy Inc · HOLD">CVR Energy Inc · HOLD</div>
+<div class="entry-value">23.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="CVR Partners, LP · HOLD">CVR Partners, LP · HOLD</div>
+<div class="entry-value">5.62%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Centuri Holdings, Inc. · HOLD">Centuri Holdings, Inc. · HOLD</div>
+<div class="entry-value">5.25%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="International Flavors and Fragrances Inc. · HOLD">International Flavors and Fragrances Inc. · HOLD</div>
+<div class="entry-value">4.10%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="EchoStar Corporation · HOLD">EchoStar Corporation · HOLD</div>
+<div class="entry-value">1.73%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="JetBlue Airways Corp. · REDUCE">JetBlue Airways Corp. · REDUCE</div>
+<div class="entry-value">1.43%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#64748b"></i>
+<div class="entry-name" title="Monro, Inc. · HOLD">Monro, Inc. · HOLD</div>
+<div class="entry-value">1.05%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#d97706"></i>
+<div class="entry-name" title="American Electric Power Company · REDUCE">American Electric Power Company · REDUCE</div>
+<div class="entry-value">0.72%</div>
+</div>
+<div class="entry">
+<i class="swatch" style="background:#e5e7eb"></i>
+<div class="entry-name" title="Other / &lt;1%">Other / &lt;1%</div>
+<div class="entry-value">2.43%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="summary">
+<div class="summary-head">
+<div>
+<h2>Combined Latest Portfolio Weight Top 10</h2>
+<p>Each row sums the latest portfolio weight for the same issuer across all tracked investors.</p>
+</div>
+<p>14 investors included</p>
+</div>
+<div class="top-list">
+<div class="top-row">
+<div class="rank">#1</div>
+<div>
+<div class="top-name" title="AMAZON COM INC">AMAZON COM INC</div>
+<div class="top-meta" title="Bill Ackman; Chase Coleman; Dan Loeb; David Tepper; George Soros; Philippe Laffont; Ray Dalio; Seth Klarman">Bill Ackman; Chase Coleman; Dan Loeb; David Tepper; George Soros; Philippe Laffont; Ray Dalio; Seth Klarman</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:100.00%"></div>
+</div>
+</div>
+<div class="top-pct">79.07%</div>
+<div class="top-holders">8 holders<br>$9,888,073,706,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#2</div>
+<div>
+<div class="top-name" title="PALANTIR TECHNOLOGIES INC">PALANTIR TECHNOLOGIES INC</div>
+<div class="top-meta" title="Michael Burry">Michael Burry</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:83.51%"></div>
+</div>
+</div>
+<div class="top-pct">66.04%</div>
+<div class="top-holders">1 holders<br>$912,100,000,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#3</div>
+<div>
+<div class="top-name" title="ALPHABET INC">ALPHABET INC</div>
+<div class="top-meta" title="Bill Ackman; Chase Coleman; Dan Loeb; David Tepper; George Soros; Philippe Laffont; Ray Dalio; Seth Klarman; Warren Buffett">Bill Ackman; Chase Coleman; Dan Loeb; David Tepper; George Soros; Philippe Laffont; Ray Dalio; Seth Klarman; Warren Buffett</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:73.97%"></div>
+</div>
+</div>
+<div class="top-pct">58.49%</div>
+<div class="top-holders">9 holders<br>$43,862,698,036,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#4</div>
+<div>
+<div class="top-name" title="Icahn Enterprises LP">Icahn Enterprises LP</div>
+<div class="top-meta" title="Carl Icahn">Carl Icahn</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:68.23%"></div>
+</div>
+</div>
+<div class="top-pct">53.95%</div>
+<div class="top-holders">1 holders<br>$4,458,616,003,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#5</div>
+<div>
+<div class="top-name" title="TAIWAN SEMICONDUCTOR MANUFAC">TAIWAN SEMICONDUCTOR MANUFAC</div>
+<div class="top-meta" title="Chase Coleman; Dan Loeb; David Tepper; George Soros; Philippe Laffont; Ray Dalio">Chase Coleman; Dan Loeb; David Tepper; George Soros; Philippe Laffont; Ray Dalio</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:47.42%"></div>
+</div>
+</div>
+<div class="top-pct">37.50%</div>
+<div class="top-holders">6 holders<br>$7,943,271,853,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#6</div>
+<div>
+<div class="top-name" title="NVIDIA CORPORATION">NVIDIA CORPORATION</div>
+<div class="top-meta" title="Chase Coleman; David Tepper; George Soros; Michael Burry; Philippe Laffont; Ray Dalio">Chase Coleman; David Tepper; George Soros; Michael Burry; Philippe Laffont; Ray Dalio</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:45.61%"></div>
+</div>
+</div>
+<div class="top-pct">36.07%</div>
+<div class="top-holders">6 holders<br>$5,010,709,882,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#7</div>
+<div>
+<div class="top-name" title="GREEN BRICK PARTNERS INC">GREEN BRICK PARTNERS INC</div>
+<div class="top-meta" title="David Einhorn">David Einhorn</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:36.58%"></div>
+</div>
+</div>
+<div class="top-pct">28.92%</div>
+<div class="top-holders">1 holders<br>$592,369,623,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#8</div>
+<div>
+<div class="top-name" title="APPLE INC">APPLE INC</div>
+<div class="top-meta" title="David Tepper; George Soros; Ray Dalio; Warren Buffett">David Tepper; George Soros; Ray Dalio; Warren Buffett</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:34.75%"></div>
+</div>
+</div>
+<div class="top-pct">27.48%</div>
+<div class="top-holders">4 holders<br>$66,450,575,768,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#9</div>
+<div>
+<div class="top-name" title="META PLATFORMS INC">META PLATFORMS INC</div>
+<div class="top-meta" title="Bill Ackman; Chase Coleman; David Tepper; George Soros; Philippe Laffont; Ray Dalio">Bill Ackman; Chase Coleman; David Tepper; George Soros; Philippe Laffont; Ray Dalio</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:32.86%"></div>
+</div>
+</div>
+<div class="top-pct">25.98%</div>
+<div class="top-holders">6 holders<br>$4,990,020,649,000</div>
+</div>
+<div class="top-row">
+<div class="rank">#10</div>
+<div>
+<div class="top-name" title="CVR Energy Inc">CVR Energy Inc</div>
+<div class="top-meta" title="Carl Icahn">Carl Icahn</div>
+<div class="bar-track">
+<div class="bar-fill" style="width:30.01%"></div>
+</div>
+</div>
+<div class="top-pct">23.73%</div>
+<div class="top-holders">1 holders<br>$1,960,899,637,000</div>
+</div>
+</div>
+</section>
+</main></body>
+</html>
