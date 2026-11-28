@@ -2284,6 +2284,727 @@
           "detail": "Unexpected response shape"
         }
       ]
+    },
+    {
+      "slot": "11:59",
+      "captured_at": "2026-11-27T17:47:15-08:00",
+      "timezone": "America/Los_Angeles",
+      "market_phase": "closed",
+      "market_status": {
+        "is_open": "yes",
+        "label": "US market open",
+        "open": "9:30 AM ET",
+        "close": "1:00 PM ET",
+        "reason": "Regular session 9:30 AM ET-1:00 PM ET"
+      },
+      "active_stocks": {
+        "Most Active": [
+          {
+            "symbol": "SOXL",
+            "name": "Direxion Daily Semiconductor Bull 3x Shares",
+            "lastSalePrice": "$36.8786",
+            "lastSaleChange": "+4.8586",
+            "change": "289,680,116.223118",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "NIVF",
+            "name": "NewGenIvf Group Limited",
+            "lastSalePrice": "$0.0139",
+            "lastSaleChange": "-0.0038",
+            "change": "260,846,537.79127",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "SNXX",
+            "name": "Tradr 2X Long SNDK Daily ETF",
+            "lastSalePrice": "$1.91",
+            "lastSaleChange": "+0.45",
+            "change": "217,627,375.293299",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "NVDA",
+            "name": "NVIDIA Corporation",
+            "lastSalePrice": "$150.49",
+            "lastSaleChange": "+1.19",
+            "change": "185,413,553.729457",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "FCHL",
+            "name": "Fitness Champs Holdings Limited Common Stock",
+            "lastSalePrice": "$0.0095",
+            "lastSaleChange": "-0.0012",
+            "change": "163,228,011.195436",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "ANT",
+            "name": "Anthropic, PBC Class A Common Stock",
+            "lastSalePrice": "$91.88",
+            "lastSaleChange": "+9.09",
+            "change": "143,652,368.108559",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "BBD",
+            "name": "Banco Bradesco Sa",
+            "lastSalePrice": "$2.81",
+            "lastSaleChange": "+0.38",
+            "change": "114,287,301.109241",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "SNDK",
+            "name": "Sandisk Corporation Common Stock",
+            "lastSalePrice": "$85.36",
+            "lastSaleChange": "+11.75",
+            "change": "97,645,466.127941",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "SPDN",
+            "name": "Direxion Daily S&P 500 Bear 1X Shares",
+            "lastSalePrice": "$8.91",
+            "lastSaleChange": "-0.14",
+            "change": "95,335,332.955197",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "LOT",
+            "name": "Lotus Technology Inc.",
+            "lastSalePrice": "$0.2685",
+            "lastSaleChange": "+0.064",
+            "change": "91,016,279.252503",
+            "deltaIndicator": "up"
+          }
+        ],
+        "Gainers": [
+          {
+            "symbol": "BBCIW",
+            "name": "Bradbury Capital Inc. Warrants",
+            "lastSalePrice": "$0.0598",
+            "lastSaleChange": "+0.0398",
+            "change": "+199%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "DCX",
+            "name": "Digital Currency X Technology Inc. Class A Ordinary Shares",
+            "lastSalePrice": "$1.17",
+            "lastSaleChange": "+0.6873",
+            "change": "+142.3866%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "GGROW",
+            "name": "Gogoro Inc.",
+            "lastSalePrice": "$0.0035",
+            "lastSaleChange": "+0.002",
+            "change": "+133.3333%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "TRAD",
+            "name": "APEX Tech Acquisition Inc. Ordinary Shares",
+            "lastSalePrice": "$0.3148",
+            "lastSaleChange": "+0.1548",
+            "change": "+96.75%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "POM",
+            "name": "POMDOCTOR LIMITED Class A Ordinary Shares",
+            "lastSalePrice": "$3.12",
+            "lastSaleChange": "+1.51",
+            "change": "+93.7888%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "MNDR",
+            "name": "Mobile-health Network Solutions",
+            "lastSalePrice": "$0.9216",
+            "lastSaleChange": "+0.4168",
+            "change": "+82.5674%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "AEHL",
+            "name": "Antelope Enterprise Holdings Limited",
+            "lastSalePrice": "$12.9",
+            "lastSaleChange": "+5.76",
+            "change": "+80.6723%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "NRSNW",
+            "name": "NeuroSense Therapeutics Ltd.",
+            "lastSalePrice": "$0.0176",
+            "lastSaleChange": "+0.0076",
+            "change": "+76%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "BZFDW",
+            "name": "BuzzFeed, Inc.",
+            "lastSalePrice": "$0.009",
+            "lastSaleChange": "+0.0037",
+            "change": "+69.8113%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "SATLW",
+            "name": "Satellogic Inc.",
+            "lastSalePrice": "$0.0294",
+            "lastSaleChange": "+0.0119",
+            "change": "+68%",
+            "deltaIndicator": "up"
+          }
+        ],
+        "Decliners": [
+          {
+            "symbol": "CDROW",
+            "name": "Codere Online Luxembourg, S.A.",
+            "lastSalePrice": "$0.0022",
+            "lastSaleChange": "-0.0076",
+            "change": "-77.551%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "ZYN",
+            "name": "PTL LTD Class A Ordinary Shares",
+            "lastSalePrice": "$2.43",
+            "lastSaleChange": "-7.67",
+            "change": "-75.9406%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "IVDAW",
+            "name": "Iveda Solutions, Inc.",
+            "lastSalePrice": "$0.0042",
+            "lastSaleChange": "-0.0078",
+            "change": "-65%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "HUBCZ",
+            "name": "Hub Cyber Security Ltd.",
+            "lastSalePrice": "$0.0039",
+            "lastSaleChange": "-0.0061",
+            "change": "-61%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "RYDE",
+            "name": "Ryde Group Ltd.",
+            "lastSalePrice": "$0.293",
+            "lastSaleChange": "-0.3972",
+            "change": "-57.5485%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "CDTTW",
+            "name": "Conduit Pharmaceuticals Inc.",
+            "lastSalePrice": "$0.0036",
+            "lastSaleChange": "-0.0034",
+            "change": "-48.5714%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "OGGWZ",
+            "name": "Osisko Gold Group Inc. Warrant expiring 5/27/2027",
+            "lastSalePrice": "$0.006",
+            "lastSaleChange": "-0.005",
+            "change": "-45.4545%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "SLDPW",
+            "name": "Solid Power, Inc.",
+            "lastSalePrice": "$0.0056",
+            "lastSaleChange": "-0.0034",
+            "change": "-37.7778%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "BFRG",
+            "name": "Bullfrog AI Holdings, Inc.",
+            "lastSalePrice": "$0.219",
+            "lastSaleChange": "-0.1245",
+            "change": "-36.2445%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "DARE",
+            "name": "Dare Bioscience, Inc.",
+            "lastSalePrice": "$0.3154",
+            "lastSaleChange": "-0.1604",
+            "change": "-33.7116%",
+            "deltaIndicator": "down"
+          }
+        ],
+        "Nasdaq 100 Movers": [
+          {
+            "symbol": "ADBE",
+            "name": "Adobe Inc. Common Stock",
+            "lastSalePrice": "234.7900",
+            "lastSaleChange": "+1.9600",
+            "change": "+0.84%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "AMD",
+            "name": "Advanced Micro Devices, Inc. Common Stock",
+            "lastSalePrice": "424.5400",
+            "lastSaleChange": "+18.5100",
+            "change": "+4.56%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "ABNB",
+            "name": "Airbnb, Inc. Class A Common Stock",
+            "lastSalePrice": "179.1600",
+            "lastSaleChange": "+7.0100",
+            "change": "+4.07%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "ALNY",
+            "name": "Alnylam Pharmaceuticals, Inc. Common Stock",
+            "lastSalePrice": "162.7000",
+            "lastSaleChange": "-2.0300",
+            "change": "-1.23%",
+            "deltaIndicator": "down"
+          },
+          {
+            "symbol": "GOOGL",
+            "name": "Alphabet Inc. Class A Common Stock",
+            "lastSalePrice": "274.9600",
+            "lastSaleChange": "+1.8600",
+            "change": "+0.68%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "GOOG",
+            "name": "Alphabet Inc. Class C Capital Stock",
+            "lastSalePrice": "272.4400",
+            "lastSaleChange": "+1.4600",
+            "change": "+0.54%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "AMZN",
+            "name": "Amazon.com, Inc. Common Stock",
+            "lastSalePrice": "254.1200",
+            "lastSaleChange": "+9.6900",
+            "change": "+3.96%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "AEP",
+            "name": "American Electric Power Company, Inc. Common Stock",
+            "lastSalePrice": "127.6700",
+            "lastSaleChange": "+0.0800",
+            "change": "+0.06%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "AMGN",
+            "name": "Amgen Inc. Common Stock",
+            "lastSalePrice": "474.0800",
+            "lastSaleChange": "+4.8400",
+            "change": "+1.03%",
+            "deltaIndicator": "up"
+          },
+          {
+            "symbol": "XEL",
+            "name": "Xcel Energy Inc. Common Stock",
+            "lastSalePrice": "81.4700",
+            "lastSaleChange": "+0.3600",
+            "change": "+0.44%",
+            "deltaIndicator": "up"
+          }
+        ]
+      },
+      "active_stocks_as_of": "Data as of Nov 27, 2026 4:15 PM ET",
+      "active_stocks_source": "market_movers",
+      "news": [
+        {
+          "title": "The Federal Reserve sends a troubling signal to S&P 500 investors - TheStreet",
+          "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPb2FLbERjWkMxNnVsSDRLQ0g5YnYwamhNUjhiM1pqbkxxd2xuRUxpbHMyQ2piXzlmdzl4TFFxQXhJMDF0NkdPZ3I0anU5UFd1QlpsakFCSFU1Q0V2ZGxvRno0NXBRVWplX28xT2t1aVk0VVJ1YktIeW1DcDRfbVI2VTg2NkRpY21SWnFTUFhUMXhaM2pvTjJNakkwbUhZMV9VakdRYVJMXy1KYms?oc=5",
+          "description": "The Federal Reserve sends a troubling signal to S&P 500 investors TheStreet",
+          "published": "Fri, 27 Nov 2026 23:37:00 GMT",
+          "published_sort": "2026-11-27T23:37:00+00:00",
+          "source": "Google News Markets",
+          "priority_score": "6"
+        },
+        {
+          "title": "Agencies announce dollar thresholds for applicability of truth in lending and consumer leasing rules for consumer credit and lease transactions",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261125b.htm",
+          "description": "Agencies announce dollar thresholds for applicability of truth in lending and consumer leasing rules for consumer credit and lease transactions",
+          "published": "Wed, 25 Nov 2026 20:00:00 GMT",
+          "published_sort": "2026-11-25T20:00:00+00:00",
+          "source": "Federal Reserve",
+          "priority_score": "6"
+        },
+        {
+          "title": "Agencies announce dollar thresholds for smaller loan exemption from appraisal requirements for higher-priced mortgage loans",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20261125a.htm",
+          "description": "Agencies announce dollar thresholds for smaller loan exemption from appraisal requirements for higher-priced mortgage loans",
+          "published": "Wed, 25 Nov 2026 20:00:00 GMT",
+          "published_sort": "2026-11-25T20:00:00+00:00",
+          "source": "Federal Reserve",
+          "priority_score": "6"
+        },
+        {
+          "title": "SK hynix: The Market Is Pricing In An Earnings Crash That Isn't Coming (NASDAQ:SKHY) - Seeking Alpha",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQQ1pQMXo5X1Z0TEU1RS05U0RaaWloUTJXZ3JnTGc2eWQtNFhKc0dONFA4SmpSYXBELVVSTXp5VmxkUXhTd2JZdUo4YzVmbTE3TnZvaHVRXzFGemFjbDhtVW9JTkxrSVcwaEo5RmNYRWFIYTFqMGE1eFpGZDZWRm1ISFA0MVptWWJWWS1rU001YTFNUHJkY0taTHcxOFA2Z0lNanMzV1pzNU8wX2JVakE?oc=5",
+          "description": "SK hynix: The Market Is Pricing In An Earnings Crash That Isn't Coming (NASDAQ:SKHY) Seeking Alpha",
+          "published": "Fri, 27 Nov 2026 17:52:55 GMT",
+          "published_sort": "2026-11-27T17:52:55+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "This Travel Stock Outpaces S&P 500, Clears Entry Amid 19% Rally As Earnings Pop - Investor's Business Daily",
+          "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOTnh4NklzVUhCV0FsOW4yci0wcTZ3WklaMnF3THN3QkNWTkZueG82X3BSX3djSEhTMGVCRWJ5Uno5MXNNaGNsenN6Vm1PcHgtMEdyRklmbF9VYWpuT0xfbnJSUjZiMVVQY3Z2SkFCdzFxNzBHLUxqU2hTRTZIaVpGdEVYZk5ZSFp4LVM0Z2JGSnNDQms2M241RGpoblJobHFqZjFTMF92V3pHT0hlOTVFM3c1WU1Bd3Q1YUVfZA?oc=5",
+          "description": "This Travel Stock Outpaces S&P 500, Clears Entry Amid 19% Rally As Earnings Pop Investor's Business Daily",
+          "published": "Fri, 27 Nov 2026 17:38:00 GMT",
+          "published_sort": "2026-11-27T17:38:00+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "December Federal Reserve Rate Expectations Shape Global Markets - kalkine.ca",
+          "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNbUQzc20tTnFpTW1QZVgtWU04LUlyY014V0l2V2IxNnlDVHJHdkctT0pmSjktSF9ZZmc1MW45TWN0dDZKRGRaR2VmbmoyUElsMHUwbWhybk1qZjVOTi1tVmxaNDRIcV92azIxY1hVN19vaFVyMDd2c1AxQURZTDRrU0VSeFI1NTVycFB3TWlCVGlKdWVkYnhGRmVsVmFZbVJIOVE?oc=5",
+          "description": "December Federal Reserve Rate Expectations Shape Global Markets kalkine.ca",
+          "published": "Fri, 27 Nov 2026 14:34:00 GMT",
+          "published_sort": "2026-11-27T14:34:00+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "Marvell Faces Critical Earnings Test Amid AI Chip Market Turmoil - GuruFocus",
+          "link": "https://news.google.com/rss/articles/CBMiswJBVV95cUxOTXdpakNHWkhNaDY3Z3otUFEzSGVIdDlOM0ZYZDQ3bHJmeGJYU3BQTkFGX0drNEJVdmJfbWhlR2Y4Tm96bm9IcVlpMXUteFhFLWN1alpZdHhmaVlZTWIwd1lQVnZwRDR2Tm1JYTRhcU84YWp4Vy1DaXhaM0hSSTF6NDBNUFprY1E4Y1kxc0dKNnd3WDRzR3dXaGtTSXViVmRhRzhpQkNmOVM3bnBncXdlSTlqREJILTRvV0FMVUROY09tVDhCOGVPcmdGSEppZl9PWWgxUU9kYXh1SVU5NzJqYVdnejdGM0hZejJZRHZ4Ql81SXZXQUo4WWNXM2FVckJONllTQlpLSkFrRHR1U3FJTF82MkpGYjJhWFdZekpXUElNMnhTVGFza3hZdzZCUThTUzRz?oc=5",
+          "description": "Marvell Faces Critical Earnings Test Amid AI Chip Market Turmoil GuruFocus",
+          "published": "Fri, 27 Nov 2026 11:37:12 GMT",
+          "published_sort": "2026-11-27T11:37:12+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "Is the U.S. stock market crash the Federal Reserve\u2019s fault? Former Goldman Sachs strategist urges prompt dovish signals - \u5bcc\u9014\u725b\u725b",
+          "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQUpmUGREQTVQaXREVVg1SE9TaHZ2STg5dTNtNkJwNmxtT3Bac2plLURmanNVMTNoUWV3WWg1bDNRYk1zZnJxVWVzTmYzOWJHd1lub0xMRVNMSjFnTENkQlZTdEF5bFBIQlJmU0ZqZ2pDNEFhc2xuLW1SOUFVZU1uRmlncUFnZ2E0dVhkc0o2ZmN0bzcxRFZhUQ?oc=5",
+          "description": "Is the U.S. stock market crash the Federal Reserve\u2019s fault? Former Goldman Sachs strategist urges prompt dovish signals \u5bcc\u9014\u725b\u725b",
+          "published": "Fri, 27 Nov 2026 09:35:17 GMT",
+          "published_sort": "2026-11-27T09:35:17+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "Salesforce, Kroger and Dollar General Report in the Earnings Week of November 30 - Stock Titan",
+          "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPVUNpN0FUTXlrUnlDbFU3bnhfNFNhTXhzTnBzTTJWTEtxclpPTkRYX0M0d1BKdnFZNWw2LWh4QlRwazZ2dUhCMUVhV3I0VWlQU1lOYktPaTkwVlpMQUZZWHAxY05uOVp6UEczdFQwaXFyakNiRFc4b0Nha3VzNE1GeDZIck8?oc=5",
+          "description": "Salesforce, Kroger and Dollar General Report in the Earnings Week of November 30 Stock Titan",
+          "published": "Fri, 27 Nov 2026 09:34:35 GMT",
+          "published_sort": "2026-11-27T09:34:35+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "Fed Weighs AI Selloff Against Inflation Fight - Wisevoter",
+          "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUDY5cHVDR0FmUVFScXlRNzZBQ2xQcnNVb21Vc3BteUJNR3F2dE5sQVNKekRIbFl2eXNjLWdiaXN4dWE4dGQtSElFRHBIWnlTd2x0cTh0bzJzX1dFVGlYbmxPVlNZMk10Vmh6dFZmdVlwQm5hajFsNUNsRjIxOWRQdlh3S1BHN2xn?oc=5",
+          "description": "Fed Weighs AI Selloff Against Inflation Fight Wisevoter",
+          "published": "Fri, 27 Nov 2026 06:03:30 GMT",
+          "published_sort": "2026-11-27T06:03:30+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "Deutsche Bank: Tech Stock Sell-Off Nears Bottom \u2013 S&P 500 Projected to Surge 25% to 9000 in 2025, Fed May Hike Interest Rates 3 More Times - 36Kr",
+          "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE91VDFVQXpURWliTUIwYlYzbUtaQmttTVd3NTZYYkFnR09TTlF6R05SVU5veXlZa2l3Tld4Znl4TTR1enpOZEtTM0pSTjZOdGVTYTRn?oc=5",
+          "description": "Deutsche Bank: Tech Stock Sell-Off Nears Bottom \u2013 S&P 500 Projected to Surge 25% to 9000 in 2025, Fed May Hike Interest Rates 3 More Times 36Kr",
+          "published": "Fri, 27 Nov 2026 04:41:11 GMT",
+          "published_sort": "2026-11-27T04:41:11+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        },
+        {
+          "title": "The Federal Reserve May Be Forced to Abandon Rate Hikes in December! Former Goldman Sachs Strategist Issues Major Warning: Risk Assets Could Face a Comprehensive Collapse - Moomoo",
+          "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQZTBoNnRWdWs3aFhKTUt3MnkwR0tWZ1lPaE13V0FNMENVUFNJQjNpdGE1dzdjeURyalE0Nmp2Ml9IdmtIeDVlcHBrTmU5WnZIZjB0MG5STUJzVV9DUjFkSHhtemdPclVBSWRUVzR4SV80cHdWMUVMbFctMExkeXZEZFBnaGlJTDZVTnItZHEzT0xDZC1iUUQxbHBSYWx2LURs?oc=5",
+          "description": "The Federal Reserve May Be Forced to Abandon Rate Hikes in December! Former Goldman Sachs Strategist Issues Major Warning: Risk Assets Could Face a Comprehensive Collapse Moomoo",
+          "published": "Fri, 27 Nov 2026 03:54:09 GMT",
+          "published_sort": "2026-11-27T03:54:09+00:00",
+          "source": "Google News Markets",
+          "priority_score": "4"
+        }
+      ],
+      "economic_events": {
+        "today": [
+          {
+            "time": "All Day",
+            "event": "United States - Thanksgiving Day",
+            "actual": "",
+            "forecast": "",
+            "previous": "",
+            "country": "United States",
+            "source": "Nasdaq"
+          }
+        ],
+        "tomorrow": [
+          {
+            "time": "08:30",
+            "event": "Goods Trade Balance",
+            "actual": "-149.50B",
+            "forecast": "-135.90B",
+            "previous": "-135.08B",
+            "country": "United States",
+            "source": "Nasdaq"
+          },
+          {
+            "time": "08:30",
+            "event": "Retail Inventories Ex Auto",
+            "actual": "0.6%",
+            "forecast": "",
+            "previous": "0.7%",
+            "country": "United States",
+            "source": "Nasdaq"
+          },
+          {
+            "time": "08:30",
+            "event": "Wholesale Inventories",
+            "actual": "0.9%",
+            "forecast": "0.5%",
+            "previous": "0.8%",
+            "country": "United States",
+            "source": "Nasdaq"
+          },
+          {
+            "time": "09:40",
+            "event": "Dallas Fed PCE",
+            "actual": "2.80%",
+            "forecast": "",
+            "previous": "2.80%",
+            "country": "United States",
+            "source": "Nasdaq"
+          },
+          {
+            "time": "16:30",
+            "event": "Fed's Balance Sheet",
+            "actual": "6,732B",
+            "forecast": "",
+            "previous": "6,741B",
+            "country": "United States",
+            "source": "Nasdaq"
+          },
+          {
+            "time": "16:30",
+            "event": "Reserve Balances with Federal Reserve Banks",
+            "actual": "2.928T",
+            "forecast": "",
+            "previous": "3.001T",
+            "country": "United States",
+            "source": "Nasdaq"
+          },
+          {
+            "time": "All Day",
+            "event": "United States - Thanksgiving Day - Early close at 13:00",
+            "actual": "",
+            "forecast": "",
+            "previous": "",
+            "country": "United States",
+            "source": "Nasdaq"
+          }
+        ]
+      },
+      "earnings": {
+        "today": [
+          {
+            "lastYearRptDt": "11/07/2025",
+            "lastYearEPS": "$0.59",
+            "time": "time-not-supplied",
+            "symbol": "KT",
+            "name": "KT Corporation",
+            "marketCap": "$8,293,670,400",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "N/A"
+          },
+          {
+            "lastYearRptDt": "11/28/2025",
+            "lastYearEPS": "($0.01)",
+            "time": "time-not-supplied",
+            "symbol": "NAT",
+            "name": "Nordic American Tankers Limited",
+            "marketCap": "$1,372,144,260",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "$0.10",
+            "noOfEsts": "1"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "($0.24)",
+            "time": "time-not-supplied",
+            "symbol": "SIDU",
+            "name": "Sidus Space, Inc.",
+            "marketCap": "$83,207,216",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "1"
+          },
+          {
+            "lastYearRptDt": "11/14/2025",
+            "lastYearEPS": "($0.07)",
+            "time": "time-not-supplied",
+            "symbol": "AREC",
+            "name": "American Resources Corporation",
+            "marketCap": "$79,447,824",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "($0.08)",
+            "noOfEsts": "2"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "$0.02",
+            "time": "time-not-supplied",
+            "symbol": "PVL",
+            "name": "Permianville Royalty Trust",
+            "marketCap": "$61,050,000",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "1"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "($0.08)",
+            "time": "time-not-supplied",
+            "symbol": "NORD",
+            "name": "Nordicus Partners Corporation",
+            "marketCap": "$50,907,876",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "N/A"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "$0.02",
+            "time": "time-not-supplied",
+            "symbol": "AAME",
+            "name": "Atlantic American Corporation",
+            "marketCap": "$26,108,528",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "1"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "($0.88)",
+            "time": "time-not-supplied",
+            "symbol": "CELU",
+            "name": "Celularity Inc.",
+            "marketCap": "$22,712,230",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "1"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "($0.15)",
+            "time": "time-not-supplied",
+            "symbol": "LEDS",
+            "name": "SemiLEDS Corporation",
+            "marketCap": "$15,884,934",
+            "fiscalQuarterEnding": "Aug/2026",
+            "epsForecast": "",
+            "noOfEsts": "N/A"
+          },
+          {
+            "lastYearRptDt": "N/A",
+            "lastYearEPS": "($22.17)",
+            "time": "time-not-supplied",
+            "symbol": "SCLX",
+            "name": "Scilex Holding Company",
+            "marketCap": "$5,477,136",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "",
+            "noOfEsts": "N/A"
+          },
+          {
+            "lastYearRptDt": "11/14/2025",
+            "lastYearEPS": "($21.59)",
+            "time": "time-not-supplied",
+            "symbol": "ENLV",
+            "name": "Enlivex Ltd.",
+            "marketCap": "$2,065,294",
+            "fiscalQuarterEnding": "Sep/2026",
+            "epsForecast": "($4.48)",
+            "noOfEsts": "1"
+          }
+        ],
+        "tomorrow": []
+      },
+      "notes": [
+        {
+          "source": "NYSE calendar 2026-11-27",
+          "status": "open",
+          "detail": ""
+        },
+        {
+          "source": "Network readiness",
+          "status": "ok",
+          "detail": "connected to scanner.tradingview.com:443"
+        },
+        {
+          "source": "Nasdaq market movers",
+          "status": "ok",
+          "detail": "Data as of Nov 27, 2026 4:15 PM ET"
+        },
+        {
+          "source": "MarketWatch Top Stories",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Google News Markets",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Federal Reserve",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Nasdaq economic calendar 2026-11-27",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Census economic indicators",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Nasdaq economic calendar 2026-11-28",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Census economic indicators",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Nasdaq earnings 2026-11-27",
+          "status": "ok",
+          "detail": ""
+        },
+        {
+          "source": "Nasdaq earnings 2026-11-28",
+          "status": "unavailable",
+          "detail": "Unexpected response shape"
+        }
+      ]
     }
   ]
 }
